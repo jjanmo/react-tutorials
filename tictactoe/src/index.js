@@ -54,6 +54,10 @@ class Board extends React.Component {
     handleClick(i) {
         //참조끊고 새로운 배열 생성 : 
         const squares = this.state.squares.slice();
+        //승자체크
+        if (checkWinner(squares) || squares[i]) {
+            return;
+        }
         //데이터 업데이트
         squares[i] = this.state.xIsNext ? 'X' : 'O';
         //상태변경
@@ -73,7 +77,14 @@ class Board extends React.Component {
     }
 
     render() {
-        const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+        const winner = checkWinner(this.state.squares);
+        let status;
+        if (winner) {
+            status = `WINNER : ${winner}`;
+        }
+        else {
+            status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+        }
 
         return (
             <div>
@@ -119,3 +130,27 @@ ReactDOM.render(
     <Game />,
     document.getElementById('root')
 );
+
+function checkWinner(squares) {
+    const winCandidateLines = [
+        //가로
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        //세로
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        //대각선
+        [0, 4, 8],
+        [2, 4, 6]
+    ];
+    let allClicked = false;
+    for (let i = 0; i < winCandidateLines.length; i++) {
+        const [a, b, c] = winCandidateLines[i];
+        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+            return squares[a]; //O or X 
+        }
+    }
+    return null;
+}
