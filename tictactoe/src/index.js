@@ -45,16 +45,22 @@ function Square(props) {
 class Board extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { squares: Array(9).fill(null) };
+        this.state = {
+            squares: Array(9).fill(null),
+            xIsNext: true
+        };
     }
 
     handleClick(i) {
         //참조끊고 새로운 배열 생성 : 
         const squares = this.state.squares.slice();
         //데이터 업데이트
-        squares[i] = 'X';
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
         //상태변경
-        this.setState({ squares });
+        this.setState({
+            squares,
+            xIsNext: !this.state.xIsNext
+        });
     }
 
     renderSquare(i) {
@@ -67,7 +73,7 @@ class Board extends React.Component {
     }
 
     render() {
-        const status = 'Next player: X';
+        const status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
 
         return (
             <div>
