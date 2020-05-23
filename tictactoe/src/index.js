@@ -43,52 +43,21 @@ function Square(props) {
 
 
 class Board extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null),
-            xIsNext: true
-        };
-    }
-
-    handleClick(i) {
-        //참조끊고 새로운 배열 생성 : 
-        const squares = this.state.squares.slice();
-        //승자체크
-        if (checkWinner(squares) || squares[i]) {
-            return;
-        }
-        //데이터 업데이트
-        squares[i] = this.state.xIsNext ? 'X' : 'O';
-        //상태변경
-        this.setState({
-            squares,
-            xIsNext: !this.state.xIsNext
-        });
-    }
+    //state를 Game 컨퍼넌트로 끌어올려서 사용할 것이기에 
+    //Board 컨퍼넌트에서는 생성자가 필요없게 되었다.
 
     renderSquare(i) {
         return <Square
-            value={this.state.squares[i]}
-            onClick={() => this.handleClick(i)}
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
         //Board => Square로 함수를 props 전달  
         //onClick props는 Square를 클릭하면 호출되는 함수
         />;
     }
 
     render() {
-        const gameResult = checkWinner(this.state.squares);
-        let status;
-        if (gameResult) {
-            status = gameResult === 'DRAW' ? gameResult : `WINNER : ${gameResult}`;
-        }
-        else {
-            status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-        }
-
         return (
             <div>
-                <div className="status">{status}</div>
                 <div className="board-row">
                     {this.renderSquare(0)}
                     {this.renderSquare(1)}
@@ -110,15 +79,80 @@ class Board extends React.Component {
 }
 
 class Game extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            history: [
+                { squares: Array(9).fill(null) },
+            ], //배열 안에 객체(각 턴의 배열 상태 => 이 객체의 값이 배열)를 담은 것
+            stepNumber: 0,
+            xIsNext: true
+        }
+    }
+
+    handleClick(i) {
+        const history = this.state.history.slice(0, this.state.stepNumber + 1); //처음부터 현재스텝까지만의 기록을 갖기위해서
+        const current = history[history.length - 1]; // 현재상태의 보드 상태
+        //참조끊고 새로운 배열 생성 
+        const squares = current.squares.slice();
+        //console.log(squares); //squares.length => 항상 9
+        //승자체크
+        if (checkWinner(squares) || squares[i]) { //승자가 결정되거나 클릭된 곳을 누르면 클릭이벤트 무시
+            return;
+        }
+        //데이터 업데이트
+        squares[i] = this.state.xIsNext ? 'X' : 'O';
+        //상태변경
+        this.setState({
+            history: history.concat([
+                { squares }
+            ]),
+            stepNumber: history.length,
+            xIsNext: !this.state.xIsNext,
+        });
+    }
+
+    jumpTo(step) {
+        this.setState({
+            stepNumber: step,
+            xIsNext: (step % 2) === 0
+        });
+    }
+
     render() {
+        const history = this.state.history;
+        const current = history[this.state.stepNumber];
+        const gameResult = checkWinner(current.squares);
+        let status;
+        if (gameResult) {
+            status = gameResult === 'DRAW' ? gameResult : `WINNER : ${gameResult}`;
+        }
+        else {
+            status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+        }
+
+        const moves = history.map((step, move) => {
+            const desc = move ?
+                'Go to move #' + move :
+                'Go to game start';
+            return (
+                <li key={move}>
+                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                </li>
+            );
+        });
+
         return (
             <div className="game">
                 <div className="game-board">
-                    <Board />
+                    <Board
+                        squares={current.squares}
+                        onClick={(i) => this.handleClick(i)}
+                    />
                 </div>
                 <div className="game-info">
-                    <div>{/* status */}</div>
-                    <ol>{/* TODO */}</ol>
+                    <div>{status}</div>
+                    <ol>{moves}</ol>
                 </div>
             </div>
         );
