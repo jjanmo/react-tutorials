@@ -77,10 +77,10 @@ class Board extends React.Component {
     }
 
     render() {
-        const winner = checkWinner(this.state.squares);
+        const gameResult = checkWinner(this.state.squares);
         let status;
-        if (winner) {
-            status = `WINNER : ${winner}`;
+        if (gameResult) {
+            status = gameResult === 'DRAW' ? gameResult : `WINNER : ${gameResult}`;
         }
         else {
             status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
@@ -145,12 +145,14 @@ function checkWinner(squares) {
         [0, 4, 8],
         [2, 4, 6]
     ];
-    let allClicked = false;
     for (let i = 0; i < winCandidateLines.length; i++) {
         const [a, b, c] = winCandidateLines[i];
         if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
             return squares[a]; //O or X 
         }
+    }
+    if (squares.every(ele => ele)) { //draw
+        return 'DRAW';
     }
     return null;
 }
