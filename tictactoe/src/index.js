@@ -46,6 +46,16 @@ class Board extends React.Component {
     //state를 Game 컨퍼넌트로 끌어올려서 사용할 것이기에 
     //Board 컨퍼넌트에서는 생성자가 필요없게 되었다.
 
+    // makeBoard() {
+    //     let result = '';
+    //     for (let i = 0; i < 3; i++) {
+    //         result += <div className="board-row"></div>
+    //         for (let j = 0; j < 3; j++) {
+    //             result += this.renderSquare(3 * i + j)
+    //         }
+    //     }
+    // }
+
     renderSquare(i) {
         return <Square
             value={this.props.squares[i]}
@@ -136,7 +146,7 @@ class Game extends React.Component {
                 'Go to move #' + move :
                 'Go to game start';
             return (
-                <li key={move}>
+                <li key={move} >
                     <button onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );

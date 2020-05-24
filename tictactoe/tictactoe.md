@@ -74,7 +74,7 @@
 -   Board : Square 컴퍼넌트를 이용해서 틱택토 보드판을 생성
 -   Game : Board 컴퍼넌트가 다시 이 안에서 작동하여 Game 컴퍼넌트 구성한다. ReactDOM.render() 에서는 Game만을 엘리먼트로 호출하면 결국 3가지의 컴퍼넌트를 모두 활용하게 된다.
 
--   구조
+![initial_code](image/initial_code.png)
 
 2. 화살표함수의 this
 

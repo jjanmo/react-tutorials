@@ -69,7 +69,10 @@
 -   리액트 엘리먼트는 불변객체이다(immutable object)
 
 -   ReactDOM.render()를 통한 변경된 부분 업데이트
-    > 보통 `ReactDOM.render()`를 한 번만 호출하지만 시계예시에서는 1000ms마다 계속 호출하였다. 이 부분은 `유상태 컴퍼넌트`와 연결된다.
+    > 보통 `ReactDOM.render()`를 한 번만 호출하지만 시계예시에서는 1000ms마다 계속 호출하였다. 이 부분은 `유상태 컴퍼넌트(stateful components)`와 연결된다.
+    >
+    > > `Stateful components` === state가 있는 컴퍼넌트<br>
+    > > vs<br> `Stateless components` === state가 없는 컴퍼넌트
 
 ## Components and Props
 
@@ -168,3 +171,104 @@
     -   하지만 어플리케이션 UI는 동적이기때문에 시간에 따라서 변할 수 있다. 여기서 `state`라는 개념이 들어간다. 리액트는 `state`통해 위 규칙을 위반하지않으면서 사용자의 액션, 네트워크 응답 및 다른 요소에 대한 응답으로 시간에 따라서 출력값을 변경시킬 수 있다.
 
 ## State and Life Cycle
+
+> 예시 : 시계만들기
+
+```javascript
+function Clock(props) {
+    return (
+        <h1>
+            {props.date.getHours()} :
+            {props.date.getMinutes()} :
+            {props.date.getSeconds()}
+        </h1>
+    );
+}
+
+function tick() {
+    ReactDOM.render(
+        <Clock date={new Date()}>,
+        document.getElementById('root')
+    );
+}
+
+setInterval(tick,1000);
+```
+
+> 위 코드에서 시간이 지남에 따라서 UI가 업데이트가 되는 것은 Clock 밖에서 1초마다 지속적으로 setInterval()에 의해서 함수를 호출하기때문이다. Clock내부에서 UI가 업데이트 되도록 만들어야 한다.
+
+> Clock 내부에서 UI가 매초 업데이트 되도록 만들기 위해선 `state`라는 개념을 사용해야한다.
+
+> > `state`는 props와 마찬가지로 JS object이다. 하지만 정적인 데이터를 컴퍼넌트에 전달하고자 할 때는 `props`를 사용한다. 반면 동적인 데이터를 컴퍼넌트에 전달할 때는 `state`를 사용한다. 위에서 `시간`이라는 데이터는 매초 동적으로 업데이트 되기 때문에 내부에서 이를 구현하기 위해선 `state`의 개념이 필요하다.
+
+```javascript
+class Clock() extends React.Component{
+    constructor(props){
+        super(props);
+        this.state = {
+            date : new Date();
+        }
+    }
+    render(){
+        return(
+            <h1>
+                {this.state.date.getHours()} :
+                {this.state.date.getMinutes()} :
+                {this.state.date.getSeconds()}
+            </h1>
+        );
+    }
+}
+
+ReactDOM.render(
+    <Clock />,
+    document.getElementById('root')
+);
+```
+
+>
+
+```javascript
+class Clock extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            date: new Date(),
+        };
+    }
+
+    //마운팅(mounting)
+    componentDidMount() {
+        this.timer = setInterval(() => {
+            this.tick();
+        }, 1000);
+    }
+    //
+    componentWillUnmount() {
+        clearInterval(this.timer);
+    }
+    //언마운팅(unmounting)
+    tick() {
+        this.setState({
+            date: new Date(),
+        });
+    }
+
+    render() {
+        return (
+            <h1>
+                {this.state.date.getHours()} :{this.state.date.getMinutes()} :
+                {this.state.date.getSeconds()}
+            </h1>
+        );
+    }
+}
+
+ReactDOM.render(<Clock />, document.getElementById('root'));
+```
+
+> 생명주기 메서드를 클래스에 추가
+
+> Clock이 처음 DOM에 랜더링 될 때마다 타이머를 설정하려고 하는데, 이것을 리액트에서는 `마운팅(mounting)`이라고 한다. 반대로 DOM에서 삭제될 때는 타이머를 해제한다. 이것은 `언마운팅(unmounting)`
+
+> 이러한 상황에 따라서 특별한 메서드를 선언해서 코드를 작동할 수 있는데, 여기서 이러한 메서드를 `생명주기 메서드`라고 한다.
