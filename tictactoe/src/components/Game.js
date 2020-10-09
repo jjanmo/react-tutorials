@@ -1,15 +1,28 @@
 import React from 'react';
 import Board from './Board';
+import TimeLine from './TimeLine';
 
 class Game extends React.Component {
 	constructor() {
 		super();
+		this.board = [];
+		this.currentButton = null;
 		this.state = {
 			history: [{ squares: Array(9).fill(null) }],
 			stepNumber: 0,
 			xIsNext: true,
-			currentButton: null,
 		};
+
+		this.createBoard();
+	}
+
+	createBoard() {
+		for (let i = 0; i < 3; i++) {
+			this.board.push([]);
+			for (let j = 0; j < 3; j++) {
+				this.board[i].push([]);
+			}
+		}
 	}
 
 	checkWinner(squares) {
@@ -32,13 +45,14 @@ class Game extends React.Component {
 			}
 		}
 		if (squares.every((ele) => ele)) {
-			//draw
 			return 'DRAW';
 		}
+
 		return null;
 	}
 
 	handleClick(i) {
+		console.log(this);
 		const history = this.state.history.slice(0, this.state.stepNumber + 1); //처음부터 현재스텝까지만의 기록을 갖기위해서
 		const current = history[history.length - 1]; // 현재상태의 보드 상태
 		//참조끊고 새로운 배열 생성
@@ -67,42 +81,44 @@ class Game extends React.Component {
 	}
 
 	render() {
-		const history = this.state.history;
-		const current = history[this.state.stepNumber];
-		const gameResult = this.checkWinner(current.squares);
-		let status;
-		if (gameResult) {
-			status = gameResult === 'DRAW' ? gameResult : `WINNER : ${gameResult}`;
-		} else {
-			status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
-		}
+		// const history = this.state.history;
+		// const current = history[this.state.stepNumber];
+		// const gameResult = this.checkWinner(current.squares);
+		// let status;
+		// if (gameResult) {
+		// 	status = gameResult === 'DRAW' ? gameResult : `WINNER : ${gameResult}`;
+		// } else {
+		// 	status = `Next player: ${this.state.xIsNext ? 'X' : 'O'}`;
+		// }
 
-		const moves = history.map((step, move) => {
-			const desc = move ? 'Go to move #' + move : 'Go to game start';
-			return (
-				<li key={move}>
-					<button
-						onClick={(e) => {
-							if (this.currentButton) this.currentButton.classList.remove('bold');
-							e.target.classList.add('bold');
-							this.currentButton = e.target;
+		// const moves = history.map((step, move) => {
+		// 	const desc = move ? 'Go to move #' + move : 'Go to game start';
+		// 	return (
+		// 		<li key={move}>
+		// 			<button
+		// 				onClick={(e) => {
+		// 					const { target } = e;
+		// 					if (this.currentButton) this.currentButton.classList.remove('bold');
+		// 					target.classList.add('bold');
+		// 					this.currentButton = target;
 
-							this.jumpTo(move);
-						}}>
-						{desc}
-					</button>
-				</li>
-			);
-		});
+		// 					this.jumpTo(move);
+		// 				}}>
+		// 				{desc}
+		// 			</button>
+		// 		</li>
+		// 	);
+		// });
 
 		return (
 			<div className="game">
 				<div className="game-board">
-					<Board squares={current.squares} onClick={(i) => this.handleClick(i)} />
+					<Board board={this.board} squares={current.squares} onClick={(i) => this.handleClick(i)} />
 				</div>
 				<div className="game-info">
-					<div>{status}</div>
-					<ol>{moves}</ol>
+					{/* <div>{status}</div>
+					<ol>{moves}</ol> */}
+					<TimeLine />
 				</div>
 			</div>
 		);

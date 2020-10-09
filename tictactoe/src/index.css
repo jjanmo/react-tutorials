@@ -53,3 +53,7 @@ ul {
 .bold {
 	font-weight: 700;
 }
+
+.focus {
+	background-color: #f1c40f;
+}
