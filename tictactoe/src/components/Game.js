@@ -5,7 +5,7 @@ class Game extends React.Component {
 	constructor() {
 		super();
 		this.state = {
-			history: [{ squares: Array(9).fill(null) }], //배열 안에 객체(각 턴의 배열 상태 => 이 객체의 값이 배열)를 담은 것
+			history: [{ squares: Array(9).fill(null) }],
 			stepNumber: 0,
 			xIsNext: true,
 			currentButton: null,
@@ -14,15 +14,14 @@ class Game extends React.Component {
 
 	checkWinner(squares) {
 		const winCandidateLines = [
-			//가로
 			[0, 1, 2],
 			[3, 4, 5],
 			[6, 7, 8],
-			//세로
+
 			[0, 3, 6],
 			[1, 4, 7],
 			[2, 5, 8],
-			//대각선
+
 			[0, 4, 8],
 			[2, 4, 6],
 		];

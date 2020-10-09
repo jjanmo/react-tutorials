@@ -24,8 +24,6 @@ class Board extends React.Component {
 				location={location}
 				value={this.props.squares[i]}
 				onClick={() => this.props.onClick(i)}
-				//Board => Square로 함수를 props 전달
-				//onClick props는 Square를 클릭하면 호출되는 함수
 			/>
 		);
 	}
