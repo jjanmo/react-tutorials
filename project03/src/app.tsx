@@ -1,10 +1,11 @@
 import React from 'react';
-import Hello from './hello';
+import Circle from './circle';
 
 const App = () => {
   return (
     <div>
-      <Hello />
+      <Circle bgColor="tomato" />
+      <Circle bgColor="yellowgreen" />
     </div>
   );
 };
