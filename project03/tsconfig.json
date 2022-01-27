@@ -1,10 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
-    // default 값인  commonjs를 사용하면 webpack이 코드 tree-shake를 할 수 없다고 함.
-    // → https://webpack.kr/guides/typescript/#loader
-
+    "module": "commonjs",
     "lib": ["dom", "es6"],
     "allowJs": true,
     "checkJs": true,
@@ -19,6 +16,6 @@
     "jsx": "react",
     "removeComments": true
   },
-  "include": ["./src"],
+  "include": ["./src/*"],
   "exclude": ["node_modules"]
 }
