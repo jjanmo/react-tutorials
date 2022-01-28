@@ -1,274 +1,51 @@
-# React tutorials
+# React Tutorials
 
-> 본 학습은 [리액트 공식사이트](https://reactjs.org/)를 통해서 2가지를 할 예정입니다.
+> 해당 저장소는 리액트 생태계에서 허우적되는 모습을 기록해나가는 공간이다. 단순한 내용정리부터 작은 미니프로젝트까지 리액트를 알아가는 알콩달콩한 기록을 나갈 것이다.
 
-> 첫번째는 [단계별 가이드](https://ko.reactjs.org/docs/hello-world.html)를 통한 `내용을 정리`이고 두번째는 공식사이트에서 [자습서](<(https://ko.reactjs.org/tutorial/tutorial.html#setup-for-the-tutorial)>)로 제공하는 `틱택토`를 만들어보는 것이다.
+## Project01 - 레알 초보 튜터리얼
 
-> [Go to TicTacToe](tictactoe/tictactoe.md) 🚀
+바야흐로 2020년 봄 어느날, 한 개발자 지망생이 `리액트 공식 홈페이지`를 보면서 코딩을 하고 있었다. 그렇게 1년 반이 지난 지금, 그 지망생은 프런트엔드 개발자로서 성장해나가고 있다. 그게 바로 나다.😅 `project01`은 그 당시 리액트 공홈을 보면서 리액트를 처음 공부했던 내용을 기록한 공간이다. 딱히 수정하지 않고 그 때의 기록으로서 남겨둘 생각이다. 참고로 지금 정리했던 부분을 다시 읽어보니 공홈의 주요 개념 파트 부분을 전부 다 정리한 것은 아니였다는...😱
 
-## JSX(JavaScript XML)
+> 지금와서 새삼 느끼는 것은 공홈의 내용들이 진짜 너무나 중요한 내용들이었다는 사실을 다시금 깨닫고 있다. `주요 개념 파트`뿐만 아니라 `고급 안내서 파트`는 알고 있다고 하더라도 **반드시 정독**을 해봐야할 부분이라고 생각하고 있다.
 
--   `const ele = <h1>Hello<h1>;` 처럼 자바스크립트을 확장한 문법
--   JSX가 필수는 아니지만 UI관련 작업을 할때 더 직관적이기에 도움이 될 수 있다.
+## Project02
 
-    ```javascript
-    const name = 'jjanmo';
-    const ele = <h1>Hello, {name}</h1>; //JSX : { } 안에 모든 표현식(값을 도출할 수 있는 것들)이 들어갈수있다
+> 리액트 공식 홈페이지의 주요 개념(정리 못한 부분)과 고급 안내서를 읽으면서 간과하기 쉬운 `개념/정의`들과 `왜 이렇게 될까` 에 집중해서 정리해보고자 한다.
 
-    ReactDOM.render(element, document.getElementById('root')); //자동세미콜론 삽입을 피하고자 괄호로 묶는 것을 권장
-    ```
+## Project03
 
--   JSX도 표현식이다. 변수에 할당하고 인자로 받아들이고 함수로부터 반환될수도 있다.
--   JSX 속성 정의
-    -   `const ele = <div tabIndex="0"></div>;` 속성따옴표사용가능
-    -   `const ele = <img src={user.avatarURL}></img>;` {}안 자바스크립트 표현식을 사용가능
-    -   속성을 정의할 때는 두가지 중에 한가지만 사용해야 한다.
-    -   JSX는 HTML보다는 자바스크립트에 가깝기 때문에 속성을 명명할 때 camelCase 프로퍼티 명명법을 사용한다.
--   JSX의 자식 정의
-    ```javascript
-    const ele = (
-        <div>
-            <h2>Dark Knight</h2>
-            <div>Action</div>
-        </div>
-    );
-    ```
--   JSX는 객체로 표현한다
-    ```javascript
-    const ele = <div className='title'>Zootopia</div>;
-    ```
-    > Babel은 `React.creatElement()` 호출로 컴파일한다
-    ```
-    //아래와 같은 객체를 생성
-    const ele = {
-        type : 'div',
-        props :{
-            className : 'title',
-            children : Zootopia
-        }
-    };
-    ```
+> Crypto Tracker with NomadCoders
 
-## Element Rendering
+> TechStack : Typescript + React + Webpack(No CRA) + Recoil + React Query
 
--   리액트 엘리먼트는 리액트앱의 가장 작은 단위로서 화면에 표시할 내용을 나타낸다
+## Project04
 
-👁‍🗨 **알아보기**
+> Trello Clone with NomadCoders
 
-> `DOM Element` vs `React Element` vs `React Component`
+> Drag&Drop
 
--   리액트 엘리먼트는 일반객체(plain object)
--   React DOM은 리액트 엘리먼트와 일치하도록 DOM을 업데이트한다
+## Project05
 
--   모든 리액트 엘리먼트는 React DOM에서 관리하는데 이것이 루트(root)DOM 노드이다. 리액트앱은 일반적으로 1개의 루트 DOM노드가 존재한다.(단, 기존앱을 통합하는경우에 원하는 수만큼의 많은 수의 루트 DOM노드가 존재할 수 있다)
+> React Animation Tutorials with NomadCoders
 
--   리액트 엘리먼트를 루트DOM노드에 랜더링하려면 ReactDOM.render()라는 메소드에 리액트 엘리먼트를 전달한다.
+## Project06
 
-    > `ReactDOM.render(element, container [,callback]);
+> Twitter Clone with NomadCoders
 
--   리액트 엘리먼트는 불변객체이다(immutable object)
+## Project07
 
--   ReactDOM.render()를 통한 변경된 부분 업데이트
-    > 보통 `ReactDOM.render()`를 한 번만 호출하지만 시계예시에서는 1000ms마다 계속 호출하였다. 이 부분은 `유상태 컴퍼넌트(stateful components)`와 연결된다.
-    >
-    > > `Stateful components` === state가 있는 컴퍼넌트<br>
-    > > vs<br> `Stateless components` === state가 없는 컴퍼넌트
+> https://www.freecodecamp.org/news/how-to-build-a-todo-application-using-reactjs-and-firebase/
 
-## Components and Props
+> TodoApp with Firebase
 
--   컴퍼넌트는 `자바스크립트의 함수`와 유사하다. UI를 재사용 가능한 개별적인 여러 조각으로 나누고 각 조각별로 컴퍼넌트를 만들어서 함수처럼 반복적으로 활용할 수 있다
--   **컴퍼넌트**는 `props`라는 *임의의 입력*을 받은 후 *화면에 어떻게 표시되는지를 기술*하는 `리액트 엘리먼트`를 반환한다.
+## Project08
 
-    > props : `객체 인자`로서 `속성`을 나타내는 데이터
+> react-typescript without CRA - make QuizApp
 
--   함수 컴퍼넌트와 클래스 컴퍼넌트
+> https://www.youtube.com/watch?v=F2JCjVSZlG0&t=108s
 
-    > 컴퍼넌트의 정의 방법
+## Project09
 
-    ```javascript
-    //함수컴퍼넌트
-    function greeting(props) {
-        //props : 임의의 입력
-        return <h1>Hello My name is {props.name} 😎</h1>; //리액트 엘리먼트 : 화면에 표시
-    }
-    ```
+> react with Material-UI
 
-    ```javascript
-    //클래스 컴퍼넌트
-    class Greeting extends React.Component {
-        render() {
-            return <h1>Hello My name is {this.props.name} 😎</h1>;
-        }
-    }
-    ```
-
--   컴퍼넌트 랜더링
-
-    -   리액트 엘리먼트를 (위 예시들)`DOM태그`를 나타낼 수 도 있지만 `사용자 정의 컴퍼넌트`로도 나타낼 수 있다.
-
-        ```
-        //DOM태그로 작성한 엘리먼트
-        const ele = <div> Hello jjanmo <div>;
-
-        //사용자 정의 컴퍼넌트로 작성한 앨리먼트
-        const ele = <Greeting name="jjanmo" />;
-        ```
-
-    -   사용자 정의 컴퍼넌트 엘리먼트의 작동방식
-
-        ```javascript
-        function Movie(props){
-            return <div>
-                        <div>{props.title}</div>
-                        <div>{props.genre}</div>
-                </div>;
-        }
-
-        const ele = <Movie title="The Greatest Showman" genre="Drama">;
-
-        ReactDOM.render(
-            ele,
-            document.getElementById('root');
-        );
-        ```
-
-    1. 사용자 정의 컴퍼넌트 엘리먼트를 인수로 ReactDOM.render()이 호출된다
-    2. 사용자 정의 컴퍼넌트 엘리먼트의 어트리뷰트들을 담은 `props 객체 인자`로하여 `Movie 컴퍼넌트`를 호출한다.
-    3. `Movie 컴퍼넌트`는 `div로 된 엘리먼트`를 반환한다.
-    4. React DOM은 컴퍼넌트에서 반환된 엘리먼트와 일치하도록 DOM을 업데이트한다.
-
-    > 사용자 정의 컴퍼넌트 엘리먼트에서 `컴퍼넌트 이름`은 항상 **대문자**로 작성해야 리액트가 그것이 컴퍼넌트인지 인식할 수 있다. 소문자이면 그것을 태그로 인식한다.
-
--   컴퍼넌트 합성
-
-    ```javascript
-    //위의 Movie 컴퍼넌트를 사용한다고 가정
-
-    function App(){
-        return (
-            <Movie title="The Greatest Showman" genre="Drama">
-            <Movie title="Zootopia" genre="Animation">
-            <Movie title="Dark Knight" genre="Action">
-            <Movie title="Interstellar" genre="SF">
-        );
-    }
-
-    //이하 생략
-    ```
-
-    > 위의 코드처럼 `Movie`를 여러번 랜더링할 수 있다
-
--   컴퍼넌트 추출 : 큰 컴퍼넌트를 `여러 개의 작은 컴퍼넌트`로 분리하여 컴퍼넌트 안에 사용자 정의 컴퍼넌트 엘리먼트를 넣어서 계층구조를 형성할수도 있다.
-
-    > UI일부가 여러번 사용되거나 UI일부가 자체적으로 복잡한 경우에는 재사용 가능한 컴퍼넌트를 만들어서 사용하는 것이 좋다.
-
-    > props의 이름은 사용될 context가 아닌 props가 전달되는 `컴퍼넌트 관점`에 이름을 짓는 것을 권장한다.
-
-*   props는 읽기 전용
-    -   함수컴퍼넌트나 클래스컴퍼넌트 모두 자체 props를 수정할 수 없다.
-    -   리액트의 엄격한 규칙 : **모든 리액트 컴퍼넌트는 자신의 props를 다룰 때 반드시 `순수함수`처럼 작동해한다.**
-        > 순수함수란 : 함수에게 인자를 주었을 때 항상 같은 인자를 리턴하는 함수
-    -   하지만 어플리케이션 UI는 동적이기때문에 시간에 따라서 변할 수 있다. 여기서 `state`라는 개념이 들어간다. 리액트는 `state`통해 위 규칙을 위반하지않으면서 사용자의 액션, 네트워크 응답 및 다른 요소에 대한 응답으로 시간에 따라서 출력값을 변경시킬 수 있다.
-
-## State and Life Cycle
-
-> 예시 : 시계만들기
-
-```javascript
-function Clock(props) {
-    return (
-        <h1>
-            {props.date.getHours()} :
-            {props.date.getMinutes()} :
-            {props.date.getSeconds()}
-        </h1>
-    );
-}
-
-function tick() {
-    ReactDOM.render(
-        <Clock date={new Date()}>,
-        document.getElementById('root')
-    );
-}
-
-setInterval(tick,1000);
-```
-
-> 위 코드에서 시간이 지남에 따라서 UI가 업데이트가 되는 것은 Clock 밖에서 1초마다 지속적으로 setInterval()에 의해서 함수를 호출하기때문이다. Clock내부에서 UI가 업데이트 되도록 만들어야 한다.
-
-> Clock 내부에서 UI가 매초 업데이트 되도록 만들기 위해선 `state`라는 개념을 사용해야한다.
-
-> > `state`는 props와 마찬가지로 JS object이다. 하지만 정적인 데이터를 컴퍼넌트에 전달하고자 할 때는 `props`를 사용한다. 반면 동적인 데이터를 컴퍼넌트에 전달할 때는 `state`를 사용한다. 위에서 `시간`이라는 데이터는 매초 동적으로 업데이트 되기 때문에 내부에서 이를 구현하기 위해선 `state`의 개념이 필요하다.
-
-```javascript
-class Clock() extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            date : new Date();
-        }
-    }
-    render(){
-        return(
-            <h1>
-                {this.state.date.getHours()} :
-                {this.state.date.getMinutes()} :
-                {this.state.date.getSeconds()}
-            </h1>
-        );
-    }
-}
-
-ReactDOM.render(
-    <Clock />,
-    document.getElementById('root')
-);
-```
-
->
-
-```javascript
-class Clock extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            date: new Date(),
-        };
-    }
-
-    //마운팅(mounting)
-    componentDidMount() {
-        this.timer = setInterval(() => {
-            this.tick();
-        }, 1000);
-    }
-    //
-    componentWillUnmount() {
-        clearInterval(this.timer);
-    }
-    //언마운팅(unmounting)
-    tick() {
-        this.setState({
-            date: new Date(),
-        });
-    }
-
-    render() {
-        return (
-            <h1>
-                {this.state.date.getHours()} :{this.state.date.getMinutes()} :
-                {this.state.date.getSeconds()}
-            </h1>
-        );
-    }
-}
-
-ReactDOM.render(<Clock />, document.getElementById('root'));
-```
-
-> 생명주기 메서드를 클래스에 추가
-
-> Clock이 처음 DOM에 랜더링 될 때마다 타이머를 설정하려고 하는데, 이것을 리액트에서는 `마운팅(mounting)`이라고 한다. 반대로 DOM에서 삭제될 때는 타이머를 해제한다. 이것은 `언마운팅(unmounting)`
-
-> 이러한 상황에 따라서 특별한 메서드를 선언해서 코드를 작동할 수 있는데, 여기서 이러한 메서드를 `생명주기 메서드`라고 한다.
+> https://www.youtube.com/watch?v=lKZiXQWnlUw&t=3075s
