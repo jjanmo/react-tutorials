@@ -17,35 +17,3 @@
 > Crypto Tracker with NomadCoders
 
 > TechStack : Typescript + React + Webpack(No CRA) + Recoil + React Query
-
-## Project04
-
-> Trello Clone with NomadCoders
-
-> Drag&Drop
-
-## Project05
-
-> React Animation Tutorials with NomadCoders
-
-## Project06
-
-> Twitter Clone with NomadCoders
-
-## Project07
-
-> https://www.freecodecamp.org/news/how-to-build-a-todo-application-using-reactjs-and-firebase/
-
-> TodoApp with Firebase
-
-## Project08
-
-> react-typescript without CRA - make QuizApp
-
-> https://www.youtube.com/watch?v=F2JCjVSZlG0&t=108s
-
-## Project09
-
-> react with Material-UI
-
-> https://www.youtube.com/watch?v=lKZiXQWnlUw&t=3075s
