@@ -56,15 +56,13 @@ body{
 }
 a{
   text-decoration: none;
+	color : inherit;
 }
 #root{
   max-width: 500px;
-	height: 96vh;
-  margin: 2vh auto;
-	padding : 10px 15px;
+  margin: 0 auto;
   background-color: ${(props) => props.theme.bgColor};
-	border : 2px solid ${(props) => props.theme.themeColor};
-	border-radius: 10px;
+	color : ${(props) => props.theme.textColor}
 }
 `;
 
