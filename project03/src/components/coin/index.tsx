@@ -5,11 +5,7 @@ import { ChangeBox, Logo, LogoBox, NameBox, NumberBox, SCoin, SLink } from './st
 const Coin = ({ coin, ticker }: IItemProps) => {
   return (
     <SCoin>
-      <SLink
-        to={{
-          pathname: `/${coin.id}`,
-        }}
-      >
+      <SLink to={`/${coin.id}`} state={{ name: coin.name }}>
         <LogoBox>
           <Logo src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
         </LogoBox>

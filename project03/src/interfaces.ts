@@ -53,3 +53,12 @@ export interface IItemProps {
   coin: ICoin;
   ticker: ITicker;
 }
+
+export interface IState {
+  name: string;
+}
+
+export interface ILocation {
+  pathname: string;
+  state: IState;
+}

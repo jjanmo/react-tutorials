@@ -1,10 +1,23 @@
-import React from 'react';
-import { useParams } from 'react-router';
+import React, { useEffect } from 'react';
+import { useLocation, useParams } from 'react-router';
+import { ILocation } from '../../interfaces';
+import { Title } from '../home/styles';
 
 const Detail = () => {
   const { id } = useParams();
+  const { state } = useLocation() as ILocation;
 
-  return <h1>Detail Page</h1>;
+  useEffect(() => {
+    // props
+    //
+    // https://api.coinpaprika.com/v1/coins/{coin_id}
+  }, []);
+
+  return (
+    <>
+      <Title>{state.name}</Title>
+    </>
+  );
 };
 
 export default Detail;
