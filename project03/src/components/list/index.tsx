@@ -1,12 +1,12 @@
 import React from 'react';
 import Coin from '../coin';
-import { IListProps } from './interfaces';
+import { IListProps } from '../../interfaces';
 
-const List = ({ coins }: IListProps) => {
+const List = ({ coins, tickers }: IListProps) => {
   return (
     <ul>
-      {coins.map((coin) => (
-        <Coin key={coin.symbol} {...coin} />
+      {coins.map((coin, index) => (
+        <Coin key={coin.symbol} coin={coin} ticker={tickers[index]} />
       ))}
     </ul>
   );

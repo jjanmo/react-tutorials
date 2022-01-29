@@ -52,7 +52,6 @@ table {
 }
 body{
   font-family: 'Lato', sans-serif;
-
 }
 a{
   text-decoration: none;
@@ -62,7 +61,7 @@ a{
   max-width: 500px;
   margin: 0 auto;
   background-color: ${(props) => props.theme.bgColor};
-	color : ${(props) => props.theme.textColor}
+	color : ${(props) => props.theme.textColor};
 }
 `;
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 export const SCoin = styled.li`
   width: 100%;
   margin: 10px 0;
-  border: 1px solid #edf3fd;
+  border: 3px solid #edf3fd;
   border-radius: 20px;
   overflow: hidden;
   &:hover {
@@ -43,9 +43,29 @@ export const NameBox = styled(Box)`
 `;
 export const NumberBox = styled(Box)`
   width: 25%;
+  padding-left: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 `;
-export const ChangeBox = styled(Box)`
+
+type BoxType = {
+  bgColor: string;
+};
+
+export const ChangeBox = styled(Box)<BoxType>`
   width: 25%;
+
+  & > div {
+    width: 70%;
+    padding: 10px;
+    background-color: ${(props) => props.bgColor};
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+  }
 `;
 
 export const Logo = styled.img`
