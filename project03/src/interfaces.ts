@@ -59,6 +59,5 @@ export interface IState {
 }
 
 export interface ILocation {
-  pathname: string;
   state: IState;
 }
