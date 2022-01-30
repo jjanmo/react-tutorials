@@ -1,20 +1,18 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import { ICoinInfo, ITicker } from '../../interfaces';
-import { Line, Logo, Row } from './styles';
+import { DescContainer, InfoContainer, Line, LinkContainer, LogoContainer, Row } from './styles';
 
 const Info = () => {
   const [coinInfo, tickerInfo] = useOutletContext<[ICoinInfo, ITicker]>();
 
   return (
-    <div>
-      <div>
-        <Logo src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`} alt="logo" />
-        <div>
-          <div>{coinInfo?.name}</div>
-          <div>{coinInfo?.symbol}</div>
-        </div>
-      </div>
+    <InfoContainer>
+      <LogoContainer>
+        <img src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`} alt="logo" />
+        <div>{coinInfo?.name}</div>
+        <div>/{coinInfo?.symbol}</div>
+      </LogoContainer>
       <Line />
       <Row>
         <div>Rank</div>
@@ -26,37 +24,36 @@ const Info = () => {
       </Row>
       <Row>
         <div>Circulation Supply</div>
-        <div>{tickerInfo?.circulating_supply}</div>
+        <div>{tickerInfo?.circulating_supply || ''}</div>
       </Row>
       <Row>
         <div>Max Supply</div>
-        <div>{tickerInfo?.max_supply}</div>
+        <div>{tickerInfo?.max_supply || ''}</div>
       </Row>
       <Row>
         <div>Total Supply</div>
-        <div>{tickerInfo?.total_supply}</div>
+        <div>{tickerInfo?.total_supply || ''}</div>
       </Row>
       <Row>
         <div>Consensus Algorithm</div>
-        <div>{coinInfo?.hash_algorithm}</div>
+        <div>{coinInfo?.proof_type}</div>
       </Row>
       <Row>
         <div>Link</div>
-        <div>
+        <LinkContainer>
           <a href={coinInfo?.whitepaper.link} target="_blank">
             WhitePaper
           </a>
           <a href={coinInfo?.links.website?.[0]} target="_blank">
             Website
           </a>
-        </div>
+        </LinkContainer>
       </Row>
-      <div>
+      <DescContainer>
         <div>Description</div>
         <div>{coinInfo?.description}</div>
-      </div>
-      <div></div>
-    </div>
+      </DescContainer>
+    </InfoContainer>
   );
 };
 
