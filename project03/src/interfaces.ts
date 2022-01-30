@@ -61,3 +61,59 @@ export interface IState {
 export interface ILocation {
   state: IState;
 }
+
+// interface related coin-info
+interface ITeam {
+  id: string;
+  name: string;
+  position: string;
+}
+interface ITag {
+  id: string;
+  name: string;
+  coin_counter: number;
+  ico_counter: number;
+}
+interface IContract {
+  contract: string;
+  platform: string;
+  type: string;
+}
+interface IWhitepaper {
+  link: string;
+  thumbnail: string;
+}
+interface ILinks {
+  explorer: string[] | null;
+  facebook: string[] | null;
+  reddit: string[] | null;
+  source_code: string[] | null;
+  website: string[] | null;
+  youtube: string[] | null;
+  medium: string[] | null;
+}
+export interface ICoinInfo {
+  id: string;
+  name: string;
+  symbol: string;
+  rank: number;
+  is_new: boolean;
+  is_active: boolean;
+  type: string;
+  tags: ITag[];
+  team: ITeam[];
+  description: string | null;
+  message: string;
+  open_source: boolean;
+  hardware_wallet: boolean;
+  started_at: string | null;
+  development_status: string | null;
+  proof_type: string | null;
+  org_structure: string | null;
+  hash_algorithm: string | null;
+  contracts: IContract[];
+  first_data_at: string;
+  last_data_at: string;
+  whitepaper: IWhitepaper;
+  links: ILinks;
+}
