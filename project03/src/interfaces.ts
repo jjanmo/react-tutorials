@@ -8,6 +8,7 @@ export interface ICoin {
   type: string;
 }
 
+// interface related coin-ticker
 export interface IQuote {
   USD: {
     price: number;
@@ -29,7 +30,6 @@ export interface IQuote {
     percent_from_price_ath: number;
   };
 }
-
 export interface ITicker {
   id: string;
   name: string;
@@ -44,22 +44,14 @@ export interface ITicker {
   quotes: IQuote;
 }
 
+// list & item
 export interface IListProps {
   coins: ICoin[];
   tickers: ITicker[];
 }
-
 export interface IItemProps {
   coin: ICoin;
   ticker: ITicker;
-}
-
-export interface IState {
-  name: string;
-}
-
-export interface ILocation {
-  state: IState;
 }
 
 // interface related coin-info
@@ -116,4 +108,12 @@ export interface ICoinInfo {
   last_data_at: string;
   whitepaper: IWhitepaper;
   links: ILinks;
+}
+
+// for useLocation
+export interface IState {
+  name: string;
+}
+export interface ILocation {
+  state: IState;
 }

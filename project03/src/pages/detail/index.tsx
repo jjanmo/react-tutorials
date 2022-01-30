@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router';
 import Nav from '../../components/nav';
-import { ICoinInfo, ILocation } from '../../interfaces';
+import { ICoinInfo, ILocation, ITicker } from '../../interfaces';
 import { Title } from '../home/styles';
 
 const Detail = () => {
@@ -9,10 +9,14 @@ const Detail = () => {
   const { state } = useLocation() as ILocation;
 
   const [coinInfo, setCoinInfo] = useState<ICoinInfo>();
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [coinInfoLoading, setCoinInfoLoading] = useState<boolean>(false);
+  const [tickerInfo, setTickerInfo] = useState<ITicker>();
+  const [tickerInfoLoading, setTickerInfoLoading] = useState<boolean>(false);
+
+  const isLoading = coinInfoLoading || tickerInfoLoading;
 
   useEffect(() => {
-    setIsLoading(true);
+    setCoinInfoLoading(true);
     fetch(`https://api.coinpaprika.com/v1/coins/${id}`)
       .then((response) => response.json())
       .then((json) => {
@@ -20,19 +24,24 @@ const Detail = () => {
         setCoinInfo(json);
       })
       .catch((e) => console.log(e))
-      .finally(() => setIsLoading(false));
+      .finally(() => setCoinInfoLoading(false));
 
-    // props
-    //
-    //
+    setTickerInfoLoading(true);
+    fetch(`https://api.coinpaprika.com/v1/tickers/${id}`)
+      .then((response) => response.json())
+      .then((json) => {
+        console.log(json);
+        setTickerInfo(json);
+      })
+      .catch((e) => console.log(e))
+      .finally(() => setTickerInfoLoading(false));
   }, []);
 
   return (
     <>
-      <Title>{state ? state?.name : coinInfo ? coinInfo.name : 'Loading'}</Title>
+      <Title>{state ? state?.name : isLoading ? 'Loading' : coinInfo?.name}</Title>
       <Nav />
-
-      <Outlet />
+      <Outlet context={[coinInfo, tickerInfo, 'aaa']} />
     </>
   );
 };

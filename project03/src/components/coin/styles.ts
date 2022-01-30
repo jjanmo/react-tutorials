@@ -16,6 +16,7 @@ export const SLink = styled(Link)`
   display: flex;
   align-items: center;
 `;
+
 export const Box = styled.div`
   display: flex;
   justify-content: center;
@@ -48,14 +49,11 @@ export const NumberBox = styled(Box)`
   justify-content: flex-start;
   align-items: center;
 `;
-
 type BoxType = {
   bgColor: string;
 };
-
 export const ChangeBox = styled(Box)<BoxType>`
   width: 25%;
-
   & > div {
     width: 70%;
     padding: 10px;
@@ -71,5 +69,3 @@ export const ChangeBox = styled(Box)<BoxType>`
 export const Logo = styled.img`
   width: 40px;
 `;
-// export const Logo = styled.img``;
-// export const Logo = styled.img``;
