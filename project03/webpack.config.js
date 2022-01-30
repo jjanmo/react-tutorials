@@ -38,7 +38,6 @@ module.exports = {
     ],
   },
   plugins: [new RefreshWebpackPlugin(), new CleanWebpackPlugin()],
-
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',

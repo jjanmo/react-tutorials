@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SNav = styled.nav`
@@ -20,4 +21,11 @@ export const SNav = styled.nav`
   & > a:nth-child(2) {
     border-right: 2px solid #c7ecee;
   }
+`;
+export const LinkText = styled.div<{ isActive: boolean }>`
+  width: 50%;
+  text-align: center;
+  border-bottom: ${(props) => (props.isActive ? '3px solid #686de0' : '')};
+  font-weight: ${(props) => (props.isActive ? 'bold' : '')};
+  color: ${(props) => (props.isActive ? '#686de0' : props.theme.textColor)}; ;
 `;
