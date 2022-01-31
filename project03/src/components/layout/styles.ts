@@ -5,7 +5,7 @@ export const HeaderContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem 0;
+  margin-top: 1.5rem;
 `;
 
 export const HomeButton = styled.button`

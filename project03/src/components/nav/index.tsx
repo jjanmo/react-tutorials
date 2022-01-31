@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
-import { generatePath, useMatch, Link } from 'react-router-dom';
-import { LinkText, SNav } from './styles';
+import React from 'react';
+import { useMatch, Link } from 'react-router-dom';
+import { Item, SNav } from './styles';
 
 const Nav = () => {
   const isActiveDefault = !!useMatch(':id');
@@ -10,15 +10,15 @@ const Nav = () => {
 
   return (
     <SNav>
-      <Link to="info">
-        <LinkText isActive={isActiveDefault || isActiveInfo}>Info</LinkText>
-      </Link>
-      <Link to="chart">
-        <LinkText isActive={isActiveChart}>Chart</LinkText>
-      </Link>
-      <Link to="price">
-        <LinkText isActive={isActivePrice}>Price</LinkText>
-      </Link>
+      <Item isActive={isActiveDefault || isActiveInfo}>
+        <Link to="info">Info</Link>
+      </Item>
+      <Item isActive={isActiveChart}>
+        <Link to="chart">Chart</Link>
+      </Item>
+      <Item isActive={isActivePrice}>
+        <Link to="price">Price</Link>
+      </Item>
     </SNav>
   );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useLocation, useParams } from 'react-router';
+import Line from '../../components/line';
 import Nav from '../../components/nav';
 import { ICoinInfo, ILocation, ITicker } from '../../interfaces';
 import { Title } from '../home/styles';
@@ -40,7 +41,8 @@ const Detail = () => {
   return (
     <>
       <Nav />
-      <Outlet context={[coinInfo, tickerInfo, 'aaa']} />
+      <Line text="§§" />
+      <Outlet context={[coinInfo, tickerInfo]} />
     </>
   );
 };

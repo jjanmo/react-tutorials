@@ -1,7 +1,8 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
+import Line from '../../components/line';
 import { ICoinInfo, ITicker } from '../../interfaces';
-import { DescContainer, InfoContainer, Line, LinkContainer, LogoContainer, Row } from './styles';
+import { DescContainer, InfoContainer, LinkContainer, LogoContainer, Row } from './styles';
 
 const Info = () => {
   const [coinInfo, tickerInfo] = useOutletContext<[ICoinInfo, ITicker]>();
@@ -13,7 +14,7 @@ const Info = () => {
         <div>{coinInfo?.name}</div>
         <div>/{coinInfo?.symbol}</div>
       </LogoContainer>
-      <Line />
+      <Line text="§§§" />
       <Row>
         <div>Rank</div>
         <div>No.{coinInfo?.rank}</div>

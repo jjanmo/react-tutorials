@@ -121,3 +121,7 @@ export interface ILocation {
 export interface ILineProps {
   text: string;
 }
+
+export interface INavItemProps {
+  isActive: boolean;
+}

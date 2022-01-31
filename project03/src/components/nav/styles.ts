@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { INavItemProps } from './../../interfaces';
 
 export const SNav = styled.nav`
   width: 100%;
@@ -7,20 +8,28 @@ export const SNav = styled.nav`
   align-items: center;
   border-radius: 5px;
   overflow: hidden;
-  margin: 10px 0;
-  border: 2px solid #485460;
-  & > * {
+  border: 2px solid ${(props) => props.theme.borderColor};
+  font-size: 20px;
+  & > div {
     width: calc(100% / 3);
-    padding: 10px 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    & > a {
+      width: 100%;
+      padding: 10px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
-  & > a:first-child,
-  & > a:nth-child(2) {
-    height: 100%;
-    border-right: 2px solid #485460;
+  & > div:first-child,
+  & > div:nth-child(2) {
+    border-right: 2px solid ${(props) => props.theme.borderColor};
   }
+`;
+export const Item = styled.div<INavItemProps>`
+  background-color: ${(props) => (props.isActive ? props.theme.activeColor : 'transparent')};
 `;
 export const LinkText = styled.div<{ isActive: boolean }>`
   width: 50%;

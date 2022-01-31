@@ -8,6 +8,7 @@ export const StyledLine = styled.hr<ILineProps>`
   overflow: visible;
   text-align: center;
   height: 5px;
+  margin: 2rem 0;
   &::after {
     background: #fff;
     content: '${(props) => props.text}';

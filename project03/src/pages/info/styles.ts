@@ -1,17 +1,8 @@
 import styled from 'styled-components';
 
-export const Line = styled.div`
-  width: 100%;
-  height: 3px;
-  margin: 20px auto;
-  background-color: gray;
-  border-radius: 10px;
-`;
-
 export const InfoContainer = styled.div`
   margin: 20px 0;
 `;
-
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
@@ -22,7 +13,7 @@ export const LogoContainer = styled.div`
   }
   & > div:nth-child(2) {
     height: 50px;
-    font-size: 40px;
+    font-size: 45px;
     display: flex;
     align-items: flex-end;
     margin-right: 10px;
