@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 export const SCoin = styled.li`
   width: 100%;
-  margin: 10px 0;
-  border: 3px solid #edf3fd;
+  margin: 20px 0;
+  border: 2px solid ${(props) => props.theme.borderColor};
   border-radius: 20px;
   overflow: hidden;
   &:hover {
-    background-color: #edf3fd;
+    background-color: ${(props) => props.theme.activeColor};
   }
 `;
 export const SLink = styled(Link)`

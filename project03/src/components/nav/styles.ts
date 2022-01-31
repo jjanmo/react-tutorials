@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SNav = styled.nav`
@@ -9,7 +8,7 @@ export const SNav = styled.nav`
   border-radius: 5px;
   overflow: hidden;
   margin: 10px 0;
-  border: 2px solid #c7ecee;
+  border: 2px solid #485460;
   & > * {
     width: calc(100% / 3);
     padding: 10px 0;
@@ -19,7 +18,8 @@ export const SNav = styled.nav`
   }
   & > a:first-child,
   & > a:nth-child(2) {
-    border-right: 2px solid #c7ecee;
+    height: 100%;
+    border-right: 2px solid #485460;
   }
 `;
 export const LinkText = styled.div<{ isActive: boolean }>`
