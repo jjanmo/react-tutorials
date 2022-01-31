@@ -1,48 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import { Outlet, useLocation, useParams } from 'react-router';
+import React from 'react';
+import { useQuery } from 'react-query';
+import { Outlet, useParams } from 'react-router';
+import { fetchCoinById, fetchTickerById } from '../../apis';
 import Line from '../../components/line';
 import Nav from '../../components/nav';
-import { ICoinInfo, ILocation, ITicker } from '../../interfaces';
-import { Title } from '../home/styles';
 
 const Detail = () => {
   const { id } = useParams();
-  const { state } = useLocation() as ILocation;
 
-  const [coinInfo, setCoinInfo] = useState<ICoinInfo>();
-  const [coinInfoLoading, setCoinInfoLoading] = useState<boolean>(false);
-  const [tickerInfo, setTickerInfo] = useState<ITicker>();
-  const [tickerInfoLoading, setTickerInfoLoading] = useState<boolean>(false);
+  const { isLoading: coinLoading, data: coinInfo } = useQuery(['coinInfo', id], () => fetchCoinById(id));
+  const { isLoading: tickerLoading, data: tickerInfo } = useQuery(['tickerInfo', id], () => fetchTickerById(id));
 
-  const isLoading = coinInfoLoading || tickerInfoLoading;
-
-  useEffect(() => {
-    setCoinInfoLoading(true);
-    fetch(`https://api.coinpaprika.com/v1/coins/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setCoinInfo(json);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setCoinInfoLoading(false));
-
-    setTickerInfoLoading(true);
-    fetch(`https://api.coinpaprika.com/v1/tickers/${id}`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log(json);
-        setTickerInfo(json);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setTickerInfoLoading(false));
-  }, []);
+  const isLoading = coinLoading || tickerLoading;
 
   return (
     <>
       <Nav />
       <Line text="§§" />
-      <Outlet context={[coinInfo, tickerInfo]} />
+      {isLoading ? <div>loading...</div> : <Outlet context={[coinInfo, tickerInfo]} />}
     </>
   );
 };

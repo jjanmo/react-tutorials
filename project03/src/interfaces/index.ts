@@ -114,14 +114,6 @@ export interface ICoinInfo {
   links: ILinks;
 }
 
-// for useLocation
-export interface IState {
-  name: string;
-}
-export interface ILocation {
-  state: IState;
-}
-
 export interface ILineProps {
   text: string;
 }
