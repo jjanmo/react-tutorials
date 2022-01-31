@@ -5,12 +5,13 @@ import Detail from './pages/detail';
 import Chart from './pages/chart';
 import Price from './pages/price';
 import Info from './pages/info';
+import Layout from './components/layout';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/">
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path=":id" element={<Detail />}>
             <Route index element={<Info />} />

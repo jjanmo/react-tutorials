@@ -39,7 +39,6 @@ const Detail = () => {
 
   return (
     <>
-      <Title>{state ? state?.name : isLoading ? 'Loading' : coinInfo?.name}</Title>
       <Nav />
       <Outlet context={[coinInfo, tickerInfo, 'aaa']} />
     </>

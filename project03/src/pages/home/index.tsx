@@ -33,12 +33,7 @@ const Home = () => {
       .finally(() => setTickersLoading(false));
   }, []);
 
-  return (
-    <>
-      <Title>Coins</Title>
-      {isLoading ? <div>loading...</div> : <List coins={coins} tickers={tickers} />}
-    </>
-  );
+  return <>{isLoading ? <div>loading...</div> : <List coins={coins} tickers={tickers} />}</>;
 };
 
 export default Home;
