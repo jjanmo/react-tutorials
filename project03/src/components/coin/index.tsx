@@ -2,35 +2,30 @@ import React from 'react';
 import { IItemProps } from '../../interfaces';
 import { ChangeBox, Logo, LogoBox, NameBox, NumberBox, SCoin, SLink } from './styles';
 
-const Coin = ({ coin, ticker }: IItemProps) => {
+const Coin = ({ coin, price, percentChange }: IItemProps) => {
   return (
     <SCoin>
-      <SLink to={coin.id} state={{ name: coin.name }}>
+      <SLink to={coin?.id || ''} state={{ name: coin?.name }}>
         <LogoBox>
-          <Logo src={`https://cryptoicon-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`} />
+          <Logo src={`https://cryptoicon-api.vercel.app/api/icon/${coin?.symbol.toLowerCase()}`} />
         </LogoBox>
         <NameBox>
-          <div>{coin.name}</div>
-          <div>{coin.symbol}/USD</div>
+          <div>{coin?.name}</div>
+          <div>{coin?.symbol}/USD</div>
         </NameBox>
         <NumberBox>
-          <div>${ticker.quotes.USD.price.toFixed(3)}</div>
+          <div>${price?.toFixed(3)}</div>
         </NumberBox>
         <ChangeBox
           bgColor={
-            ticker.quotes.USD.percent_change_24h > 0
-              ? '#42A66D'
-              : ticker.quotes.USD.percent_change_24h < 0
+            percentChange && percentChange > 0
+              ? '#42A66D' //
+              : percentChange && percentChange < 0
               ? '#CF304A'
               : '#989FAB'
           }
         >
-          <div>
-            {ticker.quotes.USD.percent_change_24h > 0
-              ? `+${ticker.quotes.USD.percent_change_24h}`
-              : ticker.quotes.USD.percent_change_24h}
-            %
-          </div>
+          <div>{percentChange && percentChange > 0 ? `+${percentChange}` : percentChange}%</div>
         </ChangeBox>
       </SLink>
     </SCoin>

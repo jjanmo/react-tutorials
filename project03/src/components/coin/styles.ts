@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { StyledBox } from '../../interfaces';
 
 export const SCoin = styled.li`
   width: 100%;
@@ -49,10 +50,8 @@ export const NumberBox = styled(Box)`
   justify-content: flex-start;
   align-items: center;
 `;
-type BoxType = {
-  bgColor: string;
-};
-export const ChangeBox = styled(Box)<BoxType>`
+
+export const ChangeBox = styled(Box)<StyledBox>`
   width: 25%;
   & > div {
     width: 70%;

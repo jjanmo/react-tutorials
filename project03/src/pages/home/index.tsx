@@ -1,37 +1,14 @@
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import List from '../../components/list';
 import { ICoin, ITicker } from '../../interfaces';
-import { Title } from './styles';
+import { fetchCoins, fetchTickers } from '../../apis';
 
 const Home = () => {
-  const [coins, setCoins] = useState<ICoin[]>([]);
-  const [tickers, setTickers] = useState<ITicker[]>([]);
-  const [coinsLoading, setCoinsLoading] = useState(false);
-  const [tickersLoading, setTickersLoading] = useState(false);
+  const { isLoading: coinsLoading, data: coins } = useQuery<ICoin[]>('coins', fetchCoins);
+  const { isLoading: tickersLoading, data: tickers } = useQuery<ITicker[]>('tickers', fetchTickers);
 
   const isLoading = coinsLoading || tickersLoading;
-
-  useEffect(() => {
-    setCoinsLoading(true);
-    fetch('https://api.coinpaprika.com/v1/coins')
-      .then((response) => response.json())
-      .then((json) => {
-        const data = json.slice(0, 100);
-        setCoins(data);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setCoinsLoading(false));
-
-    setTickersLoading(true);
-    fetch('https://api.coinpaprika.com/v1/tickers')
-      .then((response) => response.json())
-      .then((json) => {
-        const data = json.slice(0, 100);
-        setTickers(data);
-      })
-      .catch((e) => console.log(e))
-      .finally(() => setTickersLoading(false));
-  }, []);
 
   return <>{isLoading ? <div>loading...</div> : <List coins={coins} tickers={tickers} />}</>;
 };

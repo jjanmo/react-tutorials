@@ -46,12 +46,16 @@ export interface ITicker {
 
 // list & item
 export interface IListProps {
-  coins: ICoin[];
-  tickers: ITicker[];
+  coins?: ICoin[];
+  tickers?: ITicker[];
 }
 export interface IItemProps {
-  coin: ICoin;
-  ticker: ITicker;
+  coin?: ICoin;
+  price?: number;
+  percentChange?: number;
+}
+export interface StyledBox {
+  bgColor: string;
 }
 
 // interface related coin-info
