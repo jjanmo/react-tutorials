@@ -58,7 +58,7 @@ a{
 	color : inherit;
 }
 #root{
-  max-width: 500px;
+  max-width: 600px;
   margin: 0 auto;
   background-color: ${(props) => props.theme.bgColor};
 	color : ${(props) => props.theme.textColor};

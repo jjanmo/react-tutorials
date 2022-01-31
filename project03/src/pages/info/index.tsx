@@ -2,6 +2,7 @@ import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Line from '../../components/line';
 import { ICoinInfo, ITicker } from '../../interfaces';
+import { addComma } from '../../utils/functions';
 import { DescContainer, InfoContainer, LinkContainer, LogoContainer, Row } from './styles';
 
 const Info = () => {
@@ -21,19 +22,19 @@ const Info = () => {
       </Row>
       <Row>
         <div>Market Cap</div>
-        <div>{tickerInfo?.quotes.USD.market_cap}</div>
+        <div>${addComma(tickerInfo?.quotes.USD.market_cap)}</div>
       </Row>
       <Row>
         <div>Circulation Supply</div>
-        <div>{tickerInfo?.circulating_supply || ''}</div>
+        <div>{addComma(tickerInfo?.circulating_supply) || ''}</div>
       </Row>
       <Row>
         <div>Max Supply</div>
-        <div>{tickerInfo?.max_supply || ''}</div>
+        <div>{addComma(tickerInfo?.max_supply) || ''}</div>
       </Row>
       <Row>
         <div>Total Supply</div>
-        <div>{tickerInfo?.total_supply || ''}</div>
+        <div>{addComma(tickerInfo?.total_supply) || ''}</div>
       </Row>
       <Row>
         <div>Consensus Algorithm</div>

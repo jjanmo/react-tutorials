@@ -45,9 +45,9 @@ export const NameBox = styled(Box)`
 `;
 export const NumberBox = styled(Box)`
   width: 25%;
-  padding-left: 10px;
+  padding-right: 2rem;
   display: flex;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
 `;
 
