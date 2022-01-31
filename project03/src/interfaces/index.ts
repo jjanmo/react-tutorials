@@ -117,3 +117,7 @@ export interface IState {
 export interface ILocation {
   state: IState;
 }
+
+export interface ILineProps {
+  text: string;
+}
