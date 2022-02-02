@@ -1,13 +1,3 @@
-export interface ICoin {
-  id: string;
-  is_active: boolean;
-  is_new: boolean;
-  name: string;
-  rank: number;
-  symbol: string;
-  type: string;
-}
-
 // interface related coin-ticker
 export interface IQuote {
   USD: {
@@ -46,11 +36,10 @@ export interface ITicker {
 
 // list & item
 export interface IListProps {
-  coins?: ICoin[];
   tickers?: ITicker[];
 }
 export interface IItemProps {
-  coin?: ICoin;
+  coin?: ITicker;
   price?: number;
   percentChange?: number;
 }
