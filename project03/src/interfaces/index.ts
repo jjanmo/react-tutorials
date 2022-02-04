@@ -114,10 +114,10 @@ export interface INavItemProps {
 export interface IOHLCData {
   time_open: string;
   time_close: string;
-  open: number | undefined;
-  high: number | undefined;
-  low: number | undefined;
-  close: number | undefined;
-  volume: number | undefined;
-  market_cap: number | undefined;
+  open: number;
+  high: number;
+  low: number;
+  close: number;
+  volume: number;
+  market_cap: number;
 }

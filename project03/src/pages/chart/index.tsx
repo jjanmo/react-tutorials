@@ -4,7 +4,7 @@ import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { fetchOHLCData } from '../../apis';
-import { getBeforeWeek, parseCandleData, xFormatter } from '../../utils/functions';
+import { getBeforeWeek, parseCandleData, roundNumber, xaxisFormatter } from '../../utils/functions';
 
 const Chart = () => {
   const { id } = useParams();
@@ -15,7 +15,7 @@ const Chart = () => {
   const series = [
     {
       name: 'ohlc',
-      data: parseCandleData(data),
+      data: data ? parseCandleData(data) : [],
     },
   ];
 
@@ -38,14 +38,14 @@ const Chart = () => {
       },
       tooltip: {
         enabled: true,
-        formatter: (val) => xFormatter(val),
+        formatter: (val) => xaxisFormatter(val),
         offsetY: 10,
       },
     },
     yaxis: {
       labels: {
         formatter: (val, index) => {
-          return val < 10 ? val.toFixed(5) : val.toFixed(3);
+          return roundNumber(val);
         },
       },
       tooltip: {

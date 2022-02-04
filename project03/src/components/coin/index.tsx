@@ -1,6 +1,6 @@
 import React from 'react';
 import { IItemProps } from '../../interfaces';
-import { addComma } from '../../utils/functions';
+import { roundNumber } from '../../utils/functions';
 import { ChangeBox, Logo, LogoBox, NameBox, NumberBox, SCoin, SLink } from './styles';
 
 const Coin = ({ coin, price, percentChange }: IItemProps) => {
@@ -15,7 +15,7 @@ const Coin = ({ coin, price, percentChange }: IItemProps) => {
           <div>{coin?.symbol}/USD</div>
         </NameBox>
         <NumberBox>
-          <div>${price && price < 2 ? price?.toFixed(5) : addComma(Number(price?.toFixed(3)))}</div>
+          <div>${price && roundNumber(price)}</div>
         </NumberBox>
         <ChangeBox
           bgColor={
