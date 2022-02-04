@@ -3,19 +3,13 @@ import { useOutletContext } from 'react-router-dom';
 import Line from '../../components/line';
 import { ICoinInfo, ITicker } from '../../interfaces';
 import { addComma } from '../../utils/functions';
-import { DescContainer, InfoContainer, LinkContainer, LogoContainer, Row } from './styles';
+import { DescContainer, InfoContainer, LinkContainer, Row } from './styles';
 
 const Info = () => {
   const [coinInfo, tickerInfo] = useOutletContext<[ICoinInfo, ITicker]>();
 
   return (
     <InfoContainer>
-      <LogoContainer>
-        <img src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`} alt="logo" />
-        <div>{coinInfo?.name}</div>
-        <div>/{coinInfo?.symbol}</div>
-      </LogoContainer>
-      <Line text="§§§" />
       <Row>
         <div>Rank</div>
         <div>No.{coinInfo?.rank}</div>

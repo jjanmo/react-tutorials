@@ -4,6 +4,7 @@ import { Outlet, useParams } from 'react-router';
 import { fetchCoinById, fetchTickerById } from '../../apis';
 import Line from '../../components/line';
 import Nav from '../../components/nav';
+import { LogoContainer } from './styles';
 
 const Detail = () => {
   const { id } = useParams();
@@ -17,7 +18,19 @@ const Detail = () => {
     <>
       <Nav />
       <Line text="§§" />
-      {isLoading ? <div>loading...</div> : <Outlet context={[coinInfo, tickerInfo]} />}
+      {isLoading ? (
+        <div>loading...</div>
+      ) : (
+        <>
+          <LogoContainer>
+            <img src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`} alt="logo" />
+            <div>{coinInfo?.name}</div>
+            <div>/{coinInfo?.symbol}</div>
+          </LogoContainer>
+          <Line text="§§§" />
+          <Outlet context={[coinInfo, tickerInfo]} />
+        </>
+      )}
     </>
   );
 };
