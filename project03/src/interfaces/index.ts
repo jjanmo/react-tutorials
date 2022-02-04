@@ -110,3 +110,14 @@ export interface ILineProps {
 export interface INavItemProps {
   isActive: boolean;
 }
+
+export interface IOHLCData {
+  time_open: string;
+  time_close: string;
+  open: number | undefined;
+  high: number | undefined;
+  low: number | undefined;
+  close: number | undefined;
+  volume: number | undefined;
+  market_cap: number | undefined;
+}
