@@ -1,18 +1,17 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { fetchOHLCData } from '../../apis';
 import { getBeforeWeek, parseCandleData, roundNumber, xaxisFormatter } from '../../utils/functions';
+import { useRecoilValue } from 'recoil';
+import { isDarkAtom } from '../../recoil/atom';
 
-type Props = {
-  isDark?: boolean;
-};
-
-const Chart = ({ isDark }: Props) => {
+const Chart = () => {
   const { id } = useParams();
   const [start, end] = getBeforeWeek();
+  const isDark = useRecoilValue(isDarkAtom);
 
   const { isLoading, data } = useQuery(['ohlcData', id], () => fetchOHLCData(id, start, end));
 

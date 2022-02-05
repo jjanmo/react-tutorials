@@ -121,8 +121,3 @@ export interface IOHLCData {
   volume: number;
   market_cap: number;
 }
-
-export interface IThemeProps {
-  setIsDark: Function;
-  isDark?: boolean;
-}

@@ -1,16 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Router from './router';
 import { ThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from './styles/theme';
 import GlobalStyles from './globalStyles';
+import { useRecoilValue } from 'recoil';
+import { isDarkAtom } from './recoil/atom';
 
 const App = () => {
-  const [isDark, setIsDark] = useState(false);
+  const isDark = useRecoilValue(isDarkAtom);
 
   return (
     <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <Router setIsDark={setIsDark} isDark={isDark} />
+      <Router />
     </ThemeProvider>
   );
 };

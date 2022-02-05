@@ -6,18 +6,17 @@ import Chart from './pages/chart';
 import Price from './pages/price';
 import Info from './pages/info';
 import Layout from './components/layout';
-import { IThemeProps } from './interfaces';
 
-const Router = ({ setIsDark, isDark }: IThemeProps) => {
+const Router = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout setIsDark={setIsDark} />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path=":id" element={<Detail />}>
             <Route index element={<Info />} />
             <Route path="info" element={<Info />} />
-            <Route path="chart" element={<Chart isDark={isDark} />} />
+            <Route path="chart" element={<Chart />} />
             <Route path="price" element={<Price />} />
           </Route>
         </Route>

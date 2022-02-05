@@ -1,19 +1,21 @@
 import React, { useCallback } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import { IThemeProps } from '../../interfaces';
 import Line from '../line';
 import coin from '../../assets/coin.png';
 import { Ball, BodyContainer, Checkbox, HeaderContainer, HomeButton, ToggleButton, ToggleContainer } from './styles';
+import { useRecoilState } from 'recoil';
+import { isDarkAtom } from '../../recoil/atom';
 
-const Layout = ({ setIsDark }: IThemeProps) => {
+const Layout = () => {
   const navigate = useNavigate();
+  const [isDark, setIsDark] = useRecoilState(isDarkAtom);
 
   const onClick = useCallback(() => {
     navigate('/');
   }, []);
 
   const onClickCheckbox = () => {
-    setIsDark((pre: boolean) => !pre);
+    setIsDark((prev: boolean) => !prev);
   };
 
   return (
