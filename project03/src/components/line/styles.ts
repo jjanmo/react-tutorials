@@ -10,7 +10,8 @@ export const StyledLine = styled.hr<ILineProps>`
   height: 5px;
   margin: 2rem 0;
   &::after {
-    background: #fff;
+    background-color: ${(props) => props.theme.bgColor};
+    color: ${(props) => props.theme.textColor};
     content: '${(props) => props.text}';
     padding: 0 4px;
     position: relative;

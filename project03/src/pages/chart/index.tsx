@@ -6,7 +6,11 @@ import { useParams } from 'react-router-dom';
 import { fetchOHLCData } from '../../apis';
 import { getBeforeWeek, parseCandleData, roundNumber, xaxisFormatter } from '../../utils/functions';
 
-const Chart = () => {
+type Props = {
+  isDark?: boolean;
+};
+
+const Chart = ({ isDark }: Props) => {
   const { id } = useParams();
   const [start, end] = getBeforeWeek();
 
@@ -20,6 +24,9 @@ const Chart = () => {
   ];
 
   const options: ApexOptions = {
+    theme: {
+      mode: isDark ? 'dark' : 'light',
+    },
     chart: {
       type: 'candlestick',
       toolbar: {

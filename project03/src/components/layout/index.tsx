@@ -1,10 +1,11 @@
 import React, { useCallback } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
-import coins from '../../assets/coins.png';
+import { IThemeProps } from '../../interfaces';
 import Line from '../line';
+import coin from '../../assets/coin.png';
 import { Ball, BodyContainer, Checkbox, HeaderContainer, HomeButton, ToggleButton, ToggleContainer } from './styles';
 
-const Layout = () => {
+const Layout = ({ setIsDark }: IThemeProps) => {
   const navigate = useNavigate();
 
   const onClick = useCallback(() => {
@@ -12,7 +13,7 @@ const Layout = () => {
   }, []);
 
   const onClickCheckbox = () => {
-    console.log('checked');
+    setIsDark((pre: boolean) => !pre);
   };
 
   return (
@@ -27,7 +28,8 @@ const Layout = () => {
       </ToggleContainer>
       <HeaderContainer>
         <HomeButton onClick={onClick}>
-          <img src={coins} alt="coins" width="100%" />
+          <img src={coin} alt="coin" width="100px" />
+          <div>COINS</div>
         </HomeButton>
       </HeaderContainer>
       <Line text="§" />

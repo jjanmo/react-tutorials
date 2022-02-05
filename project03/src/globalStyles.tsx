@@ -52,6 +52,7 @@ table {
 }
 body{
   font-family: 'Lato', sans-serif;
+	background-color: ${(props) => props.theme.bgColor};
 }
 a{
   text-decoration: none;

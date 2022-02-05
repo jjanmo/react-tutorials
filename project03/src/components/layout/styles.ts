@@ -12,6 +12,17 @@ export const HomeButton = styled.button`
   all: unset;
   width: 50%;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & > div {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+    font-size: 3.5rem;
+    color: ${(props) => props.theme.textColor};
+    margin-left: 10px;
+    letter-spacing: 2px;
+  }
 `;
 
 export const BodyContainer = styled.div`
