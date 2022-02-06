@@ -15,6 +15,13 @@ const Chart = () => {
 
   const { isLoading, data } = useQuery(['ohlcData', id], () => fetchOHLCData(id, start, end));
 
+  // interval day
+  // duration
+  // 1Week 오늘부터 일주일
+  // 1Month 오늘부터 한달
+  // 6Month
+  // 1Year 오늘부터 일년
+
   const series = [
     {
       name: 'ohlc',
@@ -34,6 +41,7 @@ const Chart = () => {
       zoom: {
         enabled: false,
       },
+      background: isDark ? '#18191A' : '#FFFFFF',
     },
     xaxis: {
       type: 'datetime',
@@ -75,7 +83,15 @@ const Chart = () => {
       {isLoading ? (
         <div>Loading...</div> //
       ) : (
-        <ReactApexChart type="candlestick" series={series} options={options} />
+        <div>
+          <div>
+            <button>1Week</button>
+            <button>1Month</button>
+            <button>6Month</button>
+            <button>1Year</button>
+          </div>
+          <ReactApexChart type="candlestick" series={series} options={options} />
+        </div>
       )}
     </>
   );
