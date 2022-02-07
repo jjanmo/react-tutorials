@@ -16,4 +16,4 @@
 
 > Crypto Tracker with NomadCoders
 
-> TechStack : Typescript + React + Webpack(No CRA) + Recoil + React Query
+> Typescript + React(with Webpack: No CRA) + React Query + Recoil
