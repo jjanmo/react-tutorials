@@ -4,7 +4,12 @@ import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { fetchOHLCData } from '../../apis';
-import { getBeforeWeek, parseCandleData, roundNumber, xaxisFormatter } from '../../utils/functions';
+import {
+  getBeforeWeek,
+  parseCandleData,
+  roundNumber,
+  xaxisFormatter,
+} from '../../utils/functions';
 import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from '../../recoil/atom';
 
@@ -13,7 +18,9 @@ const Chart = () => {
   const [start, end] = getBeforeWeek();
   const isDark = useRecoilValue(isDarkAtom);
 
-  const { isLoading, data } = useQuery(['ohlcData', id], () => fetchOHLCData(id, start, end));
+  const { isLoading, data } = useQuery(['ohlcData', id], () =>
+    fetchOHLCData(id, start, end)
+  );
 
   // interval day
   // duration
@@ -21,6 +28,7 @@ const Chart = () => {
   // 1Month 오늘부터 한달
   // 6Month
   // 1Year 오늘부터 일년
+  // test commmit
 
   const series = [
     {
@@ -90,7 +98,11 @@ const Chart = () => {
             <button>6Month</button>
             <button>1Year</button>
           </div>
-          <ReactApexChart type="candlestick" series={series} options={options} />
+          <ReactApexChart
+            type="candlestick"
+            series={series}
+            options={options}
+          />
         </div>
       )}
     </>
