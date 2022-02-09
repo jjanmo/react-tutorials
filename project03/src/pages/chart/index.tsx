@@ -12,6 +12,7 @@ import {
 } from '../../utils/functions';
 import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from '../../recoil/atom';
+import { Button, ButtonContainer } from './styles';
 
 const Chart = () => {
   const { id } = useParams();
@@ -28,7 +29,6 @@ const Chart = () => {
   // 1Month 오늘부터 한달
   // 6Month
   // 1Year 오늘부터 일년
-  // test commmit
 
   const series = [
     {
@@ -92,12 +92,12 @@ const Chart = () => {
         <div>Loading...</div> //
       ) : (
         <div>
-          <div>
-            <button>1Week</button>
-            <button>1Month</button>
-            <button>6Month</button>
-            <button>1Year</button>
-          </div>
+          <ButtonContainer>
+            <Button>1Week</Button>
+            <Button>1Month</Button>
+            <Button>6Month</Button>
+            <Button>1Year</Button>
+          </ButtonContainer>
           <ReactApexChart
             type="candlestick"
             series={series}
