@@ -7,7 +7,7 @@ export const ButtonContainer = styled.div`
   align-items: center;
 `;
 
-export const Button = styled.div`
+export const Button = styled.div<{ selected: boolean }>`
   all: unset;
   width: 100px;
   padding: 10px;
@@ -18,5 +18,7 @@ export const Button = styled.div`
   align-items: center;
   cursor: pointer;
   border: 2px solid ${(props) => props.theme.borderColor};
+  background-color: ${(props) =>
+    props.selected ? props.theme.activeColor : 'transparent'};
   border-radius: 10px;
 `;

@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
 import { fetchOHLCData } from '../../apis';
 import {
-  getBeforeWeek,
+  getDurationDate,
   parseCandleData,
   roundNumber,
   xaxisFormatter,
@@ -16,24 +16,17 @@ import { Button, ButtonContainer } from './styles';
 
 const Chart = () => {
   const { id } = useParams();
-  const [start, end] = getBeforeWeek();
   const isDark = useRecoilValue(isDarkAtom);
 
-  const { isLoading, data } = useQuery(['ohlcData', id], () =>
-    fetchOHLCData(id, start, end)
-  );
-
-  // interval day
-  // duration
-  // 1Week 오늘부터 일주일
-  // 1Month 오늘부터 한달
-  // 6Month
-  // 1Year 오늘부터 일년
+  const [duration, setDuration] = useState('1Week');
+  const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [start, end] = getDurationDate(duration);
 
   const series = [
     {
       name: 'ohlc',
-      data: data ? parseCandleData(data) : [],
+      data: parseCandleData(data),
     },
   ];
 
@@ -86,17 +79,40 @@ const Chart = () => {
     },
   };
 
+  const onClick = useCallback((e) => {
+    const _duration = e.target.textContent;
+    setDuration(_duration);
+  }, []);
+
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(
+      `https://api.coinpaprika.com/v1/coins/${id}/ohlcv/historical?start=${start}&end=${end}`
+    )
+      .then((response) => response.json())
+      .then((json) => setData(json))
+      .finally(() => setIsLoading(false));
+  }, [duration]);
+
   return (
     <>
       {isLoading ? (
-        <div>Loading...</div> //
+        <div>Loading...</div>
       ) : (
         <div>
           <ButtonContainer>
-            <Button>1Week</Button>
-            <Button>1Month</Button>
-            <Button>6Month</Button>
-            <Button>1Year</Button>
+            <Button onClick={onClick} selected={duration === '1Week'}>
+              1Week
+            </Button>
+            <Button onClick={onClick} selected={duration === '1Month'}>
+              1Month
+            </Button>
+            <Button onClick={onClick} selected={duration === '6Month'}>
+              6Month
+            </Button>
+            <Button onClick={onClick} selected={duration === '1Year'}>
+              1Year
+            </Button>
           </ButtonContainer>
           <ReactApexChart
             type="candlestick"

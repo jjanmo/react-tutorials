@@ -12,16 +12,41 @@ export const addComma = (number: number | undefined): string => {
   return number.toLocaleString();
 };
 
-export const covertMonthFormat = (month: number): string => (month > 8 ? `${month + 1}` : `0${month + 1}`);
+export const covertMonthFormat = (month: number): string =>
+  month > 8 ? `${month + 1}` : `0${month + 1}`;
 
-export const covertDateFormat = (date: number) => (date > 9 ? `${date}` : `0${date}`);
+export const covertDateFormat = (date: number) =>
+  date > 9 ? `${date}` : `0${date}`;
 
-export const getBeforeWeek = (): string[] => {
+export const getDurationDate = (duration: string): string[] => {
   const now = new Date();
-  const end = `${now.getFullYear()}-${covertMonthFormat(now.getMonth())}-${covertDateFormat(now.getDate())}`;
+  const end = `${now.getFullYear()}-${covertMonthFormat(
+    now.getMonth()
+  )}-${covertDateFormat(now.getDate())}`;
 
-  now.setDate(now.getDate() - 13);
-  const start = `${now.getFullYear()}-${covertMonthFormat(now.getMonth())}-${covertDateFormat(now.getDate())}`;
+  switch (duration) {
+    case '1Week': {
+      now.setDate(now.getDate() - 7);
+      break;
+    }
+    case '1Month': {
+      now.setDate(now.getDate() - 30);
+      break;
+    }
+    case '6Month': {
+      now.setDate(now.getDate() - 180);
+      break;
+    }
+    case '1Year': {
+      now.setDate(now.getDate() - 365);
+      break;
+    }
+    default: {
+    }
+  }
+  const start = `${now.getFullYear()}-${covertMonthFormat(
+    now.getMonth()
+  )}-${covertDateFormat(now.getDate())}`;
 
   return [start, end];
 };
@@ -29,12 +54,19 @@ export const getBeforeWeek = (): string[] => {
 export const xaxisFormatter = (value: number | string): string => {
   const date = new Date(value);
 
-  return `${date.getFullYear()}-${covertMonthFormat(date.getMonth())}-${covertDateFormat(date.getDate())}`;
+  return `${date.getFullYear()}-${covertMonthFormat(
+    date.getMonth()
+  )}-${covertDateFormat(date.getDate())}`;
 };
 
 export const parseCandleData = (data: IOHLCData[]) => {
   return data.map((item) => ({
     x: new Date(item.time_open),
-    y: [roundNumber(item.open), roundNumber(item.high), roundNumber(item.low), roundNumber(item.close)],
+    y: [
+      roundNumber(item.open),
+      roundNumber(item.high),
+      roundNumber(item.low),
+      roundNumber(item.close),
+    ],
   }));
 };
