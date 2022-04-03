@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Auth from '../pages/Auth';
-import Home from '../pages/Home';
+import Auth from 'pages/Auth';
+import Home from 'pages/Home';
 import Layout from './Layout';
 
 function AppRouter({ isLoggedIn }) {
@@ -11,7 +11,7 @@ function AppRouter({ isLoggedIn }) {
           {isLoggedIn ? (
             <Route index element={<Home />} />
           ) : (
-            <Route path="auth" element={<Auth />} />
+            <Route index element={<Auth />} />
           )}
         </Route>
       </Routes>
