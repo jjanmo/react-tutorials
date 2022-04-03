@@ -8,12 +8,21 @@
 
 > 지금와서 새삼 느끼는 것은 공홈의 내용들이 진짜 너무나 중요한 내용들이었다는 사실을 다시금 깨닫고 있다. `주요 개념 파트`뿐만 아니라 `고급 안내서 파트`는 알고 있다고 하더라도 **반드시 정독**을 해봐야할 부분이라고 생각하고 있다.
 
-## Project02
-
-> 리액트 공식 홈페이지의 주요 개념(정리 못한 부분)과 고급 안내서를 읽으면서 간과하기 쉬운 `개념/정의`들과 `왜 이렇게 될까` 에 집중해서 정리해보고자 한다.
-
 ## Project03
 
 > Crypto Tracker with NomadCoders
 
 > Typescript + React(with Webpack: No CRA) + React Query + Recoil
+
+- [ ] chart 파트 -> react query 사용해서 리팩토링
+- [ ] refetchinterval에 대해서
+- [ ] price 파트 -> 그래프
+- [ ] loading component -> suspense에 대해서 생각해보기
+
+## Project04
+
+## Project05
+
+> Twitter Clone Coding with NomadCoders
+
+> 사실 `Firebase`를 좀 더 실전적으로 사용하는 방법에 대해서 알고 싶어서 시작하게 된 튜터리얼s~~ 🙏
