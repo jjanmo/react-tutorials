@@ -1,8 +1,9 @@
 import { AuthContext } from 'context/auth';
 import { useContext, useState } from 'react';
-import firebaseApp from 'config/firebase';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+  const navigate = useNavigate();
   const { createUserByEmailAndPassword } = useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     email: '',
@@ -23,6 +24,7 @@ function SignUp() {
   const onClickSubmit = async (e) => {
     e.preventDefault();
     createUserByEmailAndPassword(userInfo.email, userInfo.password);
+    navigate('/');
   };
 
   return (

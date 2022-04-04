@@ -2,8 +2,9 @@ import { createContext, useEffect, useState } from 'react';
 import firebaseApp from 'config/firebase';
 import {
   getAuth,
-  onAuthStateChanged,
   createUserWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
 } from 'firebase/auth';
 
 export const AuthContext = createContext();
@@ -28,11 +29,20 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const logOut = () => {
+    try {
+      signOut(auth);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user: currentUser,
         createUserByEmailAndPassword,
+        logOut,
       }}
     >
       {children}
