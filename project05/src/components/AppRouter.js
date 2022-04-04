@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Auth from 'pages/Auth';
 import Home from 'pages/Home';
 import Layout from './Layout';
 import { useContext } from 'react';
 import { AuthContext } from 'context/auth';
+import SignUp from 'pages/SignUp';
 
 function AppRouter() {
   const { user } = useContext(AuthContext);
@@ -15,7 +15,7 @@ function AppRouter() {
           {user ? (
             <Route index element={<Home />} />
           ) : (
-            <Route index element={<Auth />} />
+            <Route index element={<SignUp />} />
           )}
         </Route>
       </Routes>
