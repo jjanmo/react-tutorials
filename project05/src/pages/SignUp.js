@@ -20,7 +20,7 @@ function SignUp() {
     });
   };
 
-  const onClickSubmit = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
     signUpByEmailAndPassword(userInfo.email, userInfo.password);
     // 로딩 -> 홈으로 이동
@@ -33,7 +33,7 @@ function SignUp() {
 
   return (
     <div>
-      <form onSubmit={onClickSubmit}>
+      <form onSubmit={onSubmit}>
         <input
           type="email"
           name="email"

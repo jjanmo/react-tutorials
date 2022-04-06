@@ -8,6 +8,7 @@ import {
   GoogleAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
+  signInWithEmailAndPassword,
 } from 'firebase/auth';
 
 export const AuthContext = createContext();
@@ -32,11 +33,13 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logOut = () => {
+  const signInByEmailAndPassword = async (email, password) => {
     try {
-      signOut(auth);
+      const user = await signInWithEmailAndPassword(auth, email, password);
+      console.log(user);
     } catch (error) {
-      console.log(error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
     }
   };
 
@@ -53,8 +56,16 @@ export const AuthProvider = ({ children }) => {
 
       const user = result.user;
       console.log(user);
-    } catch (e) {
-      console.log(e);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const logOut = () => {
+    try {
+      signOut(auth);
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -63,6 +74,7 @@ export const AuthProvider = ({ children }) => {
       value={{
         user: currentUser,
         signUpByEmailAndPassword,
+        signInByEmailAndPassword,
         logOut,
         signInWithProvider,
       }}
