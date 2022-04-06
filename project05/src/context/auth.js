@@ -5,6 +5,9 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  GithubAuthProvider,
+  signInWithPopup,
 } from 'firebase/auth';
 
 export const AuthContext = createContext();
@@ -19,7 +22,7 @@ export const AuthProvider = ({ children }) => {
     });
   }, [auth]);
 
-  const createUserByEmailAndPassword = async (email, password) => {
+  const signUpByEmailAndPassword = async (email, password) => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password);
       console.log(user);
@@ -37,12 +40,31 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signInWithProvider = async (type) => {
+    try {
+      let result;
+      if (type === 'google') {
+        const provider = new GoogleAuthProvider();
+        result = await signInWithPopup(auth, provider);
+      } else if (type === 'github') {
+        const provider = new GithubAuthProvider();
+        result = await signInWithPopup(auth, provider);
+      }
+
+      const user = result.user;
+      console.log(user);
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user: currentUser,
-        createUserByEmailAndPassword,
+        signUpByEmailAndPassword,
         logOut,
+        signInWithProvider,
       }}
     >
       {children}

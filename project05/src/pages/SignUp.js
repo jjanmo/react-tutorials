@@ -1,10 +1,9 @@
 import { AuthContext } from 'context/auth';
 import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
-  const navigate = useNavigate();
-  const { createUserByEmailAndPassword } = useContext(AuthContext);
+  const { signUpByEmailAndPassword, signInWithProvider } =
+    useContext(AuthContext);
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
@@ -21,10 +20,15 @@ function SignUp() {
     });
   };
 
-  const onClickSubmit = async (e) => {
+  const onClickSubmit = (e) => {
     e.preventDefault();
-    createUserByEmailAndPassword(userInfo.email, userInfo.password);
-    navigate('/');
+    signUpByEmailAndPassword(userInfo.email, userInfo.password);
+    // 로딩 -> 홈으로 이동
+  };
+
+  const onClickProvider = (e) => {
+    const type = e.target.dataset.type;
+    signInWithProvider(type);
   };
 
   return (
@@ -48,8 +52,12 @@ function SignUp() {
       </form>
       -----------------------
       <ul>
-        <button>Sign up with Google</button>
-        <button>Sign up with Github</button>
+        <button data-type="google" onClick={onClickProvider}>
+          Sign up with Google
+        </button>
+        <button data-type="github" onClick={onClickProvider}>
+          Sign up with Github
+        </button>
       </ul>
     </div>
   );
