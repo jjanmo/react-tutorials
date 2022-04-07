@@ -15,9 +15,13 @@ const GlobalStyles = createGlobalStyle`
 
   body{
     min-width: 37.5rem;
-    max-width: 80rem;
+    max-width: 60rem;
     height: 100vh;
     margin : 0 auto;
+  }
+  a{
+    color : inherit;
+    text-decoration: none;
   }
 `;
 
