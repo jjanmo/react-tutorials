@@ -16,8 +16,8 @@ const GlobalStyles = createGlobalStyle`
   body{
     min-width: 37.5rem;
     max-width: 60rem;
-    height: 100vh;
-    margin : 0 auto;
+    height: calc(100vh - 2rem);
+    margin : 1rem auto;
   }
   a{
     color : inherit;

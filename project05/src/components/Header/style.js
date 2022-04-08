@@ -63,34 +63,36 @@ export const Button = styled.div`
   height: 3.6rem;
 
   margin-right: 1rem;
-  border-radius: 0.2rem;
+  border-radius: 2rem;
 
   background-color: ${({ type }) =>
     type === 'signin' ? '#e36c61' : '#60948c'};
 
   cursor: pointer;
-
-  align-items: center;
+  user-select: none;
 
   &::before {
     content: '';
-    width: 100%;
+    width: 70%;
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
-    z-index: 100;
+    left: 30%;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
 
     transition: all 0.2s ease-in-out;
   }
+
   &:hover::before {
     background-color: rgba(0, 0, 0, 0.2);
   }
 `;
+
 export const SLink = styled(Link)`
   width: 100%;
   height: 100%;
-  padding-right: 1.2rem;
+  padding-right: 1.5rem;
   text-transform: uppercase;
 
   display: flex;

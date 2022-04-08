@@ -1,6 +1,7 @@
 import { AuthContext } from 'context/auth';
 import Signin from 'icons/Signin';
 import Signup from 'icons/Signup';
+import KoalaText from 'icons/KoalaText';
 import { useContext } from 'react';
 import * as S from './style';
 
@@ -16,7 +17,7 @@ function Header() {
         </>
       ) : (
         <>
-          <div>Koala Talks</div>
+          <KoalaText />
           <S.ButtonWrapper>
             <S.Button type="signin">
               <Signin />
