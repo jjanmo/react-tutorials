@@ -1,6 +1,7 @@
 import { AuthContext } from 'context/auth';
+import Signin from 'icons/Signin';
+import Signup from 'icons/Signup';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
 import * as S from './style';
 
 function Header() {
@@ -11,15 +12,21 @@ function Header() {
       {user ? (
         <>
           <div>{user.email}</div>
-          <button onClick={logOut}>Logout</button>
+          <S.LogoutBtn onClick={logOut}>logout</S.LogoutBtn>
         </>
       ) : (
         <>
           <div>Koala Talks</div>
-          <S.LinkWrapper>
-            <Link to="/signin">SignIn</Link>
-            <Link to="/signup">SignUp</Link>
-          </S.LinkWrapper>
+          <S.ButtonWrapper>
+            <S.Button type="signin">
+              <Signin />
+              <S.SLink to="/signin">signin</S.SLink>
+            </S.Button>
+            <S.Button type="signup">
+              <Signup />
+              <S.SLink to="/signup">signup</S.SLink>
+            </S.Button>
+          </S.ButtonWrapper>
         </>
       )}
     </S.Container>

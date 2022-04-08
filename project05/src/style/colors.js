@@ -12,6 +12,7 @@ const COLOR = {
   PRIMARY_110: '#a0d1ce',
 
   WHITE: '#fff',
+  BLACK: '#000',
 };
 
 export default COLOR;
