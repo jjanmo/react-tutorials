@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 100%;
   height: 6rem;
-  padding: 0 2rem;
+  padding: 0 1rem;
   margin: 1rem 0;
   border-radius: 1rem;
 
@@ -22,9 +22,9 @@ export const Container = styled.div`
 export const LogoutBtn = styled.button`
   position: relative;
   padding: 0.8rem 4rem;
+  margin-right: 1rem;
   border-radius: 0.2rem;
 
-  outline: none;
   border: none;
 
   background-color: ${COLOR.PRIMARY_060};
@@ -32,7 +32,8 @@ export const LogoutBtn = styled.button`
 
   cursor: pointer;
   text-transform: uppercase;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 600;
 
   &::before {
     content: '';
@@ -71,33 +72,23 @@ export const Button = styled.div`
   cursor: pointer;
   user-select: none;
 
-  &::before {
-    content: '';
-    width: 70%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 30%;
-    border-top-right-radius: 2rem;
-    border-bottom-right-radius: 2rem;
-
-    transition: all 0.2s ease-in-out;
+  & > svg {
+    transition: all 0.3s ease-in;
   }
 
-  &:hover::before {
-    background-color: rgba(0, 0, 0, 0.2);
+  &:hover > svg {
+    transform: scale(1.2);
+    border-radius: 50%;
   }
 `;
 
 export const SLink = styled(Link)`
   width: 100%;
   height: 100%;
-  padding-right: 1.5rem;
+  padding-right: 1rem;
   text-transform: uppercase;
 
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
-  transform: translateY(2px);
 `;
