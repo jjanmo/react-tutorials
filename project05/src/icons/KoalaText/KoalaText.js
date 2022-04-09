@@ -3,7 +3,7 @@ import styled, { keyframes } from 'styled-components';
 
 function KoalaText() {
   return (
-    <SVG width="250" height="60" viewBox="0 0 250 60">
+    <SVG width="280" height="60" viewBox="0 0 280 60">
       <text x="0" y="50%">
         K
       </text>
