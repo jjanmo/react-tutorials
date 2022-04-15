@@ -1,5 +1,5 @@
-import { AuthContext } from '@context/auth'
 import React, { useContext, useState } from 'react'
+import { AuthContext } from '../context/auth'
 
 function SignUp() {
   const { signUpByEmailAndPassword, signInWithProvider } = useContext(AuthContext)
@@ -26,7 +26,7 @@ function SignUp() {
   }
 
   const onClickProvider = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const type = (e.target as HTMLElement).dataset.type
+    const type = (e.target as HTMLElement).dataset.type as string
     signInWithProvider(type)
   }
 

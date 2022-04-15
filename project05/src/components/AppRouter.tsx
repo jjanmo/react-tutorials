@@ -1,8 +1,8 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from 'pages/Home';
-import Layout from './Layout';
-import SignUp from 'pages/SignUp';
-import SignIn from 'pages/SignIn';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Home from '../pages/Home'
+import SignIn from '../pages/SignIn'
+import SignUp from '../pages/SignUp'
+import Layout from './Layout'
 
 function AppRouter() {
   return (
@@ -15,7 +15,7 @@ function AppRouter() {
         </Route>
       </Routes>
     </Router>
-  );
+  )
 }
 
-export default AppRouter;
+export default AppRouter

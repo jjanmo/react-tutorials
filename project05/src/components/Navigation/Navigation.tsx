@@ -1,5 +1,5 @@
-import LottieIcon from 'icons/LottieIcon';
-import * as S from './style';
+import LottieIcon from 'src/icons/LottieIcon'
+import * as S from './Navigation.style'
 
 function Navigation() {
   return (
@@ -22,7 +22,7 @@ function Navigation() {
         </S.Item>
       </S.NavWrapper>
     </S.Container>
-  );
+  )
 }
 
-export default Navigation;
+export default Navigation

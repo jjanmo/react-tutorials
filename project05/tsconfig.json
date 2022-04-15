@@ -5,22 +5,12 @@
     "jsx": "preserve",
     "module": "commonjs",
     "moduleResolution": "node",
-    "rootDir": "./",
+    // "rootDir": "./",
     "baseUrl": "./",
-    "paths": {
-      "@assets/*": ["src/assets/*"],
-      "@components/*": ["src/components/*"],
-      "@config/*": ["src/config/*"],
-      "@context/*": ["src/context/*"],
-      "@hooks/*": ["src/hooks/*"],
-      "@pages/*": ["src/pages/*"],
-      "@style/*": ["src/style/*"],
-      "@icons/*": ["src/icons/*"]
-    },
+    "paths": {},
 
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
-    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
 
     "allowJs": true,
     "checkJs": true,
@@ -32,5 +22,7 @@
     "noImplicitAny": false,
     "strictNullChecks": false,
     "skipLibCheck": true
-  }
+  },
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }

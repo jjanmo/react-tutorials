@@ -1,5 +1,5 @@
-import COLOR from '@style/colors'
 import styled, { keyframes } from 'styled-components'
+import COLOR from '../../style/colors'
 
 function KoalaText() {
   return (

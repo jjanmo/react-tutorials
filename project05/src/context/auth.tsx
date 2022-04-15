@@ -1,5 +1,6 @@
-import firebaseApp from '@config/firebase'
 import {
+  User,
+  UserCredential,
   getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
@@ -10,13 +11,14 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
-import { AuthProviderProps } from './types'
+import app from '../config/firebaseSetup'
+import { AuthContextType, AuthProviderProps } from './types'
 
-export const AuthContext = createContext({})
+export const AuthContext = createContext({} as AuthContextType)
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const auth = getAuth(firebaseApp)
-  const [currentUser, setCurrentUser] = useState(null)
+  const auth = getAuth(app)
+  const [currentUser, setCurrentUser] = useState<User | null>(null)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -24,39 +26,39 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     })
   }, [auth])
 
-  const signUpByEmailAndPassword = async (email, password) => {
+  const signUpByEmailAndPassword = async (email: string, password: string) => {
     try {
       const user = await createUserWithEmailAndPassword(auth, email, password)
       console.log(user)
-    } catch (error) {
+    } catch (error: any) {
       const errorCode = error.code
       const errorMessage = error.message
     }
   }
 
-  const signInByEmailAndPassword = async (email, password) => {
+  const signInByEmailAndPassword = async (email: string, password: string) => {
     try {
       const user = await signInWithEmailAndPassword(auth, email, password)
       console.log(user)
-    } catch (error) {
+    } catch (error: any) {
       const errorCode = error.code
       const errorMessage = error.message
     }
   }
 
-  const signInWithProvider = async (type) => {
+  const signInWithProvider = async (type: string) => {
     try {
-      let result
+      let result: Promise<UserCredential>
       if (type === 'google') {
         const provider = new GoogleAuthProvider()
-        result = await signInWithPopup(auth, provider)
+        // result = await signInWithPopup(auth, provider)
       } else if (type === 'github') {
         const provider = new GithubAuthProvider()
-        result = await signInWithPopup(auth, provider)
+        // result = await signInWithPopup(auth, provider)
       }
 
-      const user = result.user
-      console.log(user)
+      // const user = result.user as User
+      // console.log(user)
     } catch (error) {
       console.log(error)
     }
@@ -73,7 +75,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   return (
     <AuthContext.Provider
       value={{
-        user: currentUser,
+        user: currentUser as User,
         signUpByEmailAndPassword,
         signInByEmailAndPassword,
         logOut,
