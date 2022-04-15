@@ -1,5 +1,5 @@
-import COLOR from 'style/colors';
-import styled, { keyframes } from 'styled-components';
+import COLOR from '@style/colors'
+import styled, { keyframes } from 'styled-components'
 
 function KoalaText() {
   return (
@@ -35,10 +35,10 @@ function KoalaText() {
         S
       </text>
     </SVG>
-  );
+  )
 }
 
-export default KoalaText;
+export default KoalaText
 
 const stroke = keyframes`
     0%{
@@ -47,7 +47,7 @@ const stroke = keyframes`
     100%{
       stroke-dashoffset: 0px;
     }
-`;
+`
 
 const SVG = styled.svg`
   transform: translateY(25%);
@@ -62,4 +62,4 @@ const SVG = styled.svg`
     stroke-dashoffset: 70px;
     animation: ${stroke} 3s linear infinite;
   }
-`;
+`

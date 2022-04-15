@@ -1,35 +1,34 @@
-import { AuthContext } from 'context/auth';
-import { useContext, useState } from 'react';
+import { AuthContext } from '@context/auth'
+import React, { useContext, useState } from 'react'
 
-function SignIn() {
-  const { signInWithProvider, signInByEmailAndPassword } =
-    useContext(AuthContext);
+function SignUp() {
+  const { signUpByEmailAndPassword, signInWithProvider } = useContext(AuthContext)
   const [userInfo, setUserInfo] = useState({
     email: '',
     password: '',
-  });
+  })
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const {
       target: { name, value },
-    } = e;
+    } = e
 
     setUserInfo({
       ...userInfo,
       [name]: value,
-    });
-  };
+    })
+  }
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    signInByEmailAndPassword(userInfo.email, userInfo.password);
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    signUpByEmailAndPassword(userInfo.email, userInfo.password)
     // 로딩 -> 홈으로 이동
-  };
+  }
 
-  const onClickProvider = (e) => {
-    const type = e.target.dataset.type;
-    signInWithProvider(type);
-  };
+  const onClickProvider = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const type = (e.target as HTMLElement).dataset.type
+    signInWithProvider(type)
+  }
 
   return (
     <div>
@@ -38,11 +37,13 @@ function SignIn() {
           type="email"
           name="email"
           placeholder="Email"
+          value={userInfo.email}
           onChange={onChange}
         />
         <input
           type="password"
           name="password"
+          value={userInfo.password}
           placeholder="Password"
           onChange={onChange}
         />
@@ -51,15 +52,14 @@ function SignIn() {
       -----------------------
       <ul>
         <button data-type="google" onClick={onClickProvider}>
-          Continue with Google
+          Sign up with Google
         </button>
         <button data-type="github" onClick={onClickProvider}>
-          Continue with Github
+          Sign up with Github
         </button>
       </ul>
-      <span>Already have an account? Log in.</span>
     </div>
-  );
+  )
 }
 
-export default SignIn;
+export default SignUp

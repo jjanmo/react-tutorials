@@ -1,12 +1,12 @@
-import { AuthContext } from 'context/auth';
-import Signin from 'icons/Signin';
-import Signup from 'icons/Signup';
-import KoalaText from 'icons/KoalaText';
-import { useContext } from 'react';
-import * as S from './style';
+import { AuthContext } from '@context/auth'
+import { useContext } from 'react'
+import KoalaText from '@icons/KoalaText'
+import Signin from '@icons/Signin'
+import Signup from '@icons/Signup'
+import * as S from './Header.style'
 
 function Header() {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = useContext(AuthContext)
 
   return (
     <S.Container>
@@ -31,7 +31,7 @@ function Header() {
         </>
       )}
     </S.Container>
-  );
+  )
 }
 
-export default Header;
+export default Header

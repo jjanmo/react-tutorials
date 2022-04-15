@@ -48,6 +48,7 @@
     ]
   },
   "devDependencies": {
-    "@trivago/prettier-plugin-sort-imports": "^3.2.0"
+    "@trivago/prettier-plugin-sort-imports": "^3.2.0",
+    "@types/styled-components": "^5.1.25"
   }
 }

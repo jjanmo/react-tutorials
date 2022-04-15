@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom';
-import COLOR from 'style/colors';
-import styled from 'styled-components';
+import { Link } from 'react-router-dom'
+import COLOR from 'style/colors'
+import styled from 'styled-components'
 
 export const Container = styled.div`
   width: 100%;
@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   color: ${COLOR.WHITE};
   background-color: ${COLOR.PRIMARY_040};
-`;
+`
 
 export const LogoutBtn = styled.button`
   position: relative;
@@ -52,13 +52,13 @@ export const LogoutBtn = styled.button`
   &:hover:before {
     width: 100%;
   }
-`;
+`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-`;
+`
 
-export const Button = styled.div`
+export const Button = styled.div<{ type: string }>`
   position: relative;
   width: 13rem;
   height: 3.6rem;
@@ -66,8 +66,7 @@ export const Button = styled.div`
   margin-right: 1rem;
   border-radius: 2rem;
 
-  background-color: ${({ type }) =>
-    type === 'signin' ? '#e36c61' : '#60948c'};
+  background-color: ${({ type }) => (type === 'signin' ? '#e36c61' : '#60948c')};
 
   cursor: pointer;
   user-select: none;
@@ -80,7 +79,7 @@ export const Button = styled.div`
     transform: scale(1.2);
     border-radius: 50%;
   }
-`;
+`
 
 export const SLink = styled(Link)`
   width: 100%;
@@ -91,4 +90,4 @@ export const SLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-`;
+`
