@@ -1,4 +1,4 @@
-import { User, UserCredential } from 'firebase/auth'
+import { User } from 'firebase/auth'
 
 export interface AuthContextType {
   user: User

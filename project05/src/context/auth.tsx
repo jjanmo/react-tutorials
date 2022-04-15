@@ -1,3 +1,4 @@
+import app from '@config/firebaseSetup'
 import {
   User,
   UserCredential,
@@ -11,7 +12,6 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth'
 import { createContext, useEffect, useState } from 'react'
-import app from '../config/firebaseSetup'
 import { AuthContextType, AuthProviderProps } from './types'
 
 export const AuthContext = createContext({} as AuthContextType)

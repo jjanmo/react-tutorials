@@ -1,8 +1,8 @@
+import { AuthContext } from '@context/auth'
 import { useContext } from 'react'
-import KoalaText from 'src/icons/KoalaText'
-import Signin from 'src/icons/Signin'
-import Signup from 'src/icons/Signup'
-import { AuthContext } from '../../context/auth'
+import KoalaText from '@icons/KoalaText'
+import Signin from '@icons/Signin'
+import Signup from '@icons/Signup'
 import * as S from './Header.style'
 
 function Header() {

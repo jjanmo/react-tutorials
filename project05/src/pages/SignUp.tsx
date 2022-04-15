@@ -1,5 +1,5 @@
+import { AuthContext } from '@context/auth'
 import React, { useContext, useState } from 'react'
-import { AuthContext } from '../context/auth'
 
 function SignUp() {
   const { signUpByEmailAndPassword, signInWithProvider } = useContext(AuthContext)

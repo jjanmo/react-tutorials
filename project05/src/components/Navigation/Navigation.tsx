@@ -1,4 +1,4 @@
-import LottieIcon from 'src/icons/LottieIcon'
+import LottieIcon from '@icons/LottieIcon'
 import * as S from './Navigation.style'
 
 function Navigation() {

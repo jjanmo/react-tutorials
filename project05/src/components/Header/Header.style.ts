@@ -1,6 +1,6 @@
+import COLOR from '@style/colors'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import COLOR from '../../style/colors'
 
 export const Container = styled.div`
   width: 100%;
@@ -77,7 +77,7 @@ export const Button = styled.div<{ type: string }>`
 
   &:hover > svg {
     transform: scale(1.2);
-    border-radius: 50%;
+    border-radius: 1rem;
   }
 `
 

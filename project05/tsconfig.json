@@ -7,8 +7,6 @@
     "moduleResolution": "node",
     // "rootDir": "./",
     "baseUrl": "./",
-    "paths": {},
-
     // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
     // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
 
@@ -23,6 +21,7 @@
     "strictNullChecks": false,
     "skipLibCheck": true
   },
-  "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig.path.json"
 }
