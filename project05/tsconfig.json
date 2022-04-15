@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "rootDir": "./",
+    "baseUrl": "./",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/components/*"],
+      "@config/*": ["src/config/*"],
+      "@context/*": ["src/context/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@pages/*": ["src/pages/*"],
+      "@style/*": ["src/style/*"]
+    },
+
+    // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
+    // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
+    // "types": [],                                      /* Specify type package names to be included without being referenced in a source file. */
+
+    "allowJs": true,
+    "checkJs": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "skipLibCheck": true
+  }
+}
