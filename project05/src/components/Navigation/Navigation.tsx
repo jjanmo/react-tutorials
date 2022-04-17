@@ -1,4 +1,3 @@
-import LottieIcon from '@icons/LottieIcon'
 import * as S from './Navigation.style'
 
 function Navigation() {
@@ -6,19 +5,16 @@ function Navigation() {
     <S.Container>
       <S.NavWrapper>
         <S.Item>
-          <S.StyledLink to="/">
-            <LottieIcon type="home" size={5} />
-          </S.StyledLink>
+          <S.StyledLink to="/">Home</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/talks">
-            <LottieIcon type="talks" size={8} />
-          </S.StyledLink>
+          <S.StyledLink to="/talks">Talks</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/me">
-            <LottieIcon type="koala" size={6} />
-          </S.StyledLink>
+          <S.StyledLink to="/me">Profile</S.StyledLink>
+        </S.Item>
+        <S.Item>
+          <S.StyledLink to="/todos">Todo</S.StyledLink>
         </S.Item>
       </S.NavWrapper>
     </S.Container>
