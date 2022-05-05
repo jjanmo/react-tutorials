@@ -9,8 +9,14 @@ import { LogoContainer } from './styles';
 const Detail = () => {
   const { id } = useParams();
 
-  const { isLoading: coinLoading, data: coinInfo } = useQuery(['coinInfo', id], () => fetchCoinById(id));
-  const { isLoading: tickerLoading, data: tickerInfo } = useQuery(['tickerInfo', id], () => fetchTickerById(id));
+  const { isLoading: coinLoading, data: coinInfo } = useQuery(
+    ['coinInfo', id],
+    () => fetchCoinById(id)
+  );
+  const { isLoading: tickerLoading, data: tickerInfo } = useQuery(
+    ['tickerInfo', id],
+    () => fetchTickerById(id)
+  );
 
   const isLoading = coinLoading || tickerLoading;
 
@@ -23,7 +29,10 @@ const Detail = () => {
       ) : (
         <>
           <LogoContainer>
-            <img src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`} alt="logo" />
+            {/* <img
+              src={`https://cryptoicon-api.vercel.app/api/icon/${coinInfo?.symbol.toLowerCase()}`}
+              alt="logo"
+            /> */}
             <div>{coinInfo?.name}</div>
             <div>/{coinInfo?.symbol}</div>
           </LogoContainer>

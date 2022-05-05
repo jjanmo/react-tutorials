@@ -17,9 +17,9 @@ const Coin = ({ coin, price, percentChange }: IItemProps) => {
     <SCoin>
       <SLink to={coin?.id || ''}>
         <LogoBox>
-          <Logo
+          {/* <Logo
             src={`https://images.coinviewer.io/currencies/64x64/${coin?.symbol}.png`}
-          />
+          /> */}
         </LogoBox>
         <NameBox>
           <div>{coin?.name}</div>

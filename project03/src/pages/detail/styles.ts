@@ -8,14 +8,14 @@ export const LogoContainer = styled.div`
     width: 50px;
     margin-right: 10px;
   }
-  & > div:nth-child(2) {
+  & > div:nth-child(1) {
     height: 50px;
     font-size: 45px;
     display: flex;
     align-items: flex-end;
     margin-right: 10px;
   }
-  & > div:nth-child(3) {
+  & > div:nth-child(2) {
     height: 50px;
     font-size: 30px;
     color: #636e72;
