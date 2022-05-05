@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { INavItemProps } from './../../interfaces';
+import { INavItemProps } from '../../types/coin';
 
 export const SNav = styled.nav`
   width: 100%;
@@ -29,7 +29,8 @@ export const SNav = styled.nav`
   }
 `;
 export const Item = styled.div<INavItemProps>`
-  background-color: ${(props) => (props.isActive ? props.theme.activeColor : 'transparent')};
+  background-color: ${(props) =>
+    props.isActive ? props.theme.activeColor : 'transparent'};
 `;
 export const LinkText = styled.div<{ isActive: boolean }>`
   width: 50%;

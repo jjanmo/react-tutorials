@@ -1,6 +1,6 @@
 import React from 'react';
 import Coin from '../coin';
-import { IListProps } from '../../interfaces';
+import { IListProps } from '../../types/coin';
 
 const List = ({ tickers }: IListProps) => {
   return (

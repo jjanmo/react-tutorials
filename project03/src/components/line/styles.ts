@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ILineProps } from '../../interfaces';
+import { ILineProps } from '../../types/coin';
 
 export const StyledLine = styled.hr<ILineProps>`
   border: none;

@@ -1,14 +1,25 @@
 import React from 'react';
-import { IItemProps } from '../../interfaces';
+import { IItemProps } from '../../types/coin';
 import { roundNumber } from '../../utils/functions';
-import { ChangeBox, Logo, LogoBox, NameBox, NumberBox, SCoin, SLink } from './styles';
+import {
+  ChangeBox,
+  Logo,
+  LogoBox,
+  NameBox,
+  NumberBox,
+  SCoin,
+  SLink,
+} from './styles';
 
 const Coin = ({ coin, price, percentChange }: IItemProps) => {
+  console.log(coin?.symbol);
   return (
     <SCoin>
       <SLink to={coin?.id || ''}>
         <LogoBox>
-          <Logo src={`https://cryptoicon-api.vercel.app/api/icon/${coin?.symbol.toLowerCase()}`} />
+          <Logo
+            src={`https://images.coinviewer.io/currencies/64x64/${coin?.symbol}.png`}
+          />
         </LogoBox>
         <NameBox>
           <div>{coin?.name}</div>
@@ -26,7 +37,12 @@ const Coin = ({ coin, price, percentChange }: IItemProps) => {
               : '#989FAB'
           }
         >
-          <div>{percentChange && percentChange > 0 ? `+${percentChange}` : percentChange}%</div>
+          <div>
+            {percentChange && percentChange > 0
+              ? `+${percentChange}`
+              : percentChange}
+            %
+          </div>
         </ChangeBox>
       </SLink>
     </SCoin>

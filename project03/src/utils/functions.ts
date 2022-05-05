@@ -1,4 +1,4 @@
-import { IOHLCData } from './../interfaces';
+import { IOHLCData } from '../types/coin';
 
 export const roundNumber = (price: number): string => {
   if (price < 0.0001) return price.toFixed(8);

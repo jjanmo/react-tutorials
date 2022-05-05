@@ -1,7 +1,7 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
 import Line from '../../components/line';
-import { ICoinInfo, ITicker } from '../../interfaces';
+import { ICoinInfo, ITicker } from '../../types/coin';
 import { addComma } from '../../utils/functions';
 import { DescContainer, InfoContainer, LinkContainer, Row } from './styles';
 

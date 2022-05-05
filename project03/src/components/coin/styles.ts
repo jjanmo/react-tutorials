@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { StyledBox } from '../../interfaces';
+import { StyledBox } from '../../types/coin';
 
 export const SCoin = styled.li`
   width: 100%;
