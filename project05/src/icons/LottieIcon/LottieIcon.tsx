@@ -1,4 +1,4 @@
-import lottie from 'lottie-web'
+import lottie, { AnimationItem } from 'lottie-web'
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
@@ -8,29 +8,32 @@ interface Props {
 }
 
 function LottieIcon({ type, size }: Props) {
-  const containerElem = useRef<HTMLElement>(null)
+  const containerElem = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    let animation: AnimationItem
     if (containerElem.current) {
-      lottie.loadAnimation({
-        container: containerElem.current as HTMLElement,
+      animation = lottie.loadAnimation({
+        container: containerElem.current,
         renderer: 'svg',
-        autoplay: false,
+        autoplay: true,
         animationData: require(`../../assets/lotties/${type}.json`),
       })
     }
+
+    return () => animation.destroy()
   }, [containerElem, type])
 
   const handleMouseEnter = () => {
-    lottie.play()
+    lottie.stop()
   }
   const handleMouseLeave = () => {
-    lottie.pause()
+    lottie.play()
   }
 
   return (
     <Container
-      // ref={containerElem}
+      ref={containerElem}
       size={size}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -40,7 +43,7 @@ function LottieIcon({ type, size }: Props) {
 
 export default LottieIcon
 
-const Container = styled.div<{ size: number }>`
+const Container = styled.div<{ size?: number }>`
   width: 100%;
-  height: ${({ size }) => size && `${size}rem`};
+  height: ${({ size }) => `${size}rem` || '100%'};
 `

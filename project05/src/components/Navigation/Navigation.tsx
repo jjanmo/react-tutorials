@@ -11,10 +11,10 @@ function Navigation() {
           <S.StyledLink to="/talks">Talks</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/me">Profile</S.StyledLink>
+          <S.StyledLink to="/todos">Todo</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/todos">Todo</S.StyledLink>
+          <S.StyledLink to="/me">Profile</S.StyledLink>
         </S.Item>
       </S.NavWrapper>
     </S.Container>
