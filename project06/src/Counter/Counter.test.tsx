@@ -41,3 +41,26 @@ test('on/off button has dodgerblue background, white color', () => {
   expect(onoffBtnElem).toHaveStyle({ 'background-color': 'dodgerblue' })
   expect(onoffBtnElem).toHaveStyle({ color: 'white' })
 })
+
+test('click on/off button, enabled buttons become disabled', () => {
+  render(<Counter />)
+  const onoffBtnElem = screen.getByTestId('onoff-btn')
+  const plusBtnElem = screen.getByTestId('plus-btn')
+  const minusBtnElem = screen.getByTestId('minus-btn')
+
+  fireEvent.click(onoffBtnElem)
+  expect(plusBtnElem).toBeDisabled()
+  expect(minusBtnElem).toBeDisabled()
+})
+
+test('click on/off button, disabled buttons become enabled', () => {
+  render(<Counter />)
+  const onoffBtnElem = screen.getByTestId('onoff-btn')
+  const plusBtnElem = screen.getByTestId('plus-btn')
+  const minusBtnElem = screen.getByTestId('minus-btn')
+
+  fireEvent.click(onoffBtnElem)
+  fireEvent.click(onoffBtnElem)
+  expect(plusBtnElem).toBeEnabled()
+  expect(minusBtnElem).toBeEnabled()
+})
