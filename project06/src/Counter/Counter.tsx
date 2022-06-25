@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import * as S from './Counter.style'
 
 function Counter() {
   const [count, setCount] = useState(0)
@@ -16,6 +17,9 @@ function Counter() {
         <button data-testid="minus-btn" onClick={handleClickMinus}>
           -
         </button>
+      </div>
+      <div>
+        <S.OnOffButton data-testid="onoff-btn">ON/OFF</S.OnOffButton>
       </div>
     </div>
   )

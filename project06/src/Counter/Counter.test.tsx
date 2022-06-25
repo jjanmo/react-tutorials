@@ -34,3 +34,10 @@ test('click minus button, subtract one(from 0 to -1)', () => {
   fireEvent.click(minusBtnElem)
   expect(countElem).toHaveTextContent('-1')
 })
+
+test('on/off button has dodgerblue background, white color', () => {
+  render(<Counter />)
+  const onoffBtnElem = screen.getByTestId('onoff-btn')
+  expect(onoffBtnElem).toHaveStyle({ 'background-color': 'dodgerblue' })
+  expect(onoffBtnElem).toHaveStyle({ color: 'white' })
+})
