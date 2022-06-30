@@ -13,9 +13,3 @@ export const Container = styled.div`
   border: 1px solid ${COLORS.PRIMARY_030};
   border-radius: 10px;
 `
-export const Welcome = styled.h1`
-  margin-top: 2rem;
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-`

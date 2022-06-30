@@ -1,21 +1,27 @@
 {
   "compilerOptions": {
     "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "jsx": "preserve",
     "module": "commonjs",
-    "lib": ["dom", "es6"],
+    "moduleResolution": "node",
+    // "rootDir": "./",
+    "baseUrl": "./",
+    // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
+    // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
+
     "allowJs": true,
     "checkJs": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "noImplicitAny": true,
-    "strictNullChecks": true,
+    "noEmit": true,
+    "isolatedModules": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "jsx": "react",
-    "removeComments": true
+    "strict": false,
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "skipLibCheck": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules"]
+  "include": ["**/*.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig.path.json"
 }

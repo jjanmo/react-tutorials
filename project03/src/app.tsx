@@ -1,20 +1,14 @@
-import React from 'react';
-import Router from './router';
-import { ThemeProvider } from 'styled-components';
-import { darkTheme, lightTheme } from './styles/theme';
-import GlobalStyles from './globalStyles';
-import { useRecoilValue } from 'recoil';
-import { isDarkAtom } from './recoil/atom';
+import { AuthProvider } from '@context/auth'
+import GlobalStyles from '@style/GlobalStyles'
+import AppRouter from './AppRouter'
 
-const App = () => {
-  const isDark = useRecoilValue(isDarkAtom);
-
+function App() {
   return (
-    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+    <AuthProvider>
       <GlobalStyles />
-      <Router />
-    </ThemeProvider>
-  );
-};
+      <AppRouter />
+    </AuthProvider>
+  )
+}
 
-export default App;
+export default App
