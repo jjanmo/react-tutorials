@@ -1,5 +1,11 @@
+import SummaryPage from './pages/SummaryPage'
+
 function ShopApp() {
-  return <>This is Shop App</>
+  return (
+    <div>
+      <SummaryPage />
+    </div>
+  )
 }
 
 export default ShopApp
