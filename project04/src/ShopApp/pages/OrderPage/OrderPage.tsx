@@ -1,5 +1,11 @@
+import Type from './Type'
+
 function OrderPage() {
-  return <></>
+  return (
+    <div>
+      <Type orderType="products" />
+    </div>
+  )
 }
 
 export default OrderPage
