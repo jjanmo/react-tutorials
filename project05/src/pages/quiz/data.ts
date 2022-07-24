@@ -1,10 +1,10 @@
-export interface Data {
+export interface DataType {
   question: string
   options: string[]
   answer: string
 }
 
-export const data: Data[] = [
+export const data: DataType[] = [
   {
     question: 'In which HTML element do we put in JavaScript code?',
     options: ['js', 'script', 'body', 'link'],
