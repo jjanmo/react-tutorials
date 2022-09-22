@@ -1,6 +1,9 @@
 const path = require('path');
 const RefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const dotenv = require('dotenv');
+const webpack = require('webpack');
+dotenv.config();
 
 module.exports = {
   name: 'crypto tracker',
@@ -20,7 +23,11 @@ module.exports = {
           {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ],
               plugins: ['@babel/plugin-transform-runtime'],
             },
           },
@@ -46,7 +53,13 @@ module.exports = {
       },
     ],
   },
-  plugins: [new RefreshWebpackPlugin(), new CleanWebpackPlugin()],
+  plugins: [
+    new RefreshWebpackPlugin(),
+    new CleanWebpackPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
