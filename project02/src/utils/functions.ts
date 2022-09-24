@@ -1,4 +1,4 @@
-import { IOHLCData } from '../types/coin';
+import { IOHLCData } from '../types/ticker';
 
 export const roundNumber = (price: number): string => {
   if (price < 0.0001) return price.toFixed(8);
@@ -42,6 +42,7 @@ export const getDurationDate = (duration: string): string[] => {
       break;
     }
     default: {
+      now.setDate(now.getDate() - 1);
     }
   }
   const start = `${now.getFullYear()}-${covertMonthFormat(

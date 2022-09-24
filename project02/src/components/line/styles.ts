@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ILineProps } from '../../types/coin';
+import { ILineProps } from '../../types/ticker';
 
 export const StyledLine = styled.hr<ILineProps>`
   border: none;

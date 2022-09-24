@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { INavItemProps } from '../../types/coin';
+import { INavItemProps } from '../../types/ticker';
 
 export const SNav = styled.nav`
   width: 100%;

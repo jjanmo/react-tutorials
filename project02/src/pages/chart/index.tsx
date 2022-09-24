@@ -3,7 +3,7 @@ import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
-import { fetchOHLCData } from '../../apis';
+// import { fetchOHLCData } from '../../apis';
 import {
   getDurationDate,
   parseCandleData,
@@ -18,10 +18,11 @@ const Chart = () => {
   const { id } = useParams();
   const isDark = useRecoilValue(isDarkAtom);
 
-  const [duration, setDuration] = useState('1Week');
+  const [duration, setDuration] = useState('1Day');
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [start, end] = getDurationDate(duration);
+  console.log(duration, start, end);
 
   const series = [
     {
@@ -86,11 +87,12 @@ const Chart = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(
-      `https://api.coinpaprika.com/v1/coins/${id}/ohlcv/historical?start=${start}&end=${end}`
-    )
+    fetch(`https://api.coinpaprika.com/v1/coins/${id}/ohlcv/latest`)
       .then((response) => response.json())
-      .then((json) => setData(json))
+      .then((json) => {
+        console.log('✅', json);
+        setData(json);
+      })
       .finally(() => setIsLoading(false));
   }, [duration]);
 
@@ -114,11 +116,12 @@ const Chart = () => {
               1Year
             </Button>
           </ButtonContainer>
-          <ReactApexChart
+
+          {/* <ReactApexChart
             type="candlestick"
             series={series}
             options={options}
-          />
+          /> */}
         </div>
       )}
     </>

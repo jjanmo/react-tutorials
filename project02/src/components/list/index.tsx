@@ -1,17 +1,16 @@
 import React from 'react';
 import Coin from '../coin';
-import { IListProps } from '../../types/coin';
+import { Ticker } from '../../types/ticker';
 
-const List = ({ tickers }: IListProps) => {
+interface IProps {
+  tickers: Ticker[];
+}
+
+const List = ({ tickers }: IProps) => {
   return (
     <ul>
-      {tickers?.slice(0, 100).map((ticker, index) => (
-        <Coin
-          key={ticker.symbol}
-          coin={ticker}
-          price={tickers?.[index].quotes.USD.price}
-          percentChange={tickers?.[index].quotes.USD.percent_change_24h}
-        />
+      {tickers?.slice(0, 50).map((ticker, index) => (
+        <Coin key={ticker.symbol} coin={ticker} />
       ))}
     </ul>
   );
