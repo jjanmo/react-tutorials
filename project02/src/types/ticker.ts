@@ -1,5 +1,17 @@
-// interface related coin-ticker
-export interface IQuote {
+export interface Ticker {
+  id: string;
+  name: string;
+  symbol: string;
+  rank: number;
+  circulating_supply: number;
+  total_supply: number;
+  max_supply: number;
+  beta_value: number;
+  first_data_at: string;
+  last_updated: string;
+  quotes: Quote;
+}
+export interface Quote {
   USD: {
     price: number;
     volume_24h: number;
@@ -20,29 +32,9 @@ export interface IQuote {
     percent_from_price_ath: number;
   };
 }
-export interface ITicker {
-  id: string;
-  name: string;
-  symbol: string;
-  rank: number;
-  circulating_supply: number;
-  total_supply: number;
-  max_supply: number;
-  beta_value: number;
-  first_data_at: string;
-  last_updated: string;
-  quotes: IQuote;
-}
 
-// list & item
-export interface IListProps {
-  tickers?: ITicker[];
-}
-export interface IItemProps {
-  coin?: ITicker;
-  price?: number;
-  percentChange?: number;
-}
+// deprecated
+
 export interface StyledBox {
   bgColor: string;
 }

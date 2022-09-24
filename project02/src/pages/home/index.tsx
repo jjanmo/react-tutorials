@@ -1,14 +1,16 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import List from '../../components/list';
-import { ITicker } from '../../types/coin';
 import { fetchTickers } from '../../apis';
+import List from '../../components/list';
+import { Ticker } from '../../types/ticker';
 
 const Home = () => {
-  const { isLoading, data: tickers } = useQuery<ITicker[]>(
+  const { isLoading, data: tickers } = useQuery<Ticker[]>(
     'tickers',
     fetchTickers
   );
+
+  if (!tickers) return null;
 
   return <>{isLoading ? <div>loading...</div> : <List tickers={tickers} />}</>;
 };

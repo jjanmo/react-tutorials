@@ -1,5 +1,5 @@
 import React from 'react';
-import { IItemProps } from '../../types/coin';
+import { Ticker } from '../../types/ticker';
 import { roundNumber } from '../../utils/functions';
 import {
   ChangeBox,
@@ -11,16 +11,16 @@ import {
   SLink,
 } from './styles';
 
-const Coin = ({ coin, price, percentChange }: IItemProps) => {
-  console.log(coin?.symbol);
+interface IProps {
+  coin: Ticker;
+  price: number;
+  percentChange: number;
+}
+
+const Coin = ({ coin, price, percentChange }: IProps) => {
   return (
     <SCoin>
       <SLink to={coin?.id || ''}>
-        <LogoBox>
-          {/* <Logo
-            src={`https://images.coinviewer.io/currencies/64x64/${coin?.symbol}.png`}
-          /> */}
-        </LogoBox>
         <NameBox>
           <div>{coin?.name}</div>
           <div>{coin?.symbol}/USD</div>
