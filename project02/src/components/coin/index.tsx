@@ -1,34 +1,27 @@
 import React from 'react';
 import { Ticker } from '../../types/ticker';
 import { roundNumber } from '../../utils/functions';
-import {
-  ChangeBox,
-  Logo,
-  LogoBox,
-  NameBox,
-  NumberBox,
-  SCoin,
-  SLink,
-} from './styles';
+import * as S from './styles';
 
 interface IProps {
   coin: Ticker;
-  price: number;
-  percentChange: number;
 }
 
-const Coin = ({ coin, price, percentChange }: IProps) => {
+const Coin = ({ coin }: IProps) => {
+  const price = coin.quotes.USD.price;
+  const percentChange = coin.quotes.USD.percent_change_24h;
+
   return (
-    <SCoin>
-      <SLink to={coin?.id || ''}>
-        <NameBox>
-          <div>{coin?.name}</div>
-          <div>{coin?.symbol}/USD</div>
-        </NameBox>
-        <NumberBox>
+    <S.Coin>
+      <S.SLink to={coin.id}>
+        <S.Name>
+          <div>{coin.symbol}</div>
+          <div>{coin.name}</div>
+        </S.Name>
+        <S.Price>
           <div>${price && roundNumber(price)}</div>
-        </NumberBox>
-        <ChangeBox
+        </S.Price>
+        <S.Change
           bgColor={
             percentChange && percentChange > 0
               ? '#42A66D' //
@@ -43,9 +36,9 @@ const Coin = ({ coin, price, percentChange }: IProps) => {
               : percentChange}
             %
           </div>
-        </ChangeBox>
-      </SLink>
-    </SCoin>
+        </S.Change>
+      </S.SLink>
+    </S.Coin>
   );
 };
 
