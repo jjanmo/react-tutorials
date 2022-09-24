@@ -9,9 +9,9 @@ import {
   parseCandleData,
   roundNumber,
   xaxisFormatter,
-} from '../../utils/functions';
+} from '../../../utils/functions';
 import { useRecoilValue } from 'recoil';
-import { isDarkAtom } from '../../recoil/atom';
+import { isDarkAtom } from '../../../recoil/atom';
 import { Button, ButtonContainer } from './styles';
 
 const Chart = () => {

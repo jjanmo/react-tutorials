@@ -1,12 +1,13 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import Line from '../../components/line';
-import { ICoinInfo, Ticker } from '../../types/ticker';
-import { addComma } from '../../utils/functions';
+import Line from '../../../components/line';
+import { Coin } from '../../../types/coin';
+import { Ticker } from '../../../types/ticker';
+import { addComma } from '../../../utils/functions';
 import { DescContainer, InfoContainer, LinkContainer, Row } from './styles';
 
 const Info = () => {
-  const [coinInfo, tickerInfo] = useOutletContext<[ICoinInfo, Ticker]>();
+  const [coinInfo, tickerInfo] = useOutletContext<[Coin, Ticker]>();
 
   return (
     <InfoContainer>

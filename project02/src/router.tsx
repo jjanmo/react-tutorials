@@ -2,9 +2,9 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/home';
 import Detail from './pages/detail';
-import Chart from './pages/chart';
+import Chart from './pages/detail/chart';
 import Price from './pages/price';
-import Info from './pages/info';
+import Info from './pages/detail/info';
 import Layout from './components/layout';
 
 const Router = () => {
