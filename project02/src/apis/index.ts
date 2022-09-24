@@ -6,15 +6,8 @@ const BASE_URL = 'https://api.coinpaprika.com/v1';
 export const fetchTickers = () =>
   axios.get<Ticker[]>(`${BASE_URL}/tickers`).then((res) => res.data);
 
-// export function fetchTickers(): Promise<ITicker[]> {
-//   return fetch(`${BASIC_URL}v1/tickers`).then((response) => response.json());
-// }
-
-// export function fetchCoinById(id: string | undefined): Promise<ICoinInfo> {
-//   return fetch(`https://api.coinpaprika.com/v1/coins/${id}`).then((response) =>
-//     response.json()
-//   );
-// }
+export const fetchCoinById = (id: string) =>
+  axios.get(`${BASE_URL}/coins/${id}`).then((res) => res.data);
 
 // export function fetchTickerById(id: string | undefined): Promise<ITicker> {
 //   return fetch(`https://api.coinpaprika.com/v1/tickers/${id}`).then(

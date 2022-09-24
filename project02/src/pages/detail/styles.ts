@@ -1,25 +1,31 @@
 import styled from 'styled-components';
 
 export const LogoContainer = styled.div`
+  width: fit-content;
+  margin: auto;
   display: flex;
   align-items: center;
-  justify-content: center;
-  & > img {
+
+  & img {
     width: 50px;
-    margin-right: 10px;
+    margin-right: 20px;
   }
-  & > div:nth-child(1) {
-    height: 50px;
-    font-size: 45px;
-    display: flex;
-    align-items: flex-end;
-    margin-right: 10px;
+  & div:nth-of-type(1) {
+    font-size: 40px;
+    margin-right: 5px;
+    align-self: center;
   }
-  & > div:nth-child(2) {
-    height: 50px;
+  & div:nth-of-type(2) {
     font-size: 30px;
     color: #636e72;
-    display: flex;
-    align-items: flex-end;
+    align-self: center;
+    margin-top: 6px;
   }
+`;
+
+export const Loading = styled.div`
+  width: 100%;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 20px;
 `;
