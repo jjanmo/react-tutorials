@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InfoContainer = styled.div`
+export const Container = styled.div`
   margin: 20px 0;
 `;
 
@@ -19,10 +19,17 @@ export const Row = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 20px;
-  padding: 5px 10px;
-  margin: 10px 0;
+  padding: 15px 10px;
+
   & > div:nth-child(2) {
     font-weight: bold;
+  }
+  & + & {
+    margin-top: 5px;
+  }
+
+  &:hover {
+    background-color: #eee;
   }
 `;
 
@@ -33,8 +40,11 @@ export const DescContainer = styled.div`
   & > div:first-child {
     margin-bottom: 10px;
   }
-  & > div:nth-child(2) {
+  & > div:last-child {
     font-size: 1rem;
     line-height: 22px;
+  }
+  &:hover {
+    background-color: #eee;
   }
 `;

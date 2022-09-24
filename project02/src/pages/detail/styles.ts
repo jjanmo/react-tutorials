@@ -28,4 +28,5 @@ export const Loading = styled.div`
   padding: 1em 0;
   text-align: center;
   font-size: 20px;
+  text-transform: uppercase;
 `;

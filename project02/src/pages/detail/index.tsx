@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Outlet, useParams } from 'react-router';
-import { fetchCoinById } from '../../apis';
+import { fetchCoinById, fetchTickerById } from '../../apis';
 import Line from '../../components/line';
 import Nav from '../../components/nav';
 import { Coin } from '../../types/coin';
@@ -15,12 +15,12 @@ const Detail = () => {
     () => fetchCoinById(id as string)
   );
 
-  // const { isLoading: tickerLoading, data: tickerInfo } = useQuery(
-  //   ['tickerInfo', id],
-  //   () => fetchTickerById(id)
-  // );
+  const { isLoading: tickerLoading, data: ticker } = useQuery(
+    ['tickerInfo', id],
+    () => fetchTickerById(id as string)
+  );
 
-  const isLoading = coinLoading;
+  const isLoading = coinLoading || tickerLoading;
 
   return (
     <>
@@ -36,7 +36,7 @@ const Detail = () => {
             <div>/ {coin?.symbol}</div>
           </S.LogoContainer>
           <Line text="§§§" />
-          <Outlet context={[coin]} />
+          <Outlet context={[coin, ticker]} />
         </>
       )}
     </>
