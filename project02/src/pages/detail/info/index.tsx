@@ -1,6 +1,5 @@
 import React from 'react';
 import { useOutletContext } from 'react-router-dom';
-import Line from '../../../components/line';
 import { Coin } from '../../../types/coin';
 import { Ticker } from '../../../types/ticker';
 import { addComma } from '../../../utils/functions';

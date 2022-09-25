@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { ILineProps } from '../../types/ticker';
 
-export const StyledLine = styled.hr<ILineProps>`
+export const StyledLine = styled.hr<{ text: string }>`
   border: none;
   border-top: 3px double ${(props) => props.theme.textColor};
   color: ${(props) => props.theme.textColor};

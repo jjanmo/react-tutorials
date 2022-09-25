@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { StyledBox } from '../../types/ticker';
 
 export const Coin = styled.li`
   width: 100%;

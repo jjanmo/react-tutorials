@@ -1,4 +1,4 @@
-import { IOHLCData } from '../types/ticker';
+import { OHLCData } from '../types/coin';
 
 export const roundNumber = (price: number): string => {
   if (price < 0.0001) return price.toFixed(8);
@@ -60,7 +60,7 @@ export const xaxisFormatter = (value: number | string): string => {
   )}-${covertDateFormat(date.getDate())}`;
 };
 
-export const parseCandleData = (data: IOHLCData[]) => {
+export const parseCandleData = (data: OHLCData[]) => {
   return data.map((item) => ({
     x: new Date(item.time_open),
     y: [

@@ -1,8 +1,11 @@
 import React from 'react';
 import { StyledLine } from './styles';
-import { ILineProps } from '../../types/ticker';
 
-const Line = ({ text }: ILineProps) => {
+interface IProps {
+  text: string;
+}
+
+const Line = ({ text }: IProps) => {
   return <StyledLine text={text} />;
 };
 

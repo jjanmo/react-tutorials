@@ -11,12 +11,12 @@ const Detail = () => {
   const { id } = useParams();
 
   const { isLoading: coinLoading, data: coin } = useQuery<Coin>(
-    ['coin', id],
+    ['coin-info', id],
     () => fetchCoinById(id as string)
   );
 
   const { isLoading: tickerLoading, data: ticker } = useQuery(
-    ['tickerInfo', id],
+    ['ticker-info', id],
     () => fetchTickerById(id as string)
   );
 

@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { INavItemProps } from '../../types/ticker';
 
 export const SNav = styled.nav`
   width: 100%;
@@ -28,7 +27,7 @@ export const SNav = styled.nav`
     border-right: 2px solid ${(props) => props.theme.borderColor};
   }
 `;
-export const Item = styled.div<INavItemProps>`
+export const Item = styled.div<{ isActive: boolean }>`
   background-color: ${(props) =>
     props.isActive ? props.theme.activeColor : 'transparent'};
 `;

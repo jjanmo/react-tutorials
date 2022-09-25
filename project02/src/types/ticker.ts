@@ -32,28 +32,3 @@ export interface Quote {
     percent_from_price_ath: number;
   };
 }
-
-// deprecated
-
-export interface StyledBox {
-  bgColor: string;
-}
-
-export interface ILineProps {
-  text: string;
-}
-
-export interface INavItemProps {
-  isActive: boolean;
-}
-
-export interface IOHLCData {
-  time_open: string;
-  time_close: string;
-  open: number;
-  high: number;
-  low: number;
-  close: number;
-  volume: number;
-  market_cap: number;
-}
