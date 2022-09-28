@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
-import { fetchTickers } from '../../apis';
+import { fetchTickers } from '../../apis/paprika';
 import List from '../../components/list';
 import { Ticker } from '../../types/ticker';
 

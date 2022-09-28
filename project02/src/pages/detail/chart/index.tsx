@@ -2,8 +2,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
 import { useQuery } from 'react-query';
-import { useParams } from 'react-router-dom';
-// import { fetchOHLCData } from '../../apis';
+import { useOutletContext, useParams } from 'react-router-dom';
 import {
   getDurationDate,
   parseCandleData,
@@ -13,21 +12,41 @@ import {
 import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from '../../../recoil/atom';
 import { Button, ButtonContainer } from './styles';
+import dayjs from 'dayjs';
+import { Coin, OHLCData } from '../../../types/coin';
+import { fetchOHLCData } from '../../../apis/finnhub';
+import { Ticker } from '../../../types/ticker';
 
 const Chart = () => {
-  const { id } = useParams();
   const isDark = useRecoilValue(isDarkAtom);
+  const [coinInfo, tickerInfo] = useOutletContext<[Coin, Ticker]>();
 
-  const [duration, setDuration] = useState('1Day');
-  const [data, setData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [start, end] = getDurationDate(duration);
-  console.log(duration, start, end);
+  const end = Math.floor(new Date().getTime() / 1000);
+  const start = end - 24 * 60 * 60 * 14;
+
+  // const { isLoading, data } = useQuery(['ohlc', coinInfo.id], () =>
+  //   fetchOHLCData({
+  //     symbol: 'ADA',
+  //     resolution: 'D',
+  //     from: start,
+  //     to: end,
+  //   })
+  // );
+
+  // if (!data) return null;
+
+  // console.log(data);
+
+  // const [duration, setDuration] = useState('1Day');
+  // const [data, setData] = useState([]);
+  // const [isLoading, setIsLoading] = useState(false);
+  // const [start, end] = getDurationDate(duration);
+  // console.log(duration, start, end);
 
   const series = [
     {
       name: 'ohlc',
-      data: parseCandleData(data),
+      // data: parseCandleData(data),
     },
   ];
 
@@ -81,28 +100,18 @@ const Chart = () => {
   };
 
   const onClick = useCallback((e) => {
-    const _duration = e.target.textContent;
-    setDuration(_duration);
+    // const _duration = e.target.textContent;
+    // setDuration(_duration);
   }, []);
-
-  useEffect(() => {
-    setIsLoading(true);
-    fetch(`https://api.coinpaprika.com/v1/coins/${id}/ohlcv/latest`)
-      .then((response) => response.json())
-      .then((json) => {
-        console.log('✅', json);
-        setData(json);
-      })
-      .finally(() => setIsLoading(false));
-  }, [duration]);
 
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         <div>Loading...</div>
-      ) : (
-        <div>
-          <ButtonContainer>
+      ) : ( */}
+      <div>
+        hell
+        {/* <ButtonContainer>
             <Button onClick={onClick} selected={duration === '1Week'}>
               1Week
             </Button>
@@ -115,15 +124,14 @@ const Chart = () => {
             <Button onClick={onClick} selected={duration === '1Year'}>
               1Year
             </Button>
-          </ButtonContainer>
-
-          {/* <ReactApexChart
+          </ButtonContainer> */}
+        {/* <ReactApexChart
             type="candlestick"
             series={series}
             options={options}
           /> */}
-        </div>
-      )}
+      </div>
+      {/* )} */}
     </>
   );
 };

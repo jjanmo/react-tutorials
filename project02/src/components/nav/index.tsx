@@ -14,7 +14,7 @@ const Nav = () => {
         <Link to="info">Info</Link>
       </Item>
       <Item isActive={isActiveChart}>
-        {/* <Link to="chart">Chart</Link> */}
+        <Link to="chart">Chart</Link>
       </Item>
       <Item isActive={isActivePrice}>
         {/* <Link to="price">Price</Link> */}

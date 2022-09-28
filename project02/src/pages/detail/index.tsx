@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import { Outlet, useParams } from 'react-router';
-import { fetchCoinById, fetchTickerById } from '../../apis';
+import { fetchCoinById, fetchTickerById } from '../../apis/paprika';
 import Line from '../../components/line';
 import Nav from '../../components/nav';
 import { Coin } from '../../types/coin';
