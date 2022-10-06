@@ -1,31 +1,13 @@
 import { useEffect, useState } from 'react';
+import { useQueryPosts } from '../../hooks/queries/posts';
+import { Post as PostType } from '../../types/posts';
 import * as S from './Posts.style';
 
-interface Post {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-}
-
 function Posts() {
-  const [posts, setPosts] = useState<Post[]>();
   const [currentPage, setCurrentPage] = useState<number>(0);
-  const [selectedPost, setSelectedPost] = useState<Post>();
+  const [selectedPost, setSelectedPost] = useState<PostType>();
 
-  const fetchPosts = async () => {
-    return await fetch(
-      'https://jsonplaceholder.typicode.com/posts?_limit=10&_page=0'
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        setPosts(data);
-      });
-  };
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
+  const { data: posts } = useQueryPosts();
 
   return (
     <S.Container>
@@ -56,7 +38,7 @@ function PostItem({ title, id }: { title: string; id: number }) {
   );
 }
 
-function Post({ body, id, title, userId }: Post) {
+function Post({ body, id, title, userId }: PostType) {
   return (
     <div>
       <h3>{title}</h3>
