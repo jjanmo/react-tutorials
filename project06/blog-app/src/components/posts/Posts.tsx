@@ -35,7 +35,7 @@ function Posts() {
         <button>Next</button>
       </S.ButtonContainer>
 
-      <hr />
+      <S.Line />
 
       {selectedPost && <Post {...selectedPost} />}
     </S.Container>
@@ -62,10 +62,14 @@ function PostItem({
 
 function Post({ body, id, title, userId }: PostType) {
   return (
-    <div>
+    <S.PostContainer>
       <h3>{title}</h3>
-      <div>{userId}</div>
+      <div className="control-buttons">
+        <button>Delete</button>
+        <button>Update Title</button>
+      </div>
+      <div className="user">USER {userId}</div>
       <p>{body}</p>
-    </div>
+    </S.PostContainer>
   );
 }
