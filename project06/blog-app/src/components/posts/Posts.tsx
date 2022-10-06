@@ -9,10 +9,24 @@ function Posts() {
 
   const { data: posts } = useQueryPosts();
 
+  if (!posts) return null;
+
+  const handleClickPost = (id: number) => () => {
+    const selected = posts?.find((post) => post.id === Number(id));
+    setSelectedPost(selected);
+  };
+
   return (
     <S.Container>
       <S.PostList>
-        {posts && posts.map((post) => <PostItem key={post.id} {...post} />)}
+        {posts &&
+          posts.map((post) => (
+            <PostItem
+              key={post.id}
+              {...post}
+              onClick={handleClickPost(post.id)}
+            />
+          ))}
       </S.PostList>
 
       <S.ButtonContainer>
@@ -30,9 +44,17 @@ function Posts() {
 
 export default Posts;
 
-function PostItem({ title, id }: { title: string; id: number }) {
+function PostItem({
+  title,
+  id,
+  onClick,
+}: {
+  title: string;
+  id: number;
+  onClick: () => void;
+}) {
   return (
-    <S.PostItem>
+    <S.PostItem onClick={onClick}>
       <div>{title}</div>
     </S.PostItem>
   );
