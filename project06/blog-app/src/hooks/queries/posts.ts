@@ -1,4 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { fetchPosts } from '../../apis';
 
-export const useQueryPosts = () => useQuery(['posts'], fetchPosts);
+export const useQueryPosts = () =>
+  useQuery(['posts'], fetchPosts, { staleTime: 2000 });
