@@ -1,5 +1,8 @@
 import { useState } from 'react';
-import { useQueryPosts } from '../../hooks/queries/posts';
+import {
+  usePrefetchQueryPosts,
+  useQueryPosts,
+} from '../../hooks/queries/posts';
 import { Post as PostType } from '../../types/posts';
 import Post from '../post/Post';
 import Title from '../title';
@@ -18,10 +21,9 @@ function Posts() {
     error,
   } = useQueryPosts({ pageNumber: currentPage });
 
-  const handleClickPost = (id: number) => () => {
-    const selected = posts?.find((post) => post.id === Number(id));
-    setSelectedPost(selected);
-  };
+  usePrefetchQueryPosts({
+    pageNumber: currentPage >= MAX_PAGE_NUMBER ? currentPage : currentPage + 1,
+  });
 
   const handleClickPrev = () => {
     if (currentPage <= 1) return;
@@ -30,6 +32,11 @@ function Posts() {
   const handleClickNext = () => {
     if (currentPage >= MAX_PAGE_NUMBER) return;
     setCurrentPage(currentPage + 1);
+  };
+
+  const handleClickPost = (id: number) => () => {
+    const selected = posts?.find((post) => post.id === Number(id));
+    setSelectedPost(selected);
   };
 
   if (isLoading)
