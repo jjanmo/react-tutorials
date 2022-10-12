@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useQueryPosts } from '../../hooks/queries/posts';
 import { Post as PostType } from '../../types/posts';
+import Post from '../post/Post';
 import * as S from './Posts.style';
 
 function Posts() {
@@ -69,19 +70,5 @@ function PostItem({
     <S.PostItem onClick={onClick}>
       <div>{title}</div>
     </S.PostItem>
-  );
-}
-
-function Post({ body, id, title, userId }: PostType) {
-  return (
-    <S.PostContainer>
-      <h3>{title}</h3>
-      <div className="control-buttons">
-        <button>Delete</button>
-        <button>Update Title</button>
-      </div>
-      <div className="user">USER {userId}</div>
-      <p>{body}</p>
-    </S.PostContainer>
   );
 }

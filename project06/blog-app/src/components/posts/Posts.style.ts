@@ -46,23 +46,3 @@ export const PostItem = styled.li`
     transform: scale(0.8);
   }
 `;
-
-export const PostContainer = styled.div`
-  height: 30vh;
-  padding: 2rem;
-  font-size: 18px;
-  background-color: #78e08f;
-
-  & h3 {
-    font-size: 24px;
-  }
-  & .control-buttons {
-    width: 100%;
-    text-align: right;
-    margin-bottom: 10px;
-  }
-  & .user {
-    width: 100%;
-    text-align: right;
-  }
-`;
