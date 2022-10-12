@@ -15,7 +15,7 @@ function Post({ body, id: postId, title, userId }: PostType) {
       <div className="user">USER {userId}</div>
       <p>{body}</p>
       <S.CommentContainer>
-        <h3>Coments</h3>
+        <h3>Comments</h3>
 
         <ul>
           {isLoading ? (
@@ -23,7 +23,10 @@ function Post({ body, id: postId, title, userId }: PostType) {
           ) : (
             <>
               {data?.map((comment) => (
-                <li key={comment.id}>{comment.body}</li>
+                <S.Comment key={comment.id}>
+                  <S.Writer>{comment.email}</S.Writer>
+                  <S.Text>{comment.body}</S.Text>
+                </S.Comment>
               ))}
             </>
           )}

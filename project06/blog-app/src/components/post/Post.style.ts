@@ -20,4 +20,33 @@ export const PostContainer = styled.div`
   }
 `;
 
-export const CommentContainer = styled.div``;
+export const CommentContainer = styled.div`
+  ul {
+    padding: 0;
+  }
+`;
+
+export const Comment = styled.li`
+  position: relative;
+  display: flex;
+  list-style: none;
+
+  & + & {
+    margin-top: 1.5rem;
+  }
+
+  &::before {
+    content: '💬';
+    margin-right: 1rem;
+  }
+`;
+export const Writer = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 14px;
+  color: #636e72;
+`;
+export const Text = styled.div`
+  padding-bottom: 1.2rem;
+`;
