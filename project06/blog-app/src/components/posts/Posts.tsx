@@ -5,15 +5,31 @@ import Post from '../post/Post';
 import Title from '../title';
 import * as S from './Posts.style';
 
+const MAX_PAGE_NUMBER = 10;
+
 function Posts() {
-  const [currentPage, setCurrentPage] = useState<number>(0);
+  const [currentPage, setCurrentPage] = useState<number>(1);
   const [selectedPost, setSelectedPost] = useState<PostType>();
 
-  const { data: posts, isError, isLoading, error } = useQueryPosts();
+  const {
+    data: posts,
+    isError,
+    isLoading,
+    error,
+  } = useQueryPosts({ pageNumber: currentPage });
 
   const handleClickPost = (id: number) => () => {
     const selected = posts?.find((post) => post.id === Number(id));
     setSelectedPost(selected);
+  };
+
+  const handleClickPrev = () => {
+    if (currentPage <= 1) return;
+    setCurrentPage(currentPage - 1);
+  };
+  const handleClickNext = () => {
+    if (currentPage >= MAX_PAGE_NUMBER) return;
+    setCurrentPage(currentPage + 1);
   };
 
   if (isLoading)
@@ -46,9 +62,16 @@ function Posts() {
             ))}
         </S.PostList>
         <S.ButtonContainer>
-          <button>Prev</button>
-          <div>{`Page ${currentPage + 1}`}</div>
-          <button>Next</button>
+          <button onClick={handleClickPrev} disabled={currentPage <= 1}>
+            Prev
+          </button>
+          <div>{`Page ${currentPage}`}</div>
+          <button
+            onClick={handleClickNext}
+            disabled={currentPage >= MAX_PAGE_NUMBER}
+          >
+            Next
+          </button>
         </S.ButtonContainer>
       </S.Left>
 
