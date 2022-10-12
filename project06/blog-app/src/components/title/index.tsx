@@ -9,7 +9,7 @@ export default function Title() {
 }
 
 const Container = styled.h1`
-  width: 50vw;
+  width: 100%;
   text-align: center;
   font-size: 35px;
   padding: 20px 0;

@@ -1,13 +1,7 @@
 import Posts from './components/posts';
-import Title from './components/title';
 
 function App() {
-  return (
-    <>
-      <Title />
-      <Posts />
-    </>
-  );
+  return <Posts />;
 }
 
 export default App;

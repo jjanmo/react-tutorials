@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useQueryPosts } from '../../hooks/queries/posts';
 import { Post as PostType } from '../../types/posts';
 import Post from '../post/Post';
+import Title from '../title';
 import * as S from './Posts.style';
 
 function Posts() {
@@ -32,25 +33,26 @@ function Posts() {
 
   return (
     <S.Container>
-      <S.PostList>
-        {posts &&
-          posts.map((post) => (
-            <PostItem
-              key={post.id}
-              {...post}
-              onClick={handleClickPost(post.id)}
-            />
-          ))}
-      </S.PostList>
-      <S.ButtonContainer>
-        <button>Prev</button>
-        <div>{`Page ${currentPage + 1}`}</div>
-        <button>Next</button>
-      </S.ButtonContainer>
+      <S.Left>
+        <Title />
+        <S.PostList>
+          {posts &&
+            posts.map((post) => (
+              <PostItem
+                key={post.id}
+                {...post}
+                onClick={handleClickPost(post.id)}
+              />
+            ))}
+        </S.PostList>
+        <S.ButtonContainer>
+          <button>Prev</button>
+          <div>{`Page ${currentPage + 1}`}</div>
+          <button>Next</button>
+        </S.ButtonContainer>
+      </S.Left>
 
-      <S.Line />
-
-      {selectedPost && <Post {...selectedPost} />}
+      <S.Right>{selectedPost && <Post {...selectedPost} />}</S.Right>
     </S.Container>
   );
 }

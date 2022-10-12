@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: 50vw;
-  height: 50vh;
+  display: flex;
+  justify-content: space-between;
   margin: auto;
 `;
-
+export const Left = styled.section`
+  width: 49%;
+`;
+export const Right = styled.section`
+  width: 49%;
+`;
 export const ButtonContainer = styled.div`
   width: 100%;
   display: flex;
@@ -25,7 +30,6 @@ export const PostList = styled.ul`
   padding: 2rem 0;
   background-color: #f7f1e3;
 `;
-
 export const PostItem = styled.li`
   display: flex;
   align-items: center;
