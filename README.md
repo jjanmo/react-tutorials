@@ -54,3 +54,16 @@ Tab3 : Koalas
 -> 유저 검색기능?
 
 Tab4. todos
+
+## Project06
+
+> React Query에 대해서 알아보는 공간 with [React Query Course](https://www.udemy.com/course/react-query-react/)
+
+<details>
+<summary>Summarized</summary>
+
+- [Section1](./project06/docs/section1.md)
+
+- [Section2](./project06/docs/section2.md)
+
+</details>
