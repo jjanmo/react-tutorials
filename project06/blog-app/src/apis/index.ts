@@ -12,3 +12,6 @@ export const fetchComments = async (id: number) =>
   await axios
     .get<Comment[]>(`${BASE_URL}/comments?postId=${id}`)
     .then((res) => res.data);
+
+export const deletePost = async (postId: number) =>
+  await axios.delete(`${BASE_URL}/posts/${postId}`).then((res) => res.data);
