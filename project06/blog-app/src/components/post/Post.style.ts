@@ -58,3 +58,13 @@ export const Message = styled.div`
   font-size: 1.2rem;
   margin: 0.5rem 0;
 `;
+
+export const Form = styled.form<{ hidden: boolean }>`
+  display: ${({ hidden }) => (hidden ? 'none' : 'flex')};
+  margin: 1rem 0;
+
+  input {
+    width: 100%;
+    padding: 0.2rem;
+  }
+`;

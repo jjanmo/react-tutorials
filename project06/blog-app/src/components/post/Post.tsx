@@ -2,7 +2,7 @@ import { useQueryComments, useMutationDeletePost } from '@hooks/queries';
 import { Post as PostType } from '@apis/types';
 import * as S from './Post.style';
 import useMutationTitle from '@hooks/queries/useMutationTitle';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const actionResultsMap = (action = '') => ({
   isLoading: {
@@ -28,6 +28,8 @@ const actionResultsMap = (action = '') => ({
 function Post({ body, id: postId, title, userId }: PostType) {
   const [newTitle, setNewTitle] = useState(title);
   const setTitle = (title: string) => setNewTitle(title);
+  const [hidden, setHidden] = useState(true);
+  const [value, setValue] = useState('');
 
   const { data, isLoading } = useQueryComments({ postId });
   const {
@@ -46,11 +48,24 @@ function Post({ body, id: postId, title, userId }: PostType) {
     if (result) deletePostById({ postId });
   };
 
-  const handleClickUpdate = () => {
+  const handleClickToggle = () => {
+    setHidden(!hidden);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setValue(value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
     updateTitle({
       postId,
       title: 'Hello World',
     });
+    setValue('');
+    setHidden(!hidden);
   };
 
   return (
@@ -59,7 +74,7 @@ function Post({ body, id: postId, title, userId }: PostType) {
       <div className="control-buttons">
         <button onClick={handleClickDelete}>Delete</button>
 
-        <button onClick={handleClickUpdate}>Update Title</button>
+        <button onClick={handleClickToggle}>Update Title</button>
       </div>
       <S.MessageWrapper>
         {isDeleting && (
@@ -83,6 +98,9 @@ function Post({ body, id: postId, title, userId }: PostType) {
           </S.Message>
         )}
       </S.MessageWrapper>
+      <S.Form hidden={hidden} onSubmit={handleSubmit}>
+        <input type="text" onChange={handleChange} value={value} />
+      </S.Form>
       <div className="user">USER {userId}</div>
       <p>{body}</p>
 
