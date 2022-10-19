@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Comment, Post } from './types';
+import { Comment, Post, UpdatePostPayload } from './types';
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
@@ -15,3 +15,10 @@ export const fetchComments = async (id: number) =>
 
 export const deletePost = async (postId: number) =>
   await axios.delete(`${BASE_URL}/posts/${postId}`).then((res) => res.data);
+
+export const updatePostTitle = async ({ postId, title }: UpdatePostPayload) =>
+  await axios
+    .patch<Post>(`${BASE_URL}/posts/${postId}`, {
+      title,
+    })
+    .then((res) => res.data);

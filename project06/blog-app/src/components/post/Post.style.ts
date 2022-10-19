@@ -51,6 +51,9 @@ export const Text = styled.div`
   padding-bottom: 1.2rem;
 `;
 
+export const MessageWrapper = styled.div`
+  text-align: right;
+`;
 export const Message = styled.div`
   font-size: 1.2rem;
   margin: 0.5rem 0;

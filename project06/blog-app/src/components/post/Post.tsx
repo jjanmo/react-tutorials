@@ -1,70 +1,93 @@
 import { useQueryComments, useMutationDeletePost } from '@hooks/queries';
 import { Post as PostType } from '@apis/types';
 import * as S from './Post.style';
+import useMutationTitle from '@hooks/queries/useMutationTitle';
+import { useState } from 'react';
+
+const actionResultsMap = (action = '') => ({
+  isLoading: {
+    style: {
+      color: 'green',
+    },
+    text: action,
+  },
+  isError: {
+    style: {
+      color: 'red',
+    },
+    text: action,
+  },
+  isSuccess: {
+    style: {
+      color: 'dodgerblue',
+    },
+    text: action,
+  },
+});
 
 function Post({ body, id: postId, title, userId }: PostType) {
+  const [newTitle, setNewTitle] = useState(title);
+  const setTitle = (title: string) => setNewTitle(title);
+
   const { data, isLoading } = useQueryComments({ postId });
   const {
     mutate: deletePostById,
     isLoading: isDeleting,
     isError,
     isSuccess,
-  } = useMutationDeletePost({ postId });
+  } = useMutationDeletePost();
+  const { mutate: updateTitle, isLoading: isUpdating } = useMutationTitle({
+    setTitle,
+  });
 
   const handleClickDelete = () => {
     const result = window.confirm('Really delete this?');
 
-    if (result) deletePostById();
+    if (result) deletePostById({ postId });
   };
 
-  const deletedResult = {
-    isDeleting: {
-      style: {
-        color: 'green',
-      },
-      text: 'Post deleting',
-    },
-    isError: {
-      style: {
-        color: 'red',
-      },
-      text: 'Error on deleting post',
-    },
-    isSuccess: {
-      style: {
-        color: 'dodgerblue',
-      },
-      text: 'This post deleted',
-    },
+  const handleClickUpdate = () => {
+    updateTitle({
+      postId,
+      title: 'Hello World',
+    });
   };
 
   return (
     <S.PostContainer>
-      <h3>{title}</h3>
+      <h3>{newTitle}</h3>
       <div className="control-buttons">
         <button onClick={handleClickDelete}>Delete</button>
+
+        <button onClick={handleClickUpdate}>Update Title</button>
+      </div>
+      <S.MessageWrapper>
         {isDeleting && (
-          <S.Message style={deletedResult.isDeleting.style}>
-            {deletedResult.isDeleting.text}
+          <S.Message style={actionResultsMap().isLoading.style}>
+            {actionResultsMap('Post deleting').isLoading.text}
           </S.Message>
         )}
         {isError && (
-          <S.Message style={deletedResult.isError.style}>
-            {deletedResult.isError.text}
+          <S.Message style={actionResultsMap().isError.style}>
+            {actionResultsMap('Error on deleting post').isError.text}
           </S.Message>
         )}
         {isSuccess && (
-          <S.Message style={deletedResult.isSuccess.style}>
-            {deletedResult.isSuccess.text}
+          <S.Message style={actionResultsMap().isSuccess.style}>
+            {actionResultsMap('Post deleted').isSuccess.text}
           </S.Message>
         )}
-        <button>Update Title</button>
-      </div>
+        {isUpdating && (
+          <S.Message style={actionResultsMap().isLoading.style}>
+            {actionResultsMap('Title updating').isLoading.text}
+          </S.Message>
+        )}
+      </S.MessageWrapper>
       <div className="user">USER {userId}</div>
       <p>{body}</p>
+
       <S.CommentContainer>
         <h3>Comments</h3>
-
         <ul>
           {isLoading ? (
             <h3>Loading...</h3>
