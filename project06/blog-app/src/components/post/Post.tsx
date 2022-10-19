@@ -1,5 +1,5 @@
-import { useQueryComments } from '../../hooks/queries/posts';
-import { Post as PostType } from '../../types/posts';
+import { useQueryComments } from '@hooks/queries';
+import { Post as PostType } from '@apis/types';
 import * as S from './Post.style';
 
 function Post({ body, id: postId, title, userId }: PostType) {

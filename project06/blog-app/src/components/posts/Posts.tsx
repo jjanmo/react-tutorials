@@ -1,9 +1,6 @@
 import { useState } from 'react';
-import {
-  usePrefetchQueryPosts,
-  useQueryPosts,
-} from '../../hooks/queries/posts';
-import { Post as PostType } from '../../types/posts';
+import { useQueryPosts, usePrefetchQueryPosts } from '@hooks/queries';
+import { Post as PostType } from '@apis/types';
 import Post from '../post/Post';
 import Title from '../title';
 import * as S from './Posts.style';

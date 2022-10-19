@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { Comment, Post } from '../types/posts';
+import { Comment, Post } from './types';
 
 const BASE_URL = 'https://jsonplaceholder.typicode.com';
 

@@ -1,5 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
-import { fetchPosts } from '../apis';
+import { fetchPosts } from '@apis/index';
 
 const usePrefetchQueryPosts = ({ pageNumber }: { pageNumber: number }) => {
   const queryClient = useQueryClient();

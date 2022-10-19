@@ -1,8 +1,9 @@
+import { Post } from '@apis/types';
 import { useQuery } from '@tanstack/react-query';
-import { fetchPosts } from '../apis';
+import { fetchPosts } from '@apis/index';
 
 const useQueryPosts = ({ pageNumber }: { pageNumber: number }) =>
-  useQuery(['posts', pageNumber], () => fetchPosts(pageNumber), {
+  useQuery<Post[]>(['posts', pageNumber], () => fetchPosts(pageNumber), {
     staleTime: 2000,
     keepPreviousData: true,
   });
