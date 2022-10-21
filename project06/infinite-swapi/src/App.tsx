@@ -1,5 +1,29 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home';
+import InfiniteScroll from './pages/InfiniteScroll';
+import LoadMoreScroll from './pages/LoadMoreScroll';
+
 function App() {
-  return <div></div>;
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />,
+    },
+    {
+      path: '/infinite-scroll',
+      element: <InfiniteScroll />,
+    },
+    {
+      path: '/loadmore-scroll',
+      element: <LoadMoreScroll />,
+    },
+  ]);
+
+  return (
+    <div>
+      <RouterProvider router={router} />
+    </div>
+  );
 }
 
 export default App;
