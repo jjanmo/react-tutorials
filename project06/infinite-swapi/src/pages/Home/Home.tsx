@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import * as S from './Home.style';
 
 function Home() {
@@ -5,8 +6,12 @@ function Home() {
     <S.Container>
       <h1>Which Scroll do you want to select? 🐥</h1>
       <S.ButtonContainer>
-        <S.Button>Infinite Scroll</S.Button>
-        <S.Button>LoadMore Scroll</S.Button>
+        <S.Button>
+          <Link to="/infinite-scroll">Infinite Scroll</Link>
+        </S.Button>
+        <S.Button>
+          <Link to="/loadmore-scroll">LoadMore Scroll</Link>
+        </S.Button>
       </S.ButtonContainer>
     </S.Container>
   );

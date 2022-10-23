@@ -26,14 +26,8 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   all: unset;
-  width: 10rem;
-  padding: 0.6em 1em;
   border-radius: 10px;
   border: 2px solid #40739e;
-
-  font-size: 18px;
-  text-align: center;
-  text-transform: uppercase;
 
   background-color: #40739e;
   cursor: pointer;
@@ -46,5 +40,14 @@ export const Button = styled.button`
 
   & + & {
     margin-left: 1rem;
+  }
+
+  & a {
+    display: block;
+    width: 15rem;
+    padding: 0.6em 1em;
+    font-size: 18px;
+    text-align: center;
+    text-transform: uppercase;
   }
 `;
