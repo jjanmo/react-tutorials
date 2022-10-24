@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Home from './pages/Home';
-import PeopleScroll from './pages/PeopleScroll';
-import StarshipScroll from './pages/StarshipScroll';
+import Home from '@pages/Home';
+import PeopleScroll from '@pages/PeopleScroll';
+import StarshipScroll from '@pages/StarshipScroll';
 
 function App() {
   const router = createBrowserRouter([
