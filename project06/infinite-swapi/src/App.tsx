@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
-import InfiniteScroll from './pages/InfiniteScroll';
-import LoadMoreScroll from './pages/LoadMoreScroll';
+import PeopleScroll from './pages/PeopleScroll';
+import StarshipScroll from './pages/StarshipScroll';
 
 function App() {
   const router = createBrowserRouter([
@@ -10,12 +10,12 @@ function App() {
       element: <Home />,
     },
     {
-      path: '/infinite-scroll',
-      element: <InfiniteScroll />,
+      path: '/people',
+      element: <PeopleScroll />,
     },
     {
-      path: '/loadmore-scroll',
-      element: <LoadMoreScroll />,
+      path: '/starship',
+      element: <StarshipScroll />,
     },
   ]);
 

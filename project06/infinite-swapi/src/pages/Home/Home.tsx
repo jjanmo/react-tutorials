@@ -7,10 +7,10 @@ function Home() {
       <h1>Which Scroll do you want to select? 🐥</h1>
       <S.ButtonContainer>
         <S.Button>
-          <Link to="/infinite-scroll">Infinite Scroll</Link>
+          <Link to="/people">People 🙇🏻</Link>
         </S.Button>
         <S.Button>
-          <Link to="/loadmore-scroll">LoadMore Scroll</Link>
+          <Link to="/starship">Starship 🚀</Link>
         </S.Button>
       </S.ButtonContainer>
     </S.Container>
