@@ -1,12 +1,18 @@
 import axios from 'axios';
-import * as T from './types';
 
-const BASE_URL = 'https://swapi.dev/api/';
+const STARTWARS_BASE_URL = 'https://swapi.dev/api/';
+const PAPRIKA_BASE_URL = 'https://api.coinpaprika.com/v1/';
 
-export const fetchPeople = async () =>
-  await axios
-    .get<T.FetchPeopleResponse>(`${BASE_URL}/people`)
-    .then((res) => res.data);
+export const SW_API = axios.create({
+  baseURL: STARTWARS_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
 
-export const fetchStarShips = async () =>
-  await axios.get(`${BASE_URL}/starships`).then((res) => res.data);
+export const PR_API = axios.create({
+  baseURL: PAPRIKA_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
