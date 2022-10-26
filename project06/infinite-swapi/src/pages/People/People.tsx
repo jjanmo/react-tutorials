@@ -1,7 +1,10 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { fetchPeople } from '@apis/starwars';
+import Card from './People.Card';
+import * as S from './People.style';
+import PageWrapper from '@components/PageWrapper/PageWrapper';
 
-function PeopleScroll() {
+function People() {
   const { data, hasNextPage, fetchNextPage } = useInfiniteQuery(
     ['sw-people'],
     fetchPeople,
@@ -13,12 +16,14 @@ function PeopleScroll() {
   console.log('🙏', data, hasNextPage, fetchNextPage);
 
   return (
-    <div>
-      {data?.pages.map((page) =>
-        page.results.map((people) => <div>{people.name}</div>)
-      )}
-    </div>
+    <PageWrapper title="StarWars People">
+      <S.Container>
+        {data?.pages.map((page) =>
+          page.results.map((people) => <Card {...people} />)
+        )}
+      </S.Container>
+    </PageWrapper>
   );
 }
 
-export default PeopleScroll;
+export default People;
