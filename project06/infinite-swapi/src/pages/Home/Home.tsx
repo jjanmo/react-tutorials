@@ -12,6 +12,9 @@ function Home() {
         <S.Button>
           <Link to="/starship">Starship 🚀</Link>
         </S.Button>
+        <S.Button>
+          <Link to="/coins">Coins 💰</Link>
+        </S.Button>
       </S.ButtonContainer>
     </S.Container>
   );

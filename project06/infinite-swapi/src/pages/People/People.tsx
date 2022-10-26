@@ -1,5 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { fetchPeople } from '@apis/index';
+import { fetchPeople } from '@apis/starwars';
 
 function PeopleScroll() {
   const { data, hasNextPage, fetchNextPage } = useInfiniteQuery(

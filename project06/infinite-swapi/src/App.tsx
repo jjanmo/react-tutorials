@@ -1,7 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from '@pages/Home';
-import PeopleScroll from '@pages/PeopleScroll';
-import StarshipScroll from '@pages/StarshipScroll';
+import People from '@pages/People';
+import Starship from '@pages/Starship';
+import Coins from '@pages/Coins';
 
 function App() {
   const router = createBrowserRouter([
@@ -11,11 +12,15 @@ function App() {
     },
     {
       path: '/people',
-      element: <PeopleScroll />,
+      element: <People />,
     },
     {
       path: '/starship',
-      element: <StarshipScroll />,
+      element: <Starship />,
+    },
+    {
+      path: '/coins',
+      element: <Coins />,
     },
   ]);
 
