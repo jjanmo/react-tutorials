@@ -21,4 +21,6 @@ const Container = styled.button`
   background-color: #130f40;
 
   text-transform: uppercase;
+
+  cursor: pointer;
 `;

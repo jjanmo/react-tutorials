@@ -7,7 +7,6 @@ export const Container = styled.div`
 
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
 `;
 
@@ -17,6 +16,7 @@ export const ButtonContainer = styled.div`
   margin-top: 2rem;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
@@ -27,6 +27,7 @@ export const ButtonContainer = styled.div`
 
 export const Button = styled.button`
   all: unset;
+  margin: 1rem 2rem;
   border-radius: 10px;
   border: 2px solid #40739e;
 
@@ -39,13 +40,9 @@ export const Button = styled.button`
     background-color: #273c75;
   }
 
-  & + & {
-    margin-left: 1rem;
-  }
-
   & a {
     display: block;
-    width: 15rem;
+    width: 12rem;
     padding: 0.6em 1em;
     font-size: 18px;
     text-align: center;
