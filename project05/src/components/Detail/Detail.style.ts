@@ -2,6 +2,9 @@ import { ButtonGroup, Grid } from '@mui/material'
 import { Box, styled } from '@mui/system'
 
 export const SBox = styled(Box)`
+  position: sticky;
+  top: 2rem;
+
   width: 80%;
   height: 20rem;
   margin: 3rem auto;

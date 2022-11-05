@@ -6,11 +6,8 @@ import { User } from '../../domain'
 import { useParams } from 'react-router-dom'
 
 export default function Detail() {
-  console.log('aaa')
+  const { userId } = useParams()
   const [user, setUser] = useState<User | null>(null)
-  const param = useParams()
-
-  console.log('>>>', param)
 
   useEffect(() => {
     const fetchUser = async (id = 1) =>
@@ -18,8 +15,8 @@ export default function Detail() {
         .then((res) => res.json())
         .then((data) => setUser(data))
 
-    fetchUser()
-  }, [])
+    fetchUser(Number(userId))
+  }, [userId])
 
   return (
     <S.SBox>
