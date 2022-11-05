@@ -1,11 +1,5 @@
-import AppRouter from './AppRouter';
-
 function App() {
-  return (
-    <div>
-      <AppRouter />
-    </div>
-  );
+  return <div className="App">Restart React</div>;
 }
 
 export default App;
