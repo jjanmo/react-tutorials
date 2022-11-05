@@ -1,6 +1,6 @@
-import { ConstructionOutlined } from '@mui/icons-material'
-import { useEffect, useState } from 'react'
-import { isRouteErrorResponse, useRouteError } from 'react-router-dom'
+import { Button, Link, styled } from '@mui/material'
+import { Container } from '@mui/system'
+import { isRouteErrorResponse, Link as RouterLink, useRouteError } from 'react-router-dom'
 
 export default function ErrorPage() {
   const error = useRouteError()
@@ -11,7 +11,7 @@ export default function ErrorPage() {
   }
 
   return (
-    <div>
+    <SContainer>
       {isRouteErrorResponse(error) ? (
         <>
           <h1>{error.status}</h1>
@@ -20,6 +20,32 @@ export default function ErrorPage() {
       ) : (
         <p>Opps! Sorry </p>
       )}
-    </div>
+      <Link component={RouterLink} to="/" underline="none">
+        <Button variant="outlined" size="large" color="error">
+          Go Home
+        </Button>
+      </Link>
+    </SContainer>
   )
 }
+
+const SContainer = styled(Container)`
+  width: 100%;
+  height: 70vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h1 {
+    font-size: 6rem;
+    margin: 0;
+  }
+  p {
+    font-size: 2.5rem;
+  }
+  button {
+    font-weight: bold;
+  }
+`

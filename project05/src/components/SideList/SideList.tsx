@@ -1,4 +1,5 @@
-import { Avatar, List, ListItemAvatar, ListItemText } from '@mui/material'
+import { Avatar, Link, List, ListItemAvatar, ListItemText } from '@mui/material'
+import { Link as RouterLink } from 'react-router-dom'
 import * as S from './SideList.style'
 
 export default function SideList() {
@@ -43,13 +44,15 @@ interface ItemProps {
   avatar: string
 }
 
-function SideListItem({ avatar, name }: ItemProps) {
+function SideListItem({ id, avatar, name }: ItemProps) {
   return (
-    <S.SListItem divider>
-      <ListItemAvatar>
-        <Avatar alt="avatar" src={avatar} />
-      </ListItemAvatar>
-      <ListItemText>{name}</ListItemText>
-    </S.SListItem>
+    <Link component={RouterLink} to={`/contacts/${id}`} underline="none">
+      <S.SListItem divider>
+        <ListItemAvatar>
+          <Avatar alt="avatar" src={avatar} />
+        </ListItemAvatar>
+        <ListItemText>{name}</ListItemText>
+      </S.SListItem>
+    </Link>
   )
 }
