@@ -46,7 +46,7 @@ interface ItemProps {
 
 function SideListItem({ id, avatar, name }: ItemProps) {
   return (
-    <Link component={RouterLink} to={`/contacts/${id}`} underline="none">
+    <Link component={RouterLink} to={`/user/${id}`} underline="none">
       <S.SListItem divider>
         <ListItemAvatar>
           <Avatar alt="avatar" src={avatar} />
