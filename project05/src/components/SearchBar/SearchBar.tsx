@@ -1,4 +1,4 @@
-import { Box, Button, Container, Divider, TextField } from '@mui/material'
+import { Button, Divider } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search'
 import * as S from './SearchBar.style'
 

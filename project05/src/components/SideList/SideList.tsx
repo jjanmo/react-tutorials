@@ -1,4 +1,4 @@
-import { Avatar, List, ListItem, ListItemAvatar, ListItemText } from '@mui/material'
+import { Avatar, List, ListItemAvatar, ListItemText } from '@mui/material'
 import * as S from './SideList.style'
 
 export default function SideList() {
@@ -30,7 +30,7 @@ export default function SideList() {
     <S.SBox>
       <List>
         {list.map((item) => (
-          <SideListItem {...item} />
+          <SideListItem key={item.id} {...item} />
         ))}
       </List>
     </S.SBox>

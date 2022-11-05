@@ -1,28 +1,29 @@
-import { Grid } from '@mui/material'
-import { Container } from '@mui/system'
+import { Grid, styled } from '@mui/material'
 import Detail from '../components/Detail'
 import SearchBar from '../components/SearchBar'
-import SideBar from '../components/SideBar'
+import SideList from '../components/SideList'
 
 export default function Home() {
   return (
-    <Grid container sx={{ width: '100%', height: '100vh' }}>
-      <Grid item xs={4} sx={{ bgcolor: '#dff9fb' }}>
+    <GridContainer container>
+      <GridItem item xs={4} location="left">
         <SearchBar />
 
-        <ul>
-          <li>Jonh</li>
-          <li>Homes</li>
-          <li>Hello</li>
-          <li>Enola</li>
-          <li>Omnajj</li>
-        </ul>
-      </Grid>
-      <Grid item xs={8} sx={{ bgcolor: '#95afc0' }}>
+        <SideList />
+      </GridItem>
+      <GridItem item xs={8} location="right">
         <div>
           hello detailsssss hello detailsssss hello detailsssss hello detailsssss hello detailsssss
         </div>
-      </Grid>
-    </Grid>
+      </GridItem>
+    </GridContainer>
   )
 }
+
+const GridContainer = styled(Grid)`
+  width: 100%;
+  height: 100vh;
+`
+const GridItem = styled(Grid)<{ location: 'left' | 'right' }>`
+  background-color: ${({ location }) => (location === 'right' ? '#f5f6fa' : '#dff9fb')};
+`

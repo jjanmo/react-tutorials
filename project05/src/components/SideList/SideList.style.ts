@@ -14,7 +14,7 @@ export const SListItem = styled(ListItem)`
     margin-top: 10px;
   }
   &:hover {
-    background-color: #eee;
+    background-color: #c7ecee;
   }
 `
 export const SListItemText = styled(ListItemText)``
