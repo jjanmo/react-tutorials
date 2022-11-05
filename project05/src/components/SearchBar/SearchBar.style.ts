@@ -5,8 +5,6 @@ export const SBox = styled(Box)`
   justify-content: space-around;
   align-items: center;
   padding: 2rem 1rem;
-
-  border-bottom: 1px solid black;
 `
 export const STextField = styled(TextField)`
   width: 80%;
