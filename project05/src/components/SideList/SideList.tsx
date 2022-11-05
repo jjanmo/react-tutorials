@@ -1,57 +1,42 @@
 import { Avatar, Link, List, ListItemAvatar, ListItemText } from '@mui/material'
+import { useEffect, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
+import { User } from '../../domain'
 import * as S from './SideList.style'
 
 export default function SideList() {
-  // TODO : props or API
-  const list = [
-    {
-      id: 1,
-      name: 'alexander',
-      avatar: `${process.env.PUBLIC_URL}/default-avatar.png`,
-    },
-    {
-      id: 2,
-      name: 'enola',
-      avatar: `${process.env.PUBLIC_URL}/default-avatar.png`,
-    },
-    {
-      id: 3,
-      name: 'katherine',
-      avatar: `${process.env.PUBLIC_URL}/default-avatar.png`,
-    },
-    {
-      id: 4,
-      name: 'melanie',
-      avatar: `${process.env.PUBLIC_URL}/default-avatar.png`,
-    },
-  ]
+  const [list, setList] = useState<User[]>([])
+
+  useEffect(() => {
+    const fetchUsers = async () =>
+      await fetch('https://dummyjson.com/users')
+        .then((res) => res.json())
+        .then((data) => setList(data.users))
+
+    fetchUsers()
+  }, [])
 
   return (
     <S.SBox>
       <List>
-        {list.map((item) => (
-          <SideListItem key={item.id} {...item} />
-        ))}
+        {list && list.length > 0 ? (
+          list.map((user) => <SideListItem key={user.id} {...user} />)
+        ) : (
+          <div>No Users</div>
+        )}
       </List>
     </S.SBox>
   )
 }
 
-interface ItemProps {
-  id: number
-  name: string
-  avatar: string
-}
-
-function SideListItem({ id, avatar, name }: ItemProps) {
+function SideListItem({ id, image, firstName, lastName }: User) {
   return (
     <Link component={RouterLink} to={`/user/${id}`} underline="none">
       <S.SListItem divider>
         <ListItemAvatar>
-          <Avatar alt="avatar" src={avatar} />
+          <Avatar alt="avatar" src={image} />
         </ListItemAvatar>
-        <ListItemText>{name}</ListItemText>
+        <ListItemText>{`${firstName} ${lastName}`}</ListItemText>
       </S.SListItem>
     </Link>
   )

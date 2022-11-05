@@ -1,5 +1,6 @@
 import { Grid, styled } from '@mui/material'
-import Detail from '../components/Detail'
+import { Outlet } from 'react-router-dom'
+
 import SearchBar from '../components/SearchBar'
 import SideList from '../components/SideList'
 
@@ -8,13 +9,10 @@ export default function Home() {
     <GridContainer container>
       <GridItem item xs={4} location="left">
         <SearchBar />
-
         <SideList />
       </GridItem>
       <GridItem item xs={8} location="right">
-        <div>
-          hello detailsssss hello detailsssss hello detailsssss hello detailsssss hello detailsssss
-        </div>
+        <Outlet />
       </GridItem>
     </GridContainer>
   )

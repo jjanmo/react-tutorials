@@ -2,7 +2,8 @@ import { ButtonGroup, Grid } from '@mui/material'
 import { Box, styled } from '@mui/system'
 
 export const SBox = styled(Box)`
-  width: 50%;
+  width: 80%;
+  height: 20rem;
   margin: 3rem auto;
 
   background-color: #eee;
@@ -26,6 +27,7 @@ export const GridItem = styled(Grid)`
   align-items: center;
 
   img {
+    width: 70%;
     border-radius: 10px;
     border: 1px solid black;
   }
