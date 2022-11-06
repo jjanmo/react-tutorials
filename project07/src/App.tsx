@@ -1,10 +1,11 @@
-import Card from './components/Card';
+import { RouterProvider } from 'react-router-dom';
+import router from './pages/routes';
 
 function App() {
   return (
-    <div>
-      <Card />
-    </div>
+    <>
+      <RouterProvider router={router} />
+    </>
   );
 }
 
