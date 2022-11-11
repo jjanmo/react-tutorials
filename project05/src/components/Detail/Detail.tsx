@@ -23,7 +23,7 @@ export default function Detail() {
       {user ? (
         <S.GridContainer container>
           <S.GridItem item xs={6}>
-            <img src={user?.image} width="80%" height="80%" />
+            <img src={user?.image} width="auto" height="70%" alt="avatar" />
           </S.GridItem>
           <S.GridItem item xs={6}>
             <h2>{`${user.firstName} ${user.lastName}`}</h2>

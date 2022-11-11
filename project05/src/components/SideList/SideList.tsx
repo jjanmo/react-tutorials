@@ -1,29 +1,19 @@
 import { Avatar, Link, List, ListItemAvatar, ListItemText } from '@mui/material'
-import { useEffect, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { User } from '../../domain'
 import * as S from './SideList.style'
+import { useFetchUsers } from '../../hooks/queries'
 
 export default function SideList() {
-  const [list, setList] = useState<User[]>([])
-
-  useEffect(() => {
-    const fetchUsers = async () =>
-      await fetch('https://dummyjson.com/users')
-        .then((res) => res.json())
-        .then((data) => setList(data.users))
-
-    fetchUsers()
-  }, [])
+  const { data, isLoading } = useFetchUsers()
 
   return (
     <S.SBox>
       <List>
-        {list && list.length > 0 ? (
-          list.map((user) => <SideListItem key={user.id} {...user} />)
-        ) : (
-          <div>No Users</div>
-        )}
+        {isLoading && <div>No Users</div>}
+        {data?.users &&
+          data?.users.length > 0 &&
+          data?.users.map((user) => <SideListItem key={user.id} {...user} />)}
       </List>
     </S.SBox>
   )
