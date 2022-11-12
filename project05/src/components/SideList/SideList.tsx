@@ -1,8 +1,8 @@
 import { Avatar, Link, List, ListItemAvatar, ListItemText } from '@mui/material'
 import { Link as RouterLink } from 'react-router-dom'
-import { User } from '../../domain'
 import * as S from './SideList.style'
 import { useFetchUsers } from '../../hooks/queries'
+import { User } from '../../apis/types'
 
 export default function SideList() {
   const { data, isLoading } = useFetchUsers()

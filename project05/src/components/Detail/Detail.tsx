@@ -1,36 +1,28 @@
 import { Button, Tooltip } from '@mui/material'
 import { Male, Female } from '@mui/icons-material'
 import * as S from './Detail.style'
-import { useEffect, useState } from 'react'
-import { User } from '../../domain'
 import { useParams } from 'react-router-dom'
+import { useFetchUser } from '../../hooks/queries'
 
 export default function Detail() {
   const { userId } = useParams()
-  const [user, setUser] = useState<User | null>(null)
-
-  useEffect(() => {
-    const fetchUser = async (id = 1) =>
-      fetch(`https://dummyjson.com/users/${id}`)
-        .then((res) => res.json())
-        .then((data) => setUser(data))
-
-    fetchUser(Number(userId))
-  }, [userId])
+  const { data: user, isLoading } = useFetchUser(Number(userId))
 
   return (
     <S.SBox>
-      {user ? (
+      {isLoading ? (
+        <div style={{ fontSize: '2rem' }}>Loading... 🚀</div>
+      ) : (
         <S.GridContainer container>
           <S.GridItem item xs={6}>
             <img src={user?.image} width="auto" height="70%" alt="avatar" />
           </S.GridItem>
           <S.GridItem item xs={6}>
-            <h2>{`${user.firstName} ${user.lastName}`}</h2>
+            <h2>{`${user?.firstName} ${user?.lastName}`}</h2>
             <div>
               <S.Row>
-                <em>{user.username} </em>
-                {user.gender === 'male' ? (
+                <em>{user?.username} </em>
+                {user?.gender === 'male' ? (
                   <Tooltip title="Male">
                     <Male color="primary" fontSize="large" />
                   </Tooltip>
@@ -40,7 +32,7 @@ export default function Detail() {
                   </Tooltip>
                 )}
               </S.Row>
-              <S.Row>{user.email}</S.Row>
+              <S.Row>{user?.email}</S.Row>
             </div>
 
             <S.SButtonGroup>
@@ -53,8 +45,6 @@ export default function Detail() {
             </S.SButtonGroup>
           </S.GridItem>
         </S.GridContainer>
-      ) : (
-        <div style={{ fontSize: '2rem' }}>Loading... 🚀</div>
       )}
     </S.SBox>
   )
