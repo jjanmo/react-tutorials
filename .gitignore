@@ -3,3 +3,5 @@
 # fake server for test
 server
 shared
+
+.DS_Store
