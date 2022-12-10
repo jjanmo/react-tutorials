@@ -1,4 +1,4 @@
-import * as S from '../components/Detail/Detail.style'
+import * as S from '../../components/Detail/Detail.style'
 
 export default function DefaultDetail() {
   return (
@@ -9,7 +9,7 @@ export default function DefaultDetail() {
         <br />
         and keep developing continuously <br />
         If you have time, take a look this{' '}
-        <a href="https://reactrouter.com/en/main" target="_blank">
+        <a href="https://reactrouter.com/en/main" target="_blank" rel="noreferrer">
           link
         </a>
       </p>

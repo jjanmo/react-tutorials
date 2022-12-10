@@ -1,3 +1,13 @@
+import { Outlet, useMatch } from 'react-router-dom'
+import GNB from '../../components/GNB'
+
 export default function Home() {
-  return <div>This is Home</div>
+  const match = useMatch('/')
+
+  return (
+    <div>
+      {!match && <GNB />}
+      <Outlet />
+    </div>
+  )
 }
