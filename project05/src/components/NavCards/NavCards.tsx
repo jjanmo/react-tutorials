@@ -1,6 +1,6 @@
-import { Box, CardMedia } from '@mui/material'
+import { CardMedia } from '@mui/material'
 import { Link } from 'react-router-dom'
-import { CARD_DATA } from './Card.data'
+import { routes } from '../../constants/routes'
 import { Title, SList, SCard, SContainer } from './NavCards.style'
 
 export default function NavCards() {
@@ -8,10 +8,14 @@ export default function NavCards() {
     <SContainer fixed>
       <Title>Libraries 📚?!</Title>
       <SList>
-        {CARD_DATA.map((card, index) => (
-          <Link key={index} to={card.path}>
+        {routes.map((route) => (
+          <Link key={route.path} to={route.path}>
             <SCard variant="outlined">
-              <CardMedia image={card.image} component="img" sx={{ width: '70%' }} />
+              <CardMedia
+                image={require(`../../assets/${route.imageName}.png`)}
+                component="img"
+                sx={{ width: '70%' }}
+              />
             </SCard>
           </Link>
         ))}
