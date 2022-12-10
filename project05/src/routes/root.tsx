@@ -7,7 +7,6 @@ import ReactRouter from '../pages/react-router'
 import D3Chart from '../pages/d3-chart'
 import DndBoard from '../pages/dnd-board'
 import HookForm from '../pages/hook-form'
-import GNB from '../components/GNB'
 
 export const router = createBrowserRouter([
   {

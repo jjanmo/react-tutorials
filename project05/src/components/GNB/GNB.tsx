@@ -14,9 +14,9 @@ export default function GNB() {
     // </S.STabs>
     <div>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="react-router">React Router Tutorial</NavLink>
-      <NavLink to="hook-form">DND Kit</NavLink>
-      <NavLink to="d3-chart">D3 Charts</NavLink>
+      <NavLink to="/react-router">React Router Tutorial</NavLink>
+      <NavLink to="/hook-form">DND Kit</NavLink>
+      <NavLink to="/d3-chart">D3 Charts</NavLink>
     </div>
   )
 }
