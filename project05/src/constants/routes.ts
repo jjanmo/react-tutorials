@@ -21,6 +21,11 @@ export const routes: RouteType[] = [
     imageName: 'dndkit',
   },
   {
+    title: 'react beautiful dnd',
+    path: '/rbd',
+    imageName: 'rbd',
+  },
+  {
     title: 'D3 Charts',
     path: '/d3-chart',
     imageName: 'd3',

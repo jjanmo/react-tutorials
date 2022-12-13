@@ -7,6 +7,7 @@ import ReactRouter from '../pages/react-router'
 import D3Chart from '../pages/d3-chart'
 import DndBoard from '../pages/dnd-board'
 import HookForm from '../pages/hook-form'
+import Rbd from '../pages/rbd'
 
 export const router = createBrowserRouter([
   {
@@ -36,6 +37,11 @@ export const router = createBrowserRouter([
       {
         path: '/dnd-board',
         element: <DndBoard />,
+        errorElement: <ErrorPage />,
+      },
+      {
+        path: '/rbd',
+        element: <Rbd />,
         errorElement: <ErrorPage />,
       },
       {

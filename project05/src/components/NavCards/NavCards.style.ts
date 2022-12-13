@@ -22,8 +22,8 @@ export const SList = styled(List)`
 `
 
 export const SCard = styled(Card)`
-  max-width: 200px;
-  height: 200px;
+  max-width: 150px;
+  height: 150px;
   margin: 1rem;
 
   display: flex;
