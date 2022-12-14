@@ -16,6 +16,14 @@ export default function Rbd() {
       id: 3,
       content: 'CSS 공부하기!',
     },
+    {
+      id: 4,
+      content: '요가하기',
+    },
+    {
+      id: 5,
+      content: '피아노 배우기',
+    },
   ]
 
   const handleDragEnd = () => {}
@@ -56,6 +64,7 @@ export default function Rbd() {
                     )}
                   </Draggable>
                 ))}
+                {provided.placeholder}
               </List>
             )}
           </Droppable>
