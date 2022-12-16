@@ -1,42 +1,19 @@
 import { Container, List, ListItem, ListItemIcon } from '@mui/material'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
+import { useRecoilState } from 'recoil'
+import { todosState } from '../../modules/todos/atoms'
+import * as S from './rbd.style'
 
 export default function Rbd() {
-  const todos = [
-    {
-      id: 1,
-      content: '자바스크립트 공부하기',
-    },
-    {
-      id: 2,
-      content: 'D3 튜터리얼 하기!',
-    },
-    {
-      id: 3,
-      content: 'CSS 공부하기!',
-    },
-    {
-      id: 4,
-      content: '요가하기',
-    },
-    {
-      id: 5,
-      content: '피아노 배우기',
-    },
-  ]
+  const [todos, setTodos] = useRecoilState(todosState)
 
-  const handleDragEnd = () => {}
+  const handleDragEnd = (args: any) => {
+    console.log(args)
+  }
 
   return (
-    <Container
-      sx={{
-        backgroundColor: '#4C9AFF',
-        width: '100vw',
-        minHeight: 'calc(100vh - 60px)',
-        padding: '1rem',
-      }}
-    >
+    <S.SBox>
       <DragDropContext onDragEnd={handleDragEnd}>
         <Container
           sx={{
@@ -53,10 +30,7 @@ export default function Rbd() {
                   <Draggable key={todo.id} draggableId={`${todo.id}`} index={todo.id}>
                     {(provided, snapshot) => (
                       <ListItem ref={provided.innerRef} {...provided.draggableProps}>
-                        <ListItemIcon
-                          {...provided.dragHandleProps}
-                          sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
-                        >
+                        <ListItemIcon {...provided.dragHandleProps}>
                           <DragHandleIcon />
                         </ListItemIcon>
                         {todo.content}
@@ -70,6 +44,6 @@ export default function Rbd() {
           </Droppable>
         </Container>
       </DragDropContext>
-    </Container>
+    </S.SBox>
   )
 }
