@@ -1,5 +1,5 @@
-import { ButtonGroup, Grid } from '@mui/material'
-import { Box, styled } from '@mui/system'
+import { Box, ButtonGroup, Grid } from '@mui/material'
+import styled from '@emotion/styled'
 
 export const SBox = styled(Box)`
   position: sticky;

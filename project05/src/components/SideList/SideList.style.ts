@@ -1,4 +1,5 @@
-import { ListItem, ListItemText, styled } from '@mui/material'
+import styled from '@emotion/styled'
+import { ListItem, ListItemText } from '@mui/material'
 import { Box } from '@mui/system'
 
 export const SBox = styled(Box)`
