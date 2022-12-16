@@ -1,7 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom'
 import Detail from '../components/Detail'
 import DefaultDetail from '../pages/react-router/default-detail'
-import ErrorPage from './error-page'
 import Home from '../pages/home/home'
 import ReactRouter from '../pages/react-router'
 import D3Chart from '../pages/d3-chart'
@@ -17,7 +16,6 @@ export const router = createBrowserRouter([
       {
         path: '/react-router',
         element: <ReactRouter />,
-        errorElement: <ErrorPage />,
         children: [
           {
             index: true,
@@ -32,22 +30,18 @@ export const router = createBrowserRouter([
       {
         path: '/hook-form',
         element: <HookForm />,
-        errorElement: <ErrorPage />,
       },
       {
         path: '/dnd-board',
         element: <DndBoard />,
-        errorElement: <ErrorPage />,
       },
       {
         path: '/rbd',
         element: <Rbd />,
-        errorElement: <ErrorPage />,
       },
       {
         path: '/d3-chart',
         element: <D3Chart />,
-        errorElement: <ErrorPage />,
       },
     ],
   },

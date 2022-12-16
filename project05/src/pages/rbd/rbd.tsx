@@ -1,5 +1,5 @@
-import { Container, List, ListItem, ListItemIcon } from '@mui/material'
-import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { List, ListItem, ListItemIcon } from '@mui/material'
+import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
 import DragHandleIcon from '@mui/icons-material/DragHandle'
 import { useRecoilState } from 'recoil'
 import { todosState } from '../../modules/todos/atoms'
@@ -8,33 +8,31 @@ import * as S from './rbd.style'
 export default function Rbd() {
   const [todos, setTodos] = useRecoilState(todosState)
 
-  const handleDragEnd = (args: any) => {
-    console.log(args)
+  const handleDragEnd = ({ source, destination }: DropResult) => {
+    if (!destination) return
+
+    const newTodos = [...todos]
+    const [srcTodo] = newTodos.splice(source.index, 1)
+    newTodos.splice(destination.index, 0, srcTodo)
+    setTodos(newTodos)
   }
 
   return (
     <S.SBox>
       <DragDropContext onDragEnd={handleDragEnd}>
-        <Container
-          sx={{
-            backgroundColor: '#EBECF0',
-            width: '300px',
-            minHeight: '20vh',
-            margin: 0,
-          }}
-        >
+        <S.SContainer>
           <Droppable droppableId="1">
             {(provided, snapshot) => (
               <List ref={provided.innerRef} {...provided.droppableProps}>
-                {todos.map((todo) => (
-                  <Draggable key={todo.id} draggableId={`${todo.id}`} index={todo.id}>
+                {todos.map((todo, index) => (
+                  <Draggable key={todo.id} draggableId={`${todo.id}`} index={index}>
                     {(provided, snapshot) => (
-                      <ListItem ref={provided.innerRef} {...provided.draggableProps}>
+                      <S.SListItem ref={provided.innerRef} {...provided.draggableProps}>
                         <ListItemIcon {...provided.dragHandleProps}>
                           <DragHandleIcon />
                         </ListItemIcon>
                         {todo.content}
-                      </ListItem>
+                      </S.SListItem>
                     )}
                   </Draggable>
                 ))}
@@ -42,7 +40,7 @@ export default function Rbd() {
               </List>
             )}
           </Droppable>
-        </Container>
+        </S.SContainer>
       </DragDropContext>
     </S.SBox>
   )
