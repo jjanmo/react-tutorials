@@ -1,6 +1,6 @@
 import COLOR from '@style/colors'
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 
 export const Container = styled.div`
   width: 100%;
@@ -62,22 +62,20 @@ export const Button = styled.div<{ type: string }>`
   position: relative;
   width: 13rem;
   height: 3.6rem;
-
   margin-right: 1rem;
   border-radius: 2rem;
-
   background-color: ${({ type }) => (type === 'signin' ? '#e36c61' : '#60948c')};
-
-  cursor: pointer;
   user-select: none;
 
   & > svg {
     transition: all 0.3s ease-in;
   }
-
   &:hover > svg {
     transform: scale(1.2);
     border-radius: 1rem;
+  }
+  & a {
+    cursor: pointer;
   }
 `
 

@@ -13,6 +13,6 @@ const COLOR = {
 
   WHITE: '#fff',
   BLACK: '#000',
-};
+}
 
-export default COLOR;
+export default COLOR

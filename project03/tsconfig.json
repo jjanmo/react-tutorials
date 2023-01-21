@@ -5,11 +5,7 @@
     "jsx": "preserve",
     "module": "commonjs",
     "moduleResolution": "node",
-    // "rootDir": "./",
     "baseUrl": "./",
-    // "rootDirs": [],                                   /* Allow multiple folders to be treated as one when resolving modules. */
-    // "typeRoots": [],                                  /* Specify multiple folders that act like `./node_modules/@types`. */
-
     "allowJs": true,
     "checkJs": true,
     "noEmit": true,
