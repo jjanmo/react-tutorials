@@ -3,8 +3,8 @@ import { AuthContext } from '@context/auth'
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import SocialButton from '@components/SocialButton'
+import * as CS from '../commom.style'
 import * as S from './SignIn.style'
-import * as CS from './commom.style'
 
 interface FormData {
   email: string
@@ -45,8 +45,6 @@ function SignIn() {
     // 로딩 -> 홈으로 이동
   }
 
-  // const onSubmit = handleSubmit((data) => console.log(data))
-
   const onClickProvider = (type: SocialType) => () => {
     signInWithProvider(type)
   }
@@ -55,7 +53,7 @@ function SignIn() {
     <CS.Container>
       <CS.Wrapper>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
-          <h1>Koala Talk 🐨</h1>
+          <h1>SignIn 🐨</h1>
           <CS.Input type="email" placeholder="Email" {...register('email', { required: true })} />
           <CS.Input
             type="password"
@@ -66,14 +64,16 @@ function SignIn() {
         </S.Form>
         <S.Divider>OR</S.Divider>
         <S.ButtonWrapper>
-          <SocialButton type="google" text="Login Google" onClick={onClickProvider('google')} />
-          <SocialButton type="github" text="Login Github" onClick={onClickProvider('github')} />
-          {/* <button data-type="google">
-            Continue with Google
-          </button>
-          <button data-type="github" >
-            Continue with Github
-          </button> */}
+          <SocialButton
+            type="google"
+            text="Continue with Google"
+            onClick={onClickProvider('google')}
+          />
+          <SocialButton
+            type="github"
+            text="Continue with Github"
+            onClick={onClickProvider('github')}
+          />
         </S.ButtonWrapper>
       </CS.Wrapper>
     </CS.Container>

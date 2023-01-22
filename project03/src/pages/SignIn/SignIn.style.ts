@@ -3,7 +3,8 @@ import styled from 'styled-components/macro'
 import * as CS from '../commom.style'
 
 export const Form = styled.form`
-  width: 60%;
+  width: 100%;
+  margin-top: 6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,7 +22,7 @@ export const SubmitButton = styled(CS.InputButton)`
 `
 export const Divider = styled.div`
   position: relative;
-  width: 60%;
+  width: 100%;
   margin: 3rem auto;
   text-align: center;
   font-size: 2rem;
@@ -51,7 +52,7 @@ export const Divider = styled.div`
   }
 `
 export const ButtonWrapper = styled.ul`
-  width: 40%;
+  width: 80%;
   margin-top: 3rem;
   display: flex;
   flex-direction: column;

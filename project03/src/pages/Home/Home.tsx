@@ -5,8 +5,10 @@ import * as S from './Home.style'
 function Home() {
   return (
     <CS.Container>
-      <LottieIcon type="koala" size={20} />
-      <S.Welcome>Welcome KoalaTalks</S.Welcome>
+      <S.Wrapper>
+        <LottieIcon type="koala" size={20} />
+        <S.Title>Koala Talks</S.Title>
+      </S.Wrapper>
     </CS.Container>
   )
 }
