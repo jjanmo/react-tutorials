@@ -48,8 +48,9 @@ function SignIn() {
     navigate('/')
   }
 
-  const onClickProvider = (type: SocialType) => () => {
-    signInWithProvider(type)
+  const onClickProvider = (type: SocialType) => async () => {
+    await signInWithProvider(type)
+    navigate('/')
   }
 
   return (

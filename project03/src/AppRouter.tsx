@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import useAuthContext from '@context/auth'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from '@pages/Home'
 import SignIn from '@pages/SignIn'
@@ -6,8 +6,7 @@ import SignUp from '@pages/SignUp'
 import Layout from '@components/Layout'
 
 function AppRouter() {
-  const [loggedIn, setLoggedIn] = useState<boolean>(false)
-
+  const { loggedIn } = useAuthContext()
   return (
     <Router>
       <Routes>

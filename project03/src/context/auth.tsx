@@ -1,4 +1,4 @@
-import app from '@config/firebase'
+import fbApp from '@config/firebase'
 import {
   User,
   UserCredential,
@@ -11,13 +11,28 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'firebase/auth'
-import { createContext, useEffect, useState } from 'react'
-import { AuthContextType, AuthProviderProps } from './types'
+import { createContext, useContext, useEffect, useState } from 'react'
+
+export interface AuthContextType {
+  user: User
+  loggedIn: boolean
+  signUpByEmailAndPassword: (email: string, password: string) => Promise<void>
+  signInByEmailAndPassword: (email: string, password: string) => Promise<void>
+  signInWithProvider: (type: string) => Promise<void>
+  logOut: () => void
+}
+
+export interface AuthProviderProps {
+  children: React.ReactNode
+}
 
 export const AuthContext = createContext({} as AuthContextType)
 
+const useAuthContext = () => useContext(AuthContext)
+export default useAuthContext
+
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const auth = getAuth(app)
+  const auth = getAuth(fbApp)
   const [currentUser, setCurrentUser] = useState<User | null>(null)
 
   useEffect(() => {
@@ -28,37 +43,34 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signUpByEmailAndPassword = async (email: string, password: string) => {
     try {
-      const user = await createUserWithEmailAndPassword(auth, email, password)
-      console.log(user)
-    } catch (error: any) {
-      const errorCode = error.code
-      const errorMessage = error.message
+      await createUserWithEmailAndPassword(auth, email, password)
+    } catch (error) {
+      console.log(error)
     }
   }
 
   const signInByEmailAndPassword = async (email: string, password: string) => {
     try {
-      const user = await signInWithEmailAndPassword(auth, email, password)
-      console.log(user)
-    } catch (error: any) {
-      const errorCode = error.code
-      const errorMessage = error.message
+      await signInWithEmailAndPassword(auth, email, password)
+    } catch (error) {
+      console.log(error)
     }
   }
 
   const signInWithProvider = async (type: string) => {
     try {
-      let result: Promise<UserCredential>
+      let result: UserCredential
       if (type === 'google') {
         const provider = new GoogleAuthProvider()
-        // result = await signInWithPopup(auth, provider)
+        const result = await signInWithPopup(auth, provider)
+        console.log(result)
       } else if (type === 'github') {
         const provider = new GithubAuthProvider()
-        // result = await signInWithPopup(auth, provider)
+        const result = await signInWithPopup(auth, provider)
+        console.log(result)
       }
 
-      // const user = result.user as User
-      // console.log(user)
+      if (result) setCurrentUser(result.user)
     } catch (error) {
       console.log(error)
     }
@@ -76,6 +88,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     <AuthContext.Provider
       value={{
         user: currentUser as User,
+        loggedIn: !!currentUser,
         signUpByEmailAndPassword,
         signInByEmailAndPassword,
         logOut,
