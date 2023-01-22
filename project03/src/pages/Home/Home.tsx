@@ -1,6 +1,6 @@
 import LottieIcon from '@icons/LottieIcon'
+import * as CS from '../commom.style'
 import * as S from './Home.style'
-import * as CS from './commom.style'
 
 function Home() {
   return (
