@@ -8,10 +8,10 @@ function Navigation() {
           <S.StyledLink to="/">Home</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/talks">Talks</S.StyledLink>
+          <S.StyledLink to="/talk">Talk</S.StyledLink>
         </S.Item>
         <S.Item>
-          <S.StyledLink to="/todos">Todo</S.StyledLink>
+          <S.StyledLink to="/todo">Todo</S.StyledLink>
         </S.Item>
         <S.Item>
           <S.StyledLink to="/me">Profile</S.StyledLink>
