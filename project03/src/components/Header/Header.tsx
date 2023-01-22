@@ -1,18 +1,25 @@
-import { AuthContext } from '@context/auth'
-import { useContext } from 'react'
+import useAuthContext from '@context/auth'
 import KoalaText from '@icons/KoalaText'
+import * as Icon from '@icons/Logo'
 import Signin from '@icons/Signin'
 import Signup from '@icons/Signup'
 import * as S from './Header.style'
 
 function Header() {
-  const { user, logOut } = useContext(AuthContext)
+  const { loggedIn, user, logOut } = useAuthContext()
 
   return (
     <S.Container>
-      {user ? (
+      {loggedIn ? (
         <>
-          <div>{user.email}</div>
+          <S.LoggedInWrapper>
+            {user.providerData[0].providerId.includes('google') && <Icon.Google size={26} />}
+            {user.providerData[0].providerId.includes('github') && <Icon.Github size={30} />}
+            {user.providerData[0].providerId.includes('password') && (
+              <S.DefaultIcon>✉️</S.DefaultIcon>
+            )}
+            <S.Text>{user.displayName || user.email}</S.Text>
+          </S.LoggedInWrapper>
           <S.LogoutBtn onClick={logOut}>logout</S.LogoutBtn>
         </>
       ) : (

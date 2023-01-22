@@ -5,9 +5,9 @@ import styled from 'styled-components/macro'
 export const Container = styled.div`
   width: 100%;
   height: 6rem;
-  padding: 0 1rem;
+  padding: 0 2rem;
   margin: 1rem 0;
-  border-radius: 1rem;
+  border-radius: 0.5rem;
 
   display: flex;
   align-items: center;
@@ -18,7 +18,10 @@ export const Container = styled.div`
   color: ${COLOR.WHITE};
   background-color: ${COLOR.PRIMARY_040};
 `
-
+export const LoggedInWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
 export const LogoutBtn = styled.button`
   position: relative;
   padding: 0.8rem 4rem;
@@ -44,7 +47,7 @@ export const LogoutBtn = styled.button`
     width: 0%;
     height: 100%;
     background-color: ${COLOR.PRIMARY_070};
-    transition: all 0.5s ease;
+    transition: all 0.3s;
     transform-origin: center;
     opacity: 0.6;
   }
@@ -53,11 +56,18 @@ export const LogoutBtn = styled.button`
     width: 100%;
   }
 `
+export const DefaultIcon = styled.div`
+  font-size: 2.6rem;
+  margin-right: 1rem;
+`
+export const Text = styled.span`
+  font-size: 1.8rem;
+  margin: 0 1rem;
+`
 
 export const ButtonWrapper = styled.div`
   display: flex;
 `
-
 export const Button = styled.div<{ type: string }>`
   position: relative;
   width: 13rem;
