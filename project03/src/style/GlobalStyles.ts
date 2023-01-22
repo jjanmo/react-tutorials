@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     min-width: 37.5rem;
-    max-width: 60rem;
+    max-width: 50rem;
     height: calc(100vh - 2rem);
     margin : 1rem auto;
 

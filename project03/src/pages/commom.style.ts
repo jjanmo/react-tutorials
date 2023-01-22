@@ -1,7 +1,7 @@
 import COLORS from '@style/colors'
 import styled from 'styled-components/macro'
 
-const HEAD_HEIGHT = '15'
+const HEAD_HEIGHT = 15
 export const Container = styled.div`
   width: 100%;
   height: calc(90vh - ${HEAD_HEIGHT}rem);
@@ -15,14 +15,12 @@ export const Container = styled.div`
   background-color: #f7f1e3;
 `
 export const Wrapper = styled.div`
-  width: 100%;
-
+  width: 80%;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 `
-
 export const Input = styled.input`
   width: 100%;
   border-radius: 5px;
