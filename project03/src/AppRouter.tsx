@@ -1,8 +1,7 @@
 import useAuthContext from '@context/auth'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import Form from '@pages/Form'
 import Home from '@pages/Home'
-import SignIn from '@pages/SignIn'
-import SignUp from '@pages/SignUp'
 import Layout from '@components/Layout'
 
 function AppRouter() {
@@ -16,8 +15,8 @@ function AppRouter() {
             <>로그아웃 </>
           ) : (
             <>
-              <Route path="signup" element={<SignUp />} />
-              <Route path="signin" element={<SignIn />} />
+              <Route path="signup" element={<Form />} />
+              <Route path="signin" element={<Form />} />
             </>
           )}
 

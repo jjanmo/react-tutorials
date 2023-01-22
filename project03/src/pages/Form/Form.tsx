@@ -1,19 +1,23 @@
 import { SocialType } from '@@types/auth'
-import { AuthContext } from '@context/auth'
-import React, { useContext, useState } from 'react'
+import useAuthContext from '@context/auth'
+import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import SocialButton from '@components/SocialButton'
 import Spinner from '@icons/Spinner'
 import * as CS from '../commom.style'
-import * as S from './SignIn.style'
+import * as S from './Form.style'
 
 interface FormData {
   email: string
   password: string
+  confirmedPassword?: string
 }
 
-function SignIn() {
+function Form() {
+  const location = useLocation()
+  const isSignIn = location.pathname === '/signin'
+
   const {
     register,
     setValue,
@@ -23,7 +27,8 @@ function SignIn() {
   } = useForm<FormData>()
   const navigate = useNavigate()
 
-  const { signInWithProvider, signInByEmailAndPassword } = useContext(AuthContext)
+  const { signInWithProvider, signInByEmailAndPassword, signUpByEmailAndPassword } =
+    useAuthContext()
 
   const [userInfo, setUserInfo] = useState({
     email: '',
@@ -42,9 +47,14 @@ function SignIn() {
   }
 
   const onSubmit = async () => {
-    const { email, password } = watch()
+    const { email, password, confirmedPassword } = watch()
+    if (isSignIn) {
+      await signInByEmailAndPassword(email, password)
+    } else {
+      if (password !== confirmedPassword) return alert('Passwords did not match ☠️')
 
-    await signInByEmailAndPassword(email, password)
+      await signUpByEmailAndPassword(email, password)
+    }
     navigate('/')
   }
 
@@ -57,13 +67,21 @@ function SignIn() {
     <CS.Container>
       <CS.Wrapper>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
-          <h1>SignIn 🐨</h1>
+          <h1>{isSignIn ? 'SignIn 🐨' : 'SignUp 🐨'}</h1>
           <CS.Input type="email" placeholder="Email" {...register('email', { required: true })} />
           <CS.Input
             type="password"
             placeholder="Password"
             {...register('password', { required: true })}
           />
+          {!isSignIn && (
+            <CS.Input
+              type="password"
+              placeholder="Confirm Password"
+              {...register('confirmedPassword', { required: true })}
+            />
+          )}
+
           {isSubmitting ? (
             <S.SpinnerBox>
               <Spinner />
@@ -95,4 +113,4 @@ function SignIn() {
   )
 }
 
-export default SignIn
+export default Form
