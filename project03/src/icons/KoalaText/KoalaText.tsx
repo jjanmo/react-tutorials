@@ -3,35 +3,35 @@ import styled, { keyframes } from 'styled-components'
 
 function KoalaText() {
   return (
-    <SVG width="280" height="60" viewBox="0 0 280 60">
-      <text x="0" y="50%">
+    <SVG x="0" y="0" width="200" height="60" viewBox="0 0 200 60">
+      <text x="4" y="65%">
         K
       </text>
-      <text x="25" y="50%">
+      <text x="20" y="65%">
         O
       </text>
-      <text x="53" y="50%">
+      <text x="38" y="65%">
         A
       </text>
-      <text x="80" y="50%">
+      <text x="56" y="65%">
         L
       </text>
-      <text x="103" y="50%">
+      <text x="70" y="65%">
         A
       </text>
-      <text x="140" y="50%">
+      <text x="94" y="65%">
         T
       </text>
-      <text x="160" y="50%">
+      <text x="108" y="65%">
         A
       </text>
-      <text x="185" y="50%">
+      <text x="126" y="65%">
         L
       </text>
-      <text x="205" y="50%">
+      <text x="140" y="65%">
         K
       </text>
-      <text x="230" y="50%">
+      <text x="158" y="65%">
         S
       </text>
     </SVG>
@@ -50,14 +50,12 @@ const stroke = keyframes`
 `
 
 const SVG = styled.svg`
-  transform: translateY(25%);
-
   & text {
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 2.5rem;
+    font-weight: 600;
     fill: ${COLOR.PRIMARY_080};
     stroke: ${COLOR.PRIMARY_060};
-    stroke-width: 3px;
+    stroke-width: 2px;
     stroke-dasharray: 70px;
     stroke-dashoffset: 70px;
     animation: ${stroke} 3s linear infinite;

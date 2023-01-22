@@ -2,7 +2,9 @@ import { SocialType } from '@@types/auth'
 import { AuthContext } from '@context/auth'
 import React, { useContext, useState } from 'react'
 import { useForm } from 'react-hook-form'
+import { useNavigate } from 'react-router-dom'
 import SocialButton from '@components/SocialButton'
+import Spinner from '@icons/Spinner'
 import * as CS from '../commom.style'
 import * as S from './SignIn.style'
 
@@ -17,8 +19,9 @@ function SignIn() {
     setValue,
     handleSubmit,
     watch,
-    formState: { errors },
+    formState: { errors, isSubmitting },
   } = useForm<FormData>()
+  const navigate = useNavigate()
 
   const { signInWithProvider, signInByEmailAndPassword } = useContext(AuthContext)
 
@@ -38,11 +41,11 @@ function SignIn() {
     })
   }
 
-  const onSubmit = () => {
+  const onSubmit = async () => {
     const { email, password } = watch()
 
-    signInByEmailAndPassword(email, password)
-    // 로딩 -> 홈으로 이동
+    await signInByEmailAndPassword(email, password)
+    navigate('/')
   }
 
   const onClickProvider = (type: SocialType) => () => {
@@ -60,7 +63,18 @@ function SignIn() {
             placeholder="Password"
             {...register('password', { required: true })}
           />
-          <S.SubmitButton type="submit" name="submit-button" value="Submit" />
+          {isSubmitting ? (
+            <S.SpinnerBox>
+              <Spinner />
+            </S.SpinnerBox>
+          ) : (
+            <S.SubmitButton
+              type="submit"
+              name="submit-button"
+              value="Submit"
+              disabled={isSubmitting}
+            />
+          )}
         </S.Form>
         <S.Divider>OR</S.Divider>
         <S.ButtonWrapper>

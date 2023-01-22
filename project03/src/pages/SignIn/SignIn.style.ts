@@ -20,6 +20,18 @@ export const SubmitButton = styled(CS.InputButton)`
   margin-top: 1rem;
   align-self: flex-end;
 `
+export const SpinnerBox = styled.div`
+  width: 10rem;
+  height: 4.3rem;
+  margin-top: 1rem;
+  align-self: flex-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  background-color: ${COLORS.PRIMARY_050};
+`
+
 export const Divider = styled.div`
   position: relative;
   width: 100%;
