@@ -5,6 +5,8 @@ import styled from 'styled-components'
 export const Container = styled.div`
   width: 100%;
   background-color: ${COLOR.PRIMARY_030};
+  border-radius: 0.5rem;
+  overflow: hidden;
 `
 export const NavWrapper = styled.ul`
   width: 100%;

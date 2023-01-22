@@ -4,14 +4,14 @@ import styled from 'styled-components/macro'
 const HEAD_HEIGHT = 15
 export const Container = styled.div`
   width: 100%;
-  height: calc(90vh - ${HEAD_HEIGHT}rem);
+  height: calc(95vh - ${HEAD_HEIGHT}rem);
   padding: 2rem;
   margin-top: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   border: 1px solid ${COLORS.PRIMARY_030};
-  border-radius: 10px;
+  border-radius: 0.5rem;
   background-color: #f7f1e3;
 `
 export const Wrapper = styled.div`

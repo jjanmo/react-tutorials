@@ -12,8 +12,7 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
   }
   body{
-    min-width: 37.5rem;
-    max-width: 50rem;
+    width: 50rem;
     height: calc(100vh - 2rem);
     margin : 1rem auto;
 
