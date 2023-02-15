@@ -11,7 +11,7 @@ export const routes: RouteType[] = [
     imageName: 'react-router',
   },
   {
-    title: 'React Hook',
+    title: 'React Hook Form',
     path: '/hook-form',
     imageName: 'rhf',
   },
