@@ -2,7 +2,7 @@
 
 > 해당 저장소는 리액트 생태계에서 허우적되는 모습을 기록해나가는 공간이다. 단순한 내용정리부터 작은 미니프로젝트까지 리액트를 알아가는 알콩달콩한 코드를 기록해 나갈 것이다.
 
-## Project01 - 레알 초보 튜터리얼
+## Project01 - 레알 초보 튜터리얼 [done]
 
 > React tutorials in official site 🚀 at 2020
 
@@ -23,9 +23,19 @@
 
 ## Project03 - KoalaTalk [-ing]
 
-> mixed 트위터 & 카카오톡, only Mobile Web Design(모바일 웹)
+> 트위터 + 카카오톡 → KoalaTalk 🐨 ??!!
 
-> Tech Stacks : Typescript + **React v18** 💫 + **Firebase**
+> Tech Stacks : Typescript + React + Firebase
+
+[x] 회원가입 기능
+[x] 로그인 기능 + 소셜 로그인
+[x] 로그아웃 기능
+[x] form style
+[ ] realtime 채팅 with text
+[ ] 채팅방 like 카카오톡
+[ ] realtime 채팅 with 이미지
+[ ] 프로필 페이지 update / default avatar image 등등 default generator
+[ ] firebase security에 대해서 - rules
 
 ## Project04 [-ing]
 
@@ -33,16 +43,22 @@
 
 ## Project05 - 리액트 라이브러리 경험기 [-ing]
 
-> 다양한 리액트 라이브러리를 사용해보자!
+> 다양한 리액트 라이브러리(or 유명 자바스크립트 라이브러리)를 사용해보자!
 
 <details>
   <summary>Libraries</summary>
 
-- [ ] [React Router](https://reactrouter.com/en/main/start/overview)
+- [React Router](https://reactrouter.com/en/main/start/overview)
 
-- [ ] [React Hook Form](https://react-hook-form.com/)
+- [React Hook Form](https://react-hook-form.com/)
 
-- [ ]
+- [dnd kit](https://github.com/clauderic/dnd-kit)
+
+- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
+
+- [d3.js](https://d3js.org/)
+
+- [Material UI](https://mui.com/)
 
 </details>
 
@@ -58,3 +74,16 @@
 - [Section2](./project06/docs/section2.md)
 
 </details>
+
+## Project07 [-ing]
+
+> `interactive web repo`에서 바닐라 자바스크립트로 만들었던 것들을 **리액트 + 타입스크립트 버전**으로 바꿔보자!
+
+> 뭔가 interacitve함이 뿜뿜하는 것들을 따라 만들어보자!
+
+<details>
+  <summary>Contents</summary>
+
+- [PokemonCard](https://deck-24abcd.netlify.app/)
+
+- </details>

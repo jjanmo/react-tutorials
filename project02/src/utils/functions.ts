@@ -1,5 +1,3 @@
-import { OHLCData } from '../types/coin';
-
 export const roundNumber = (price: number): string => {
   if (price < 0.0001) return price.toFixed(8);
   else if (price < 1) return price.toFixed(4);
@@ -60,14 +58,14 @@ export const xaxisFormatter = (value: number | string): string => {
   )}-${covertDateFormat(date.getDate())}`;
 };
 
-export const parseCandleData = (data: OHLCData[]) => {
-  return data.map((item) => ({
-    x: new Date(item.time_open),
-    y: [
-      roundNumber(item.open),
-      roundNumber(item.high),
-      roundNumber(item.low),
-      roundNumber(item.close),
-    ],
-  }));
-};
+// export const parseCandleData = (data: OHLCData[]) => {
+//   return data.map((item) => ({
+//     x: new Date(item.time_open),
+//     y: [
+//       roundNumber(item.open),
+//       roundNumber(item.high),
+//       roundNumber(item.low),
+//       roundNumber(item.close),
+//     ],
+//   }));
+// };

@@ -1,4 +1,5 @@
 import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -8,8 +9,10 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
+  // databaseURL: 'https://DATABASE_NAME.firebaseio.com',
 }
 
 const app = initializeApp(firebaseConfig)
+export const database = getFirestore(app)
 
 export default app

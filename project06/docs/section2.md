@@ -10,5 +10,5 @@
 
 ## isFetching vs isLoading
 
-- isFetching :
+- isFetching
 - isLoading

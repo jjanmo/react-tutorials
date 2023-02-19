@@ -5,7 +5,6 @@ import { useQuery } from 'react-query';
 import { useOutletContext, useParams } from 'react-router-dom';
 import {
   getDurationDate,
-  parseCandleData,
   roundNumber,
   xaxisFormatter,
 } from '../../../utils/functions';
@@ -13,13 +12,13 @@ import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from '../../../recoil/atom';
 import { Button, ButtonContainer } from './styles';
 import dayjs from 'dayjs';
-import { Coin, OHLCData } from '../../../types/coin';
+// import { Coin, OHLCData } from '../../../types/coin';
 import { fetchOHLCData } from '../../../apis/finnhub';
 import { Ticker } from '../../../types/ticker';
 
 const Chart = () => {
   const isDark = useRecoilValue(isDarkAtom);
-  const [coinInfo, tickerInfo] = useOutletContext<[Coin, Ticker]>();
+  // const [coinInfo, tickerInfo] = useOutletContext<[Coin, Ticker]>();
 
   const end = Math.floor(new Date().getTime() / 1000);
   const start = end - 24 * 60 * 60 * 14;
