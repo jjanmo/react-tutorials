@@ -1,7 +1,8 @@
 import { atom } from 'recoil'
+import { v1 } from 'uuid'
 
 export const todosState = atom({
-  key: `@todos${Date.now()}`,
+  key: `@todos${v1()}`,
   default: [
     {
       id: 0,
