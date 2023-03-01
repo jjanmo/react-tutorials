@@ -1,14 +1,18 @@
-import { Button, Link, styled } from '@mui/material'
+import { Button, styled } from '@mui/material'
 import { Container } from '@mui/system'
-import { isRouteErrorResponse, Link as RouterLink, useRouteError } from 'react-router-dom'
+import { isRouteErrorResponse, useNavigate, useRouteError } from 'react-router-dom'
 
 export default function ErrorPage() {
   const error = useRouteError()
-  console.log('>>>', error)
+  const navigate = useNavigate()
 
   const errorMessages: { [key: number]: string } = {
     404: "Sorry that page can't be found",
     500: 'Sorry, an unexpected error has occurred.\nPlease enter after a while',
+  }
+
+  const handleClick = () => {
+    navigate('/')
   }
 
   return (
@@ -21,11 +25,10 @@ export default function ErrorPage() {
       ) : (
         <p>Opps! Sorry </p>
       )}
-      <Link component={RouterLink} to="/" underline="none">
-        <Button variant="outlined" size="large" color="error">
-          Go Home
-        </Button>
-      </Link>
+
+      <Button variant="outlined" size="large" color="error" onClick={handleClick}>
+        Go Home
+      </Button>
     </SContainer>
   )
 }
