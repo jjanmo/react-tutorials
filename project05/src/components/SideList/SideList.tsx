@@ -21,7 +21,7 @@ export default function SideList() {
 
 function SideListItem({ id, image, firstName, lastName }: User) {
   return (
-    <Link component={RouterLink} to={`/react-router/user/${id}`} underline="none">
+    <Link component={RouterLink} to={`/rrd-tutorial/user/${id}`} underline="none">
       <S.SListItem divider>
         <ListItemAvatar>
           <Avatar alt="avatar" src={image} />

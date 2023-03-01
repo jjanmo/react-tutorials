@@ -1,4 +1,4 @@
-import * as S from '../../components/Detail/Detail.style'
+import * as S from './Detail.style'
 
 export default function DefaultDetail() {
   return (
