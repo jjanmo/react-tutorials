@@ -15,7 +15,7 @@
 
 </details>
 
-## Project02 [-ing]
+## Project02 - CoinDashboard clone [-ing]
 
 > [CoinMarketCap](https://coinmarketcap.com/ko/) 유사 클론 😇 > 주요 기능을 따라해보자!
 
@@ -37,53 +37,12 @@
 [ ] 프로필 페이지 update / default avatar image 등등 default generator
 [ ] firebase security에 대해서 - rules
 
-## Project04 [-ing]
+## Project04 - React Testing [-ing]
 
 > React Testing Tutorials with [따라하며 배우는 리액트 테스팅](https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 
-## Project05 - 리액트 라이브러리 경험기 [-ing]
+## Project05 - React Libraries [-ing]
 
-> 다양한 리액트 라이브러리(or 유명 자바스크립트 라이브러리)를 사용해보자!
+> 다양한 리액트 라이브러리 경험기!
 
-<details>
-  <summary>Libraries</summary>
-
-- [React Router](https://reactrouter.com/en/main/start/overview)
-
-- [React Hook Form](https://react-hook-form.com/)
-
-- [dnd kit](https://github.com/clauderic/dnd-kit)
-
-- [react-beautiful-dnd](https://github.com/atlassian/react-beautiful-dnd)
-
-- [d3.js](https://d3js.org/)
-
-- [Material UI](https://mui.com/)
-
-</details>
-
-## Project06 [-ing]
-
-> React Query에 대해서 알아보는 공간 with [React Query Course](https://www.udemy.com/course/react-query-react/)
-
-<details>
-<summary>Summarized Concepts</summary>
-
-- [Section1](./project06/docs/section1.md)
-
-- [Section2](./project06/docs/section2.md)
-
-</details>
-
-## Project07 [-ing]
-
-> `interactive web repo`에서 바닐라 자바스크립트로 만들었던 것들을 **리액트 + 타입스크립트 버전**으로 바꿔보자!
-
-> 뭔가 interacitve함이 뿜뿜하는 것들을 따라 만들어보자!
-
-<details>
-  <summary>Contents</summary>
-
-- [PokemonCard](https://deck-24abcd.netlify.app/)
-
-- </details>
+> 각각의 라이브러리를 통해서 가능한 `미니 프로젝트들`을 만들어보자!
