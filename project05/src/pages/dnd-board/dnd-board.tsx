@@ -1,5 +1,5 @@
 import { DndContext, useDraggable, useDroppable } from '@dnd-kit/core'
-import { quiz } from '../../constants/dnd'
+import { quiz } from '../../constants/quiz'
 import * as S from './dnd-board.style'
 
 export default function DNDBoard() {
@@ -9,12 +9,7 @@ export default function DNDBoard() {
         <S.ImageContainer>
           {quiz.map((question) => (
             <Droppable key={question.image} id={question.image}>
-              <img
-                src={require(`../../assets/${question.image}.png`)}
-                width={160}
-                height={90}
-                alt="quiz"
-              />
+              <img src={question.image} width={160} height={90} alt="quiz" />
             </Droppable>
           ))}
         </S.ImageContainer>
