@@ -1,29 +1,7 @@
 import { Box, Tab, Tabs } from '@mui/material'
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
-
-type RouteType = {
-  title: string
-  path: string
-}
-const ROUTES: RouteType[] = [
-  {
-    title: 'Home',
-    path: '/',
-  },
-  {
-    title: 'RRD-Tutorial',
-    path: '/rrd-tutorial',
-  },
-  {
-    title: 'DragNDrop',
-    path: '/dragndrop',
-  },
-  {
-    title: 'About',
-    path: '/about',
-  },
-]
+import { routes } from '../../constants/routes'
 
 export default function GNB() {
   const { pathname } = useLocation()
@@ -39,7 +17,7 @@ export default function GNB() {
       boxShadow="rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px"
     >
       <Tabs variant="scrollable" onChange={handleChange} value={currentTab}>
-        {ROUTES.map((route) => (
+        {routes.map((route) => (
           <Tab
             key={route.path}
             label={route.title}

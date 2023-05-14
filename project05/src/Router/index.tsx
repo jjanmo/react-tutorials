@@ -3,6 +3,7 @@ import ErrorPage from '../pages/Errors'
 import Root from '../Root'
 import { DefaultDetail, Detail } from '../components/Detail'
 import { Home, Todos, Quiz, ContactList, KanbanBoard, Interactive } from '../pages'
+import { routesMap } from '../constants/routes'
 
 /**
  * Home
@@ -15,7 +16,7 @@ import { Home, Todos, Quiz, ContactList, KanbanBoard, Interactive } from '../pag
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: routesMap['home'].path,
     element: <Root />,
     children: [
       {
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/contactlist',
+        path: routesMap['contact'].path,
         element: <ContactList />,
         children: [
           {
@@ -37,19 +38,19 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/todos',
+        path: routesMap['todos'].path,
         element: <Todos />,
       },
       {
-        path: '/kanbanboard',
+        path: routesMap['kanban'].path,
         element: <KanbanBoard />,
       },
       {
-        path: '/quiz',
+        path: routesMap['quiz'].path,
         element: <Quiz />,
       },
       {
-        path: '/interactive',
+        path: routesMap['interactive'].path,
         element: <Interactive />,
       },
     ],
