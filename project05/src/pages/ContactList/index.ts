@@ -1,1 +1,1 @@
-export { default } from './RRDTutorial'
+export { default } from './ContactList'

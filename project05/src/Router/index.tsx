@@ -1,13 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom'
-import { Detail, DefaultDetail } from '../components/Detail'
-import About from '../pages/About'
-import Animation from '../pages/Animation'
-import DragNDrop from '../pages/DragNDrop'
 import ErrorPage from '../pages/Errors'
-import Home from '../pages/Home'
-import RRDTutorial from '../pages/RRDTutorial'
-
 import Root from '../Root'
+import { DefaultDetail, Detail } from '../components/Detail'
+import { Home, Todos, Quiz, ContactList, KanbanBoard, Interactive } from '../pages'
+
+/**
+ * Home
+ * Contact List -> react router dom
+ * TodoApp  -> recoil
+ * KanbanBoard -> drag&drop 1
+ * QuizApp -> drag&drop 2
+ * Interactive Framer -> framer motion
+ */
 
 const router = createBrowserRouter([
   {
@@ -19,8 +23,8 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: '/rrd-tutorial',
-        element: <RRDTutorial />,
+        path: '/contactlist',
+        element: <ContactList />,
         children: [
           {
             path: '',
@@ -33,16 +37,20 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: '/dragndrop',
-        element: <DragNDrop />,
+        path: '/todos',
+        element: <Todos />,
       },
       {
-        path: '/animation',
-        element: <Animation />,
+        path: '/kanbanboard',
+        element: <KanbanBoard />,
       },
       {
-        path: '/about',
-        element: <About />,
+        path: '/quiz',
+        element: <Quiz />,
+      },
+      {
+        path: '/interactive',
+        element: <Interactive />,
       },
     ],
     errorElement: <ErrorPage />,

@@ -1,0 +1,6 @@
+export { default as Home } from './Home'
+export { default as Todos } from './Todos'
+export { default as Quiz } from './Quiz'
+export { default as ContactList } from './ContactList'
+export { default as KanbanBoard } from './KanbanBoard'
+export { default as Interactive } from './Interactive'
