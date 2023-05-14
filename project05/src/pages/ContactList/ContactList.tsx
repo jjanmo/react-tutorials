@@ -4,7 +4,7 @@ import { Outlet } from 'react-router-dom'
 import SearchBar from '../../components/SearchBar'
 import SideList from '../../components/SideList'
 
-export default function ReactRouter() {
+export default function ContactList() {
   return (
     <GridContainer container>
       <GridItem item xs={4} location="left">

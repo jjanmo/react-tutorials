@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil'
 import { todosState } from '../../modules/todos/atoms'
 import * as S from './Todos.style'
 
-export default function Rbd() {
+export default function Todos() {
   const [todos, setTodos] = useRecoilState(todosState)
 
   const handleDragEnd = ({ source, destination }: DropResult) => {
@@ -45,5 +45,3 @@ export default function Rbd() {
     </S.SBox>
   )
 }
-
-// //https://codemyui.com/trello-like-kanban-drag-and-drop-cards-using-scrolling-containers/
