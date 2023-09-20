@@ -15,34 +15,31 @@
 
 </details>
 
-## Project02 - CoinDashboard clone [-ing]
-
-> [CoinMarketCap](https://coinmarketcap.com/ko/) 유사 클론 😇 > 주요 기능을 따라해보자!
-
-> Tech Stacks : Typescript + React + React Query + Recoil + Webpack etc
+## Project02 - Coin Dashboard [-ing]
 
 ## Project03 - KoalaTalk [-ing]
 
-> 트위터 + 카카오톡 → KoalaTalk 🐨 ??!!
+> React with Firebase
 
-> Tech Stacks : Typescript + React + Firebase
+> with [📺 Tweeter Clone Coding](https://nomadcoders.co/nwitter/)
 
-[x] 회원가입 기능
-[x] 로그인 기능 + 소셜 로그인
-[x] 로그아웃 기능
-[x] form style
-[ ] realtime 채팅 with text
-[ ] 채팅방 like 카카오톡
-[ ] realtime 채팅 with 이미지
-[ ] 프로필 페이지 update / default avatar image 등등 default generator
-[ ] firebase security에 대해서 - rules
+<details>
+  <summary> Features</summary>
+
+- [x] 회원가입 기능
+- [x] 로그인(이메일 / 소셜)/ 로그아웃
+- [ ] RealTime 채팅 with text
+- [ ] 채팅 UI like kakaotalk
+- [ ] 유저 프로필 CRUD
+
+</details>
 
 ## Project04 - React Testing [-ing]
 
-> React Testing Tutorials with [따라하며 배우는 리액트 테스팅](https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8)
+> with [따라하며 배우는 리액트 테스팅](https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 
 ## Project05 - React Libraries [-ing]
 
-> 다양한 리액트 라이브러리 경험기!
+> 다양한 유명 리액트 라이브러리 경험기!
 
-> 각각의 라이브러리를 통해서 가능한 `미니 프로젝트들`을 만들어보자!
+> [참고 리스트](https://naji0329.medium.com/16-libraries-you-should-know-as-a-react-developer-ac6d9bbd775e)
