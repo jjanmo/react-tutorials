@@ -1,10 +1,13 @@
 import styled from '@emotion/styled'
+import Layout from '../../components/Layout'
 
 export default function Home() {
   return (
-    <Container>
-      <h1>다양한 리액트 라이브러리 경험기</h1>
-    </Container>
+    <Layout>
+      <Container>
+        <h1>다양한 리액트 라이브러리 경험기</h1>
+      </Container>
+    </Layout>
   )
 
   // data -> cards -> card flow
