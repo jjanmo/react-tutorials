@@ -1,4 +1,3 @@
-import LottieIcon from '@icons/LottieIcon'
 import * as CS from '../commom.style'
 import * as S from './Home.style'
 
@@ -6,8 +5,8 @@ function Home() {
   return (
     <CS.Container>
       <S.Wrapper>
-        <LottieIcon type="koala" size={20} />
-        <S.Title>Koala Talks</S.Title>
+        <S.Title>Home Page</S.Title>
+        <span>어떤 것을 넣을지 고민됨!!!</span>
       </S.Wrapper>
     </CS.Container>
   )

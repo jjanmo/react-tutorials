@@ -7,6 +7,4 @@ export const Title = styled.h1`
   font-weight: bold;
   text-transform: uppercase;
 `
-export const Wrapper = styled(CS.Wrapper)`
-  margin-top: 12rem;
-`
+export const Wrapper = styled(CS.Wrapper)``
