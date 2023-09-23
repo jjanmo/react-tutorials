@@ -1,5 +1,4 @@
 import useAuthContext from '@context/auth'
-import KoalaText from '@icons/KoalaText'
 import * as Icon from '@icons/Logo'
 import Signin from '@icons/Signin'
 import Signup from '@icons/Signup'
@@ -23,19 +22,20 @@ function Header() {
           <S.LogoutBtn onClick={logOut}>logout</S.LogoutBtn>
         </>
       ) : (
-        <>
-          <KoalaText />
-          <S.ButtonWrapper>
-            <S.Button type="signin">
+        <S.ButtonWrapper>
+          <S.Button type="signin">
+            <S.SLink to="/signin">
               <Signin />
-              <S.SLink to="/signin">signin</S.SLink>
-            </S.Button>
-            <S.Button type="signup">
+              signin
+            </S.SLink>
+          </S.Button>
+          <S.Button type="signup">
+            <S.SLink to="/signup">
               <Signup />
-              <S.SLink to="/signup">signup</S.SLink>
-            </S.Button>
-          </S.ButtonWrapper>
-        </>
+              signup
+            </S.SLink>
+          </S.Button>
+        </S.ButtonWrapper>
       )}
     </S.Container>
   )

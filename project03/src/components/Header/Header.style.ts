@@ -66,7 +66,9 @@ export const Text = styled.span`
 `
 
 export const ButtonWrapper = styled.div`
+  width: 100%;
   display: flex;
+  justify-content: center;
 `
 export const Button = styled.div<{ type: string }>`
   position: relative;
@@ -77,13 +79,6 @@ export const Button = styled.div<{ type: string }>`
   background-color: ${({ type }) => (type === 'signin' ? '#e36c61' : '#60948c')};
   user-select: none;
 
-  & > svg {
-    transition: all 0.3s ease-in;
-  }
-  &:hover > svg {
-    transform: scale(1.2);
-    border-radius: 1rem;
-  }
   & a {
     cursor: pointer;
   }
@@ -98,4 +93,12 @@ export const SLink = styled(Link)`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  & > svg {
+    transition: all 0.2s ease-in;
+  }
+  &:hover > svg {
+    transform: scale(1.2);
+    border-radius: 0.8rem;
+  }
 `

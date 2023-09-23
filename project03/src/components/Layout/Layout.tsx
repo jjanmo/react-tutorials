@@ -8,6 +8,7 @@ function Layout() {
     <Container>
       <Header />
       <Navigation />
+
       <Outlet />
     </Container>
   )
