@@ -4,7 +4,6 @@ import Form from '@pages/Form'
 import Home from '@pages/Home'
 import Profile from '@pages/Profile'
 import Talk from '@pages/Talk'
-import Todo from '@pages/Todo'
 import Layout from '@components/Layout'
 
 function AppRouter() {
@@ -19,12 +18,11 @@ function AppRouter() {
             <>로그아웃 </>
           ) : (
             <>
-              <Route path="signup" element={<Form />} />
-              <Route path="signin" element={<Form />} />
+              <Route path="signup" element={<Form key="signup" />} />
+              <Route path="signin" element={<Form key="signin" />} />
             </>
           )}
           <Route path="talk" element={<Talk />} />
-          <Route path="todo" element={<Todo />} />
           <Route path="me" element={<Profile />} />
         </Route>
       </Routes>
