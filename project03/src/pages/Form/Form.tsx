@@ -1,6 +1,5 @@
 import { SocialType } from '@@types/auth'
 import useAuthContext from '@context/auth'
-import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useLocation, useNavigate } from 'react-router-dom'
 import SocialButton from '@components/SocialButton'
@@ -20,7 +19,6 @@ function Form() {
 
   const {
     register,
-    setValue,
     handleSubmit,
     watch,
     formState: { errors, isSubmitting },
@@ -29,22 +27,6 @@ function Form() {
 
   const { signInWithProvider, signInByEmailAndPassword, signUpByEmailAndPassword } =
     useAuthContext()
-
-  const [userInfo, setUserInfo] = useState({
-    email: '',
-    password: '',
-  })
-
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { name, value },
-    } = e
-
-    setUserInfo({
-      ...userInfo,
-      [name]: value,
-    })
-  }
 
   const onSubmit = async () => {
     const { email, password, confirmedPassword } = watch()
@@ -68,18 +50,33 @@ function Form() {
       <CS.Wrapper>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
           <h1>{isSignIn ? 'SignIn 🐨' : 'SignUp 🐨'}</h1>
-          <CS.Input type="email" placeholder="Email" {...register('email', { required: true })} />
+          <CS.Input
+            type="email"
+            placeholder="Email"
+            {...register('email', { required: 'Need to enter email ✉️' })}
+          />
+          {errors['email'] && <S.Error>{errors['email'].message}</S.Error>}
           <CS.Input
             type="password"
             placeholder="Password"
-            {...register('password', { required: true })}
+            minLength={6}
+            {...register('password', { required: 'Need to enter password 🔐' })}
           />
+          {errors['password'] && <S.Error>{errors['password'].message}</S.Error>}
           {!isSignIn && (
-            <CS.Input
-              type="password"
-              placeholder="Confirm Password"
-              {...register('confirmedPassword', { required: true })}
-            />
+            <>
+              <CS.Input
+                type="password"
+                placeholder="Confirm Password"
+                minLength={6}
+                {...register('confirmedPassword', {
+                  required: 'Need to enter confirm password 🔐',
+                })}
+              />
+              {errors['confirmedPassword'] && (
+                <S.Error>{errors['confirmedPassword'].message}</S.Error>
+              )}
+            </>
           )}
 
           {isSubmitting ? (
@@ -95,7 +92,9 @@ function Form() {
             />
           )}
         </S.Form>
+
         <S.Divider>OR</S.Divider>
+
         <S.ButtonWrapper>
           <SocialButton
             type="google"

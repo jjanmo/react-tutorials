@@ -71,3 +71,11 @@ export const ButtonWrapper = styled.ul`
   justify-content: center;
   align-items: center;
 `
+
+export const Error = styled.div`
+  width: 100%;
+  padding-left: 0.5rem;
+  margin: 0.5rem 0;
+  color: ${COLORS.PRIMARY_010};
+  font-size: 1.4rem;
+`
