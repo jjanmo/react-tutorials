@@ -1,4 +1,5 @@
 import fbApp from '@config/firebase'
+import { FirebaseError } from 'firebase/app'
 import {
   User,
   UserCredential,
@@ -16,9 +17,15 @@ import { createContext, useContext, useEffect, useState } from 'react'
 export interface AuthContextType {
   user: User
   loggedIn: boolean
-  signUpByEmailAndPassword: (email: string, password: string) => Promise<void>
-  signInByEmailAndPassword: (email: string, password: string) => Promise<void>
-  signInWithProvider: (type: string) => Promise<void>
+  signUpByEmailAndPassword: (
+    email: string,
+    password: string
+  ) => Promise<UserCredential | FirebaseError>
+  signInByEmailAndPassword: (
+    email: string,
+    password: string
+  ) => Promise<UserCredential | FirebaseError>
+  signInWithProvider: (type: string) => Promise<UserCredential | FirebaseError>
   logOut: () => void
 }
 
@@ -43,36 +50,31 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signUpByEmailAndPassword = async (email: string, password: string) => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password)
+      return await createUserWithEmailAndPassword(auth, email, password)
     } catch (error) {
-      console.log(error)
+      if (error instanceof FirebaseError) {
+        return error
+      }
     }
   }
-
   const signInByEmailAndPassword = async (email: string, password: string) => {
     try {
-      await signInWithEmailAndPassword(auth, email, password)
+      return await signInWithEmailAndPassword(auth, email, password)
     } catch (error) {
-      console.log(error)
+      if (error instanceof FirebaseError) {
+        return error
+      }
     }
   }
 
   const signInWithProvider = async (type: string) => {
     try {
-      let result: UserCredential
-      if (type === 'google') {
-        const provider = new GoogleAuthProvider()
-        const result = await signInWithPopup(auth, provider)
-        console.log(result)
-      } else if (type === 'github') {
-        const provider = new GithubAuthProvider()
-        const result = await signInWithPopup(auth, provider)
-        console.log(result)
-      }
-
-      if (result) setCurrentUser(result.user)
+      const provider = type === 'google' ? new GoogleAuthProvider() : new GithubAuthProvider()
+      return await signInWithPopup(auth, provider)
     } catch (error) {
-      console.log(error)
+      if (error instanceof FirebaseError) {
+        return error
+      }
     }
   }
 
@@ -80,7 +82,9 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     try {
       signOut(auth)
     } catch (error) {
-      console.log(error)
+      if (error instanceof FirebaseError) {
+        return error
+      }
     }
   }
 

@@ -1,8 +1,10 @@
+import { useLocation, useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import { FirebaseError } from 'firebase/app'
 import { SocialType } from '@@types/auth'
 import useAuthContext from '@context/auth'
-import { useForm } from 'react-hook-form'
-import { useLocation, useNavigate } from 'react-router-dom'
 import SocialButton from '@components/SocialButton'
+import { errorCode } from '@constants/errors'
 import Spinner from '@icons/Spinner'
 import * as CS from '../commom.style'
 import * as S from './Form.style'
@@ -15,7 +17,7 @@ interface FormData {
 
 function Form() {
   const location = useLocation()
-  const isSignIn = location.pathname === '/signin'
+  const isSignin = location.pathname === '/signin'
 
   const {
     register,
@@ -30,14 +32,19 @@ function Form() {
 
   const onSubmit = async () => {
     const { email, password, confirmedPassword } = watch()
-    if (isSignIn) {
-      await signInByEmailAndPassword(email, password)
-    } else {
-      if (password !== confirmedPassword) return alert('Passwords did not match ☠️')
+    if (confirmedPassword && password !== confirmedPassword)
+      return alert('Passwords did not match ☠️')
 
-      await signUpByEmailAndPassword(email, password)
+    const result = isSignin
+      ? await signInByEmailAndPassword(email, password)
+      : await signUpByEmailAndPassword(email, password)
+
+    const defaultErrorMessage = isSignin ? 'Signin failed' : 'Signup failed'
+    if (result instanceof FirebaseError) {
+      return errorCode[result.code] ? alert(errorCode[result.code]) : defaultErrorMessage
     }
-    navigate('/')
+
+    return navigate('/')
   }
 
   const onClickProvider = (type: SocialType) => async () => {
@@ -49,7 +56,7 @@ function Form() {
     <CS.Container>
       <CS.Wrapper>
         <S.Form onSubmit={handleSubmit(onSubmit)}>
-          <h1>{isSignIn ? 'SignIn 🐨' : 'SignUp 🐨'}</h1>
+          <h1>{isSignin ? 'SignIn 🐨' : 'SignUp 🐨'}</h1>
           <CS.Input
             type="email"
             placeholder="Email"
@@ -59,16 +66,14 @@ function Form() {
           <CS.Input
             type="password"
             placeholder="Password"
-            minLength={6}
             {...register('password', { required: 'Need to enter password 🔐' })}
           />
           {errors['password'] && <S.Error>{errors['password'].message}</S.Error>}
-          {!isSignIn && (
+          {!isSignin && (
             <>
               <CS.Input
                 type="password"
                 placeholder="Confirm Password"
-                minLength={6}
                 {...register('confirmedPassword', {
                   required: 'Need to enter confirm password 🔐',
                 })}
