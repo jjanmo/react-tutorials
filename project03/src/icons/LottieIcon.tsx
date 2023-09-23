@@ -17,7 +17,7 @@ function LottieIcon({ type, size }: Props) {
         container: containerElem.current,
         renderer: 'svg',
         autoplay: true,
-        animationData: require(`../../assets/lotties/${type}.json`),
+        animationData: require(`../assets/lotties/${type}.json`),
       })
     }
 
