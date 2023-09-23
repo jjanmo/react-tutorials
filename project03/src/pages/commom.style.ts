@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 const HEAD_HEIGHT = 15
 export const Container = styled.div`
   width: 100%;
-  height: calc(95vh - ${HEAD_HEIGHT}rem);
+  min-height: calc(95vh - ${HEAD_HEIGHT}rem);
   padding: 2rem;
   margin-top: 1rem;
   display: flex;
@@ -25,12 +25,9 @@ export const Input = styled.input`
   width: 100%;
   border-radius: 5px;
   padding: 1rem 2rem;
+  margin: 0.5rem 0;
   font-size: 1.8rem;
   border: 1px solid ${COLORS.PRIMARY_030};
-
-  & + & {
-    margin-top: 1rem;
-  }
 `
 export const InputButton = styled.input`
   padding: 1rem 2rem;

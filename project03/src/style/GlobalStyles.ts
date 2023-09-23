@@ -13,7 +13,7 @@ const GlobalStyles = createGlobalStyle`
   }
   body{
     width: 50rem;
-    height: calc(100vh - 2rem);
+    min-height: calc(100vh - 2rem);
     margin : 1rem auto;
 
     font-family: 'IBM Plex Sans', sans-serif;
