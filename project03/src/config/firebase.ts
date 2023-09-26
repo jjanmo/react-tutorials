@@ -1,5 +1,7 @@
 import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -9,10 +11,12 @@ const firebaseConfig = {
   messagingSenderId: process.env.REACT_APP_MESSSAGING_SENDER_ID,
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
-  // databaseURL: 'https://DATABASE_NAME.firebaseio.com',
 }
 
 const app = initializeApp(firebaseConfig)
+
+export const auth = getAuth(app)
 export const database = getFirestore(app)
+export const storage = getStorage(app)
 
 export default app

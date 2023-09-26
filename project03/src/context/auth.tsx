@@ -1,9 +1,8 @@
-import fbApp from '@config/firebase'
+import { createContext, useContext, useEffect, useState } from 'react'
 import { FirebaseError } from 'firebase/app'
 import {
   User,
   UserCredential,
-  getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
@@ -12,7 +11,7 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
 } from 'firebase/auth'
-import { createContext, useContext, useEffect, useState } from 'react'
+import { auth } from '@config/firebase'
 
 export interface AuthContextType {
   user: User
@@ -39,14 +38,13 @@ const useAuthContext = () => useContext(AuthContext)
 export default useAuthContext
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const auth = getAuth(fbApp)
   const [currentUser, setCurrentUser] = useState<User | null>(null)
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       setCurrentUser(user)
     })
-  }, [auth])
+  }, [])
 
   const signUpByEmailAndPassword = async (email: string, password: string) => {
     try {
