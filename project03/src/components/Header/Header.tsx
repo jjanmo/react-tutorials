@@ -1,8 +1,10 @@
 import useAuthContext from '@context/auth'
-import * as Icon from '@icons/Logo'
 import Signin from '@icons/Signin'
 import Signup from '@icons/Signup'
 import * as S from './Header.style'
+import { FcGoogle } from 'react-icons/fc'
+import { BsGithub } from 'react-icons/bs'
+import COLOR from '@style/colors'
 
 function Header() {
   const { loggedIn, user, logOut } = useAuthContext()
@@ -12,8 +14,10 @@ function Header() {
       {loggedIn ? (
         <>
           <S.LoggedInWrapper>
-            {user.providerData[0].providerId.includes('google') && <Icon.Google size={26} />}
-            {user.providerData[0].providerId.includes('github') && <Icon.Github size={30} />}
+            {user.providerData[0].providerId.includes('google') && <FcGoogle size={30} />}
+            {user.providerData[0].providerId.includes('github') && (
+              <BsGithub size={26} color={COLOR.BLACK} />
+            )}
             {user.providerData[0].providerId.includes('password') && (
               <S.DefaultIcon>✉️</S.DefaultIcon>
             )}

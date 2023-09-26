@@ -1,7 +1,8 @@
 import { SocialType } from '@@types/auth'
 import COLOR from '@style/colors'
 import styled from 'styled-components'
-import * as Icon from '@icons/Logo'
+import { FcGoogle } from 'react-icons/fc'
+import { BsGithub } from 'react-icons/bs'
 
 interface Props {
   type: SocialType
@@ -12,8 +13,8 @@ interface Props {
 export default function SocialButton({ type, text, onClick }: Props) {
   return (
     <Container onClick={onClick}>
-      {type === 'google' && <Icon.Google size={28} />}
-      {type === 'github' && <Icon.Github size={32} />}
+      {type === 'google' && <FcGoogle size={30} />}
+      {type === 'github' && <BsGithub size={26} color={COLOR.BLACK} />}
       {text}
     </Container>
   )
@@ -24,7 +25,7 @@ const Container = styled.button`
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0.5rem 2rem;
+  padding: 1rem 2rem;
   margin: 0.5rem 0;
   border: none;
   font-size: 1.8rem;
