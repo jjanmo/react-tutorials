@@ -1,5 +1,11 @@
+import ChatRoom from './components/ChatRoom';
+
 function App() {
-  return <h1>Hello worl</h1>;
+  return (
+    <div>
+      <ChatRoom />
+    </div>
+  );
 }
 
 export default App;
