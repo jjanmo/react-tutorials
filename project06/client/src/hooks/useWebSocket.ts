@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Message } from '../components/ChatRoom';
 
 interface Props {
-  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  setMessages: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export default function useWebSocket({ setMessages }: Props) {
@@ -19,8 +18,9 @@ export default function useWebSocket({ setMessages }: Props) {
     webSocket.onopen = () => {
       console.log('웹소켓 연결 🎉');
     };
-    webSocket.onmessage = (event) => {
-      const receivedMessage = JSON.parse(event.data);
+
+    webSocket.onmessage = async (event) => {
+      const receivedMessage = await event.data.text();
       setMessages((prev) => [...prev, receivedMessage]);
     };
 

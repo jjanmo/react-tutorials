@@ -2,14 +2,9 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import * as S from './ChatRoom.styled';
 import useWebSocket from '../hooks/useWebSocket';
 
-export type Message = {
-  text: string;
-  timestamp: string;
-};
-
 export default function ChatRoom() {
   const [messageInput, setMessageInput] = useState('');
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<string[]>([]);
   const { webSocket } = useWebSocket({ setMessages });
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -20,11 +15,8 @@ export default function ChatRoom() {
   const handleSubmit = (e: FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (messageInput.trim() !== '' && webSocket) {
-      const message: Message = {
-        text: messageInput,
-        timestamp: new Date().toISOString(),
-      };
-      webSocket.send(JSON.stringify(message));
+      setMessages([...messages, messageInput]);
+      webSocket.send(messageInput);
       setMessageInput('');
     }
   };
@@ -34,7 +26,7 @@ export default function ChatRoom() {
       <S.ChatContainer>
         <S.Messages>
           {messages.map((message, index) => (
-            <S.Message key={index}>{message.text}</S.Message>
+            <S.Message key={index}>{message}</S.Message>
           ))}
         </S.Messages>
 
