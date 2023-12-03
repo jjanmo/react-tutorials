@@ -1,28 +1,33 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  display: flex;
-`;
-
-export const ChatContainer = styled.div`
   position: relative;
+  display: flex;
+  height: 50vh;
+`;
+export const ChatContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 200px;
+  overflow-y: auto;
   background-color: #eee;
 `;
+export const Messages = styled.ul`
+  list-style: none;
+  height: 100%;
+  padding: 10px 20px;
+`;
+export const Message = styled.li`
+  margin: 5px 0;
+`;
 
-export const Messages = styled.ul``;
-export const Message = styled.li``;
-
-export const InputContainer = styled.div`
+export const InputContainer = styled.form`
   position: absolute;
   bottom: 0;
   left: 0;
   display: flex;
   width: 100%;
-  background-color: red;
+  margin-top: 10px;
 `;
 export const Input = styled.input`
   flex: 1;
