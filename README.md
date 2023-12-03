@@ -43,3 +43,7 @@
 > 다양한 유명 리액트 라이브러리 경험기!
 
 > [참고 리스트](https://naji0329.medium.com/16-libraries-you-should-know-as-a-react-developer-ac6d9bbd775e)
+
+## Project06 - React SimpleChatApp [done]
+
+> WebSocket을 이용한 간단한 채팅 앱
