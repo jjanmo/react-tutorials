@@ -21,16 +21,19 @@
 
 > React with Firebase
 
-> with [📺 Tweeter Clone Coding](https://nomadcoders.co/nwitter/)
+> 참고 [📺 Tweeter Clone Coding](https://nomadcoders.co/nwitter/)
 
 <details>
   <summary> Features</summary>
 
-- [x] 회원가입 기능
-- [x] 로그인(이메일 / 소셜)/ 로그아웃
+- [x] 회원가입
+- [x] 로그인(이메일 / 소셜) / 로그아웃
 - [ ] RealTime 채팅 with text
 - [ ] 채팅 UI like kakaotalk
 - [ ] 유저 프로필 CRUD
+- [ ] Auth Guard : 회원가입 후 채팅 및 프로필 이용가능
+- [ ] 홈화면 : 회원들 리스트 or 채팅방
+- [ ] ErrorBoundary + Suspense 추가
 
 </details>
 
