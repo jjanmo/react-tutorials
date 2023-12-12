@@ -1,6 +1,7 @@
-import { database } from '@config/firebase'
-import { Unsubscribe, collection, getDocs, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useEffect, useRef, useState } from 'react'
+import { database } from '@config/firebase'
+import { Unsubscribe, collection, onSnapshot, orderBy, query } from 'firebase/firestore'
+import TalkItem from '@components/TalkItem'
 
 interface Koalang {
   id: string
@@ -61,5 +62,11 @@ export default function TalkList() {
     }
   }, [])
 
-  return <div>{JSON.stringify(koalangs)}</div>
+  return (
+    <div>
+      {koalangs?.map((koalang) => (
+        <TalkItem key={koalang.id} {...koalang} />
+      ))}
+    </div>
+  )
 }
