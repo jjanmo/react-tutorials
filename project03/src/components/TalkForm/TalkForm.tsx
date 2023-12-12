@@ -1,16 +1,15 @@
-import { database } from '@config/firebase'
+import { database, storage } from '@config/firebase'
 import useAuthContext from '@context/auth'
-import { addDoc, collection } from 'firebase/firestore'
-import { FormEvent, useState } from 'react'
+import { addDoc, collection, updateDoc } from 'firebase/firestore'
+import { getDownloadURL, ref, uploadBytes } from 'firebase/storage'
 import { useForm } from 'react-hook-form'
 
 interface DefaultValue {
   text: string
-  image: FileList[]
+  image: FileList
 }
 
 export default function TalkForm() {
-  const [isLoading, setIsLoading] = useState(false)
   const { handleSubmit, watch, register } = useForm<DefaultValue>()
   const { user } = useAuthContext()
 
@@ -21,7 +20,7 @@ export default function TalkForm() {
     console.log(message)
 
     try {
-      const docRef = await addDoc(collection(database, 'tweet'), {
+      const docRef = await addDoc(collection(database, 'koalangs'), {
         user: user.displayName || user.email,
         userId: user.uid,
         message,
@@ -30,6 +29,13 @@ export default function TalkForm() {
       console.log('Document written with ID: ', docRef.id)
 
       if (image) {
+        const file = image[0]
+        const locationRef = ref(storage, `images/${user.uid}/${docRef.id}`)
+        const result = await uploadBytes(locationRef, file)
+        const url = await getDownloadURL(result.ref)
+        updateDoc(docRef, {
+          image: url,
+        })
       }
     } catch (e) {
       console.log(e)
