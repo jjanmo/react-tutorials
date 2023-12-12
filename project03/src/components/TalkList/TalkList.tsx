@@ -3,7 +3,7 @@ import { database } from '@config/firebase'
 import { Unsubscribe, collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import TalkItem from '@components/TalkItem'
 
-interface Koalang {
+export interface Koalang {
   id: string
   userId: string
   user: string
