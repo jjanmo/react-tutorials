@@ -5,9 +5,16 @@ import * as S from './Header.style'
 import { FcGoogle } from 'react-icons/fc'
 import { BsGithub } from 'react-icons/bs'
 import COLOR from '@style/colors'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
+  const navigate = useNavigate()
   const { loggedIn, user, logOut } = useAuthContext()
+
+  const handleLogoutClick = () => {
+    const goHome = () => navigate('/')
+    logOut(goHome)
+  }
 
   return (
     <S.Container>
@@ -23,7 +30,7 @@ function Header() {
             )}
             <S.Text>{user.displayName || user.email}</S.Text>
           </S.LoggedInWrapper>
-          <S.LogoutBtn onClick={logOut}>logout</S.LogoutBtn>
+          <S.LogoutBtn onClick={handleLogoutClick}>logout</S.LogoutBtn>
         </>
       ) : (
         <S.ButtonWrapper>

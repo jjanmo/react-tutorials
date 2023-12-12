@@ -25,7 +25,7 @@ export interface AuthContextType {
     password: string
   ) => Promise<UserCredential | FirebaseError>
   signInWithProvider: (type: string) => Promise<UserCredential | FirebaseError>
-  logOut: () => void
+  logOut: (cb?: () => void) => void
 }
 
 export interface AuthProviderProps {
@@ -76,9 +76,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     }
   }
 
-  const logOut = () => {
+  const logOut = (cb?: () => void) => {
     try {
-      signOut(auth)
+      const ok = window.confirm('Are you really going to log out, dude?')
+      if (ok) {
+        signOut(auth)
+        cb()
+      }
     } catch (error) {
       if (error instanceof FirebaseError) {
         return error
