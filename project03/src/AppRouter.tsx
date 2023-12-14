@@ -23,7 +23,7 @@ function AppRouter() {
             </>
           )}
           <Route path="talk" element={<Talk />} />
-          <Route path="me" element={<Profile />} />
+          <Route path="profile" element={<Profile />} />
         </Route>
       </Routes>
     </Router>

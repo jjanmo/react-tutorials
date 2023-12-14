@@ -13,8 +13,8 @@ function Navigation() {
         <S.Item $active={pathname === '/talk'}>
           <S.StyledLink to="/talk">Talk</S.StyledLink>
         </S.Item>
-        <S.Item $active={pathname === '/me'}>
-          <S.StyledLink to="/me">Profile</S.StyledLink>
+        <S.Item $active={pathname === '/profile'}>
+          <S.StyledLink to="/profile">Profile</S.StyledLink>
         </S.Item>
       </S.NavWrapper>
     </S.Container>
