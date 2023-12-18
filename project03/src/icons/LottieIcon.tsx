@@ -1,13 +1,15 @@
+import { LottieType } from '@constants/lottie'
 import lottie, { AnimationItem } from 'lottie-web'
 import { useEffect, useRef } from 'react'
 import styled from 'styled-components'
 
 interface Props {
-  type: string
-  size: number
+  type: LottieType['theme']
+  name: LottieType['name']
+  size?: number
 }
 
-function LottieIcon({ type, size }: Props) {
+function LottieIcon({ type, name, size }: Props) {
   const containerElem = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -17,12 +19,12 @@ function LottieIcon({ type, size }: Props) {
         container: containerElem.current,
         renderer: 'svg',
         autoplay: true,
-        animationData: require(`../assets/lotties/${type}.json`),
+        animationData: require(`../assets/lotties/${type}/${name}.json`),
       })
     }
 
     return () => animation.destroy()
-  }, [containerElem, type])
+  }, [containerElem, type, name])
 
   const handleMouseEnter = () => {
     lottie.stop()
@@ -44,6 +46,6 @@ function LottieIcon({ type, size }: Props) {
 export default LottieIcon
 
 const Container = styled.div<{ size?: number }>`
-  width: 100%;
+  width: ${({ size }) => `${size}rem` || '100%'};
   height: ${({ size }) => `${size}rem` || '100%'};
 `
