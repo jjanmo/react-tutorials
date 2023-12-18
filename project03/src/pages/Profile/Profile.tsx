@@ -8,7 +8,7 @@ export default function Profile() {
   const { getDefaultAvatar } = useAvatar({ uid: user?.uid })
 
   const defaultImage = getDefaultAvatar()
-  console.log(user)
+
   return (
     <CS.Container>
       <div>
