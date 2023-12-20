@@ -1,7 +1,7 @@
 import COLORS from '@style/colors'
 import styled from 'styled-components/macro'
 
-const HEAD_HEIGHT = 15
+const HEAD_HEIGHT = 6
 export const Container = styled.div`
   width: 100%;
   min-height: calc(95vh - ${HEAD_HEIGHT}rem);
