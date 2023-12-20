@@ -11,7 +11,7 @@ import { getRandom } from '@utils/functions'
 function Header() {
   const navigate = useNavigate()
   const { pathname } = useLocation()
-  const { loggedIn, user, logOut } = useAuthContext()
+  const { loggedIn, logOut } = useAuthContext()
   const [logoIcon, setLogoIcon] = useState<LottieType>()
 
   const handleLogoutClick = () => {
@@ -19,14 +19,13 @@ function Header() {
     logOut(goHome)
   }
 
-  // 코알라로고 | 홈  | 로그인 - 회원가입
-
-  // 코알라로고 | 홈 | 토크 | 프로파일 | 로그아웃
-
   useEffect(() => {
     const index = getRandom(koalas.length)
     setLogoIcon(koalas[index])
-  }, [])
+  }, [pathname])
+
+  // 코알라로고 | 홈  | 로그인 - 회원가입
+  // 코알라로고 | 홈 | 토크 | 프로파일 | 로그아웃
 
   return (
     <S.Container>
@@ -64,29 +63,6 @@ function Header() {
           </Link>
         </div>
       )}
-
-      {/* {loggedIn ? (
-        <>
-          <S.LoggedInWrapper>
-            {user.providerData[0].providerId.includes('google') && <FcGoogle size={30} />}
-            {user.providerData[0].providerId.includes('github') && (
-              <BsGithub size={26} color={COLOR.BLACK} />
-            )}
-            {user.providerData[0].providerId.includes('password') && (
-              <S.DefaultIcon>✉️</S.DefaultIcon>
-            )}
-            <S.Text>{user.displayName || user.email}</S.Text>
-          </S.LoggedInWrapper>
-          <S.LogoutBtn onClick={handleLogoutClick}>logout</S.LogoutBtn>
-        </>
-      ) : (
-        <S.ButtonWrapper>
-          <S.Button type="signin">
-          </S.Button>
-          <S.Button type="signup">
-          </S.Button>
-        </S.ButtonWrapper>
-      )} */}
     </S.Container>
   )
 }
