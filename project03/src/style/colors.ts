@@ -1,6 +1,6 @@
 const COLOR = {
   PRIMARY_010: '#e36c61',
-  PRIMARY_020: '#d79a93',
+  PRIMARY_020: '#f2b8b1',
   PRIMARY_030: '#ece2d9',
   PRIMARY_040: '#736a65',
   PRIMARY_050: '#513d27',
