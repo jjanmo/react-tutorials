@@ -7,6 +7,7 @@ import LottieIcon from '@icons/LottieIcon'
 import { LottieType, koalas } from '@constants/lottie'
 import * as S from './Header.style'
 import { getRandom } from '@utils/functions'
+import COLOR from '@style/colors'
 
 function Header() {
   const navigate = useNavigate()
@@ -24,46 +25,44 @@ function Header() {
     setLogoIcon(koalas[index])
   }, [pathname])
 
-  // 코알라로고 | 홈  | 로그인 - 회원가입
-  // 코알라로고 | 홈 | 토크 | 프로파일 | 로그아웃
-
   return (
-    <S.Container>
+    <S.OuterContainer>
       <S.Logo>{logoIcon && <LottieIcon type={logoIcon.theme} name={logoIcon.name} />}</S.Logo>
+      <S.InnerContainer>
+        <S.Nav>
+          <S.Item $active={pathname === '/'}>
+            <Link to="/">Home</Link>
+          </S.Item>
+          {loggedIn && (
+            <>
+              <S.Item $active={pathname === '/talk'}>
+                <Link to="/talk">Talk</Link>
+              </S.Item>
+              <S.Item $active={pathname === '/profile'}>
+                <Link to="/profile">Profile</Link>
+              </S.Item>
+            </>
+          )}
+        </S.Nav>
 
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        {loggedIn && (
-          <>
-            <li>
-              <Link to="/talk">Talk</Link>
-            </li>
-            <li>
-              <Link to="/profile">Profile</Link>
-            </li>
-          </>
+        {loggedIn ? (
+          <div>
+            <S.Button onClick={handleLogoutClick}>
+              <FontAwesomeIcon icon={faRightFromBracket} size="lg" />
+            </S.Button>
+          </div>
+        ) : (
+          <div>
+            <S.LinkButton to="/signin" color={COLOR.PRIMARY_020} $borderColor={COLOR.PRIMARY_010}>
+              <FontAwesomeIcon icon={faRightToBracket} size="lg" />
+            </S.LinkButton>
+            <S.LinkButton to="/signup" color={COLOR.PRIMARY_110} $borderColor={COLOR.PRIMARY_100}>
+              <FontAwesomeIcon icon={faUserPlus} size="1x" />
+            </S.LinkButton>
+          </div>
         )}
-      </ul>
-
-      {loggedIn ? (
-        <div>
-          <button onClick={handleLogoutClick}>
-            <FontAwesomeIcon icon={faRightFromBracket} />
-          </button>
-        </div>
-      ) : (
-        <div>
-          <Link to="/signin">
-            <FontAwesomeIcon icon={faRightToBracket} />
-          </Link>
-          <Link to="/signup">
-            <FontAwesomeIcon icon={faUserPlus} />
-          </Link>
-        </div>
-      )}
-    </S.Container>
+      </S.InnerContainer>
+    </S.OuterContainer>
   )
 }
 
