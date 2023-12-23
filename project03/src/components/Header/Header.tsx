@@ -19,7 +19,6 @@ function Header() {
     const goHome = () => navigate('/')
     logOut(goHome)
   }
-
   useEffect(() => {
     const index = getRandom(koalas.length)
     setLogoIcon(koalas[index])
@@ -48,7 +47,7 @@ function Header() {
         {loggedIn ? (
           <div>
             <S.Button onClick={handleLogoutClick}>
-              <FontAwesomeIcon icon={faRightFromBracket} size="lg" />
+              <S.LogoutIcon icon={faRightFromBracket} size="lg" />
             </S.Button>
           </div>
         ) : (

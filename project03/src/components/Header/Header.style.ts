@@ -1,6 +1,7 @@
-import COLOR from '@style/colors'
-import { Link } from 'react-router-dom'
 import styled, { css } from 'styled-components/macro'
+import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import COLOR from '@style/colors'
 
 export const OuterContainer = styled.div`
   width: 100%;
@@ -58,29 +59,35 @@ const buttonStyles = css`
   font-size: 1.5rem;
   font-weight: 600;
 `
+export const LogoutIcon = styled(FontAwesomeIcon)``
 export const Button = styled.button`
   ${buttonStyles}
 
-  padding: 0.6rem 3rem;
+  width: 100px;
+  height: 36px;
   border: 2px solid ${COLOR.PRIMARY_090};
   border-radius: 0.5rem;
   color: ${COLOR.PRIMARY_080};
   background-color: ${COLOR.PRIMARY_070};
 
   &::before {
-    content: '';
+    content: 'logout';
     position: absolute;
-    top: 0;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%);
-    width: 0%;
-    height: 100%;
-    background-color: ${COLOR.PRIMARY_090};
-    transition: width 0.5s;
-    opacity: 0.4;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s;
   }
   &:hover:before {
-    width: 100%;
+    left: -30%;
+    opacity: 0;
+  }
+  ${LogoutIcon} {
+    opacity: 0;
+    transition: opacity 0.5s 0.1s;
+  }
+  &:hover ${LogoutIcon} {
+    opacity: 1;
   }
 `
 export const LinkButton = styled(Link)<{ color: string; $borderColor: string }>`
