@@ -4,6 +4,7 @@ import Home from '@pages/Home'
 import Profile from '@pages/Profile'
 import Talk from '@pages/Talk'
 import Root from './Root'
+import useAuthContext from '@context/auth'
 
 export const router = createBrowserRouter([
   {
@@ -24,12 +25,18 @@ export const router = createBrowserRouter([
       },
       {
         path: 'talk',
-        element: <Talk />,
+        element: <PrivateRoute element={<Talk />} />,
       },
       {
         path: 'profile',
-        element: <Profile />,
+        element: <PrivateRoute element={<Profile />} />,
       },
     ],
   },
 ])
+
+function PrivateRoute({ element }: { element: React.ReactNode }) {
+  const { user } = useAuthContext()
+
+  return user ? <>{element}</> : <Home />
+}
