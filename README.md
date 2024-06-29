@@ -17,6 +17,20 @@
 
 ## Project02 - Coin Dashboard [-ing]
 
+<details>
+  <summary>Features</summary>
+
+> [코인파프리카](https://coinpaprika.com/ko/)라는 코인 정보 사이트의 API를 통해서 구현했으나 유료로 전환되면서 사용수 없게됨.
+
+> 다른 API를 찾는 중 : [추천 API1](https://finnhub.io/docs/api) | [추천 API2](https://finnhub.io/docs/api)
+
+- [x] 코인 리스트 구현
+- [x] 코인 상세 정보 페이지
+- [ ] 코인 상세 차트 페이지
+- [x] 다크 모드 구현
+
+ </details>
+
 ## Project03 - KoalaTalk [-ing]
 
 > React with Firebase
@@ -28,12 +42,17 @@
 
 - [x] 회원가입
 - [x] 로그인(이메일 / 소셜) / 로그아웃
+- [x] auth guard + rerendering!
 - [ ] RealTime 채팅 with text
-- [ ] 채팅 UI like kakaotalk
-- [ ] 유저 프로필 CRUD
-- [ ] Auth Guard : 회원가입 후 채팅 및 프로필 이용가능
+- [ ] 채팅 UI (like kakaotalk)
+- [ ] 채팅/사진 CRUD
+      https://www.youtube.com/watch?v=AQKRhS4QTJI
+- [ ] 유저 프로필 CRUD like github profile
+- [ ] Auth Guard : 회원가입/로그인 후에만 채팅 및 프로필 이용가능
 - [ ] 홈화면 : 회원들 리스트 or 채팅방
-- [ ] ErrorBoundary + Suspense 추가
+- [ ] ErrorBoundary + Suspense 추가 + Loading System
+- [ ] Tiny Modal System → alert 대용(like bootstrap modal)
+- [ ] TalkForm validation(길이 / 파일 업로드)
 
 </details>
 
@@ -41,11 +60,9 @@
 
 > with [따라하며 배우는 리액트 테스팅](https://www.inflearn.com/course/%EB%94%B0%EB%9D%BC%ED%95%98%EB%8A%94-%EB%A6%AC%EC%95%A1%ED%8A%B8-%ED%85%8C%EC%8A%A4%ED%8A%B8)
 
-## Project05 - React Libraries [-ing]
+## Project05 - React Libraries [archive]
 
 > 다양한 유명 리액트 라이브러리 경험기!
-
-> [참고 리스트](https://naji0329.medium.com/16-libraries-you-should-know-as-a-react-developer-ac6d9bbd775e)
 
 ## Project06 - React SimpleChatApp [done]
 
