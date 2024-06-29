@@ -93,7 +93,7 @@ const Chart = () => {
     },
   };
 
-  const onClick = useCallback((e) => {
+  const onClick = useCallback((e: MouseEvent) => {
     // const _duration = e.target.textContent;
     // setDuration(_duration);
   }, []);
