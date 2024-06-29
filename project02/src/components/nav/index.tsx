@@ -10,15 +10,13 @@ const Nav = () => {
 
   return (
     <SNav>
-      <Item isActive={isActiveDefault || isActiveInfo}>
+      <Item $isActive={isActiveDefault || isActiveInfo}>
         <Link to="info">Info</Link>
       </Item>
-      <Item isActive={isActiveChart}>
+      <Item $isActive={isActiveChart}>
         <Link to="chart">Chart</Link>
       </Item>
-      <Item isActive={isActivePrice}>
-        {/* <Link to="price">Price</Link> */}
-      </Item>
+      <Item $isActive={isActivePrice}>{/* <Link to="price">Price</Link> */}</Item>
     </SNav>
   );
 };

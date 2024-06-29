@@ -22,7 +22,7 @@ const Coin = ({ coin }: IProps) => {
           <div>${price && roundNumber(price)}</div>
         </S.Price>
         <S.Change
-          bgColor={
+          $bgColor={
             percentChange && percentChange > 0
               ? '#42A66D' //
               : percentChange && percentChange < 0
@@ -30,12 +30,7 @@ const Coin = ({ coin }: IProps) => {
               : '#989FAB'
           }
         >
-          <div>
-            {percentChange && percentChange > 0
-              ? `+${percentChange}`
-              : percentChange}
-            %
-          </div>
+          <div>{percentChange && percentChange > 0 ? `+${percentChange}` : percentChange}%</div>
         </S.Change>
       </S.SLink>
     </S.Coin>

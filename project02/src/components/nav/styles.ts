@@ -27,14 +27,13 @@ export const SNav = styled.nav`
     border-right: 2px solid ${(props) => props.theme.borderColor};
   }
 `;
-export const Item = styled.div<{ isActive: boolean }>`
-  background-color: ${(props) =>
-    props.isActive ? props.theme.activeColor : 'transparent'};
+export const Item = styled.div<{ $isActive: boolean }>`
+  background-color: ${(props) => (props.$isActive ? props.theme.activeColor : 'transparent')};
 `;
-export const LinkText = styled.div<{ isActive: boolean }>`
+export const LinkText = styled.div<{ $isActive: boolean }>`
   width: 50%;
   text-align: center;
-  border-bottom: ${(props) => (props.isActive ? '3px solid #686de0' : '')};
-  font-weight: ${(props) => (props.isActive ? 'bold' : '')};
-  color: ${(props) => (props.isActive ? '#686de0' : props.theme.textColor)}; ;
+  border-bottom: ${(props) => (props.$isActive ? '3px solid #686de0' : '')};
+  font-weight: ${(props) => (props.$isActive ? 'bold' : '')};
+  color: ${(props) => (props.$isActive ? '#686de0' : props.theme.textColor)};
 `;

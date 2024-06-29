@@ -6,7 +6,7 @@ interface IProps {
 }
 
 const Line = ({ text }: IProps) => {
-  return <StyledLine text={text} />;
+  return <StyledLine $text={text} />;
 };
 
 export default Line;

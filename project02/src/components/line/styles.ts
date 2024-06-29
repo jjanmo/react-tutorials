@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledLine = styled.hr<{ text: string }>`
+export const StyledLine = styled.hr<{ $text: string }>`
   border: none;
   border-top: 3px double ${(props) => props.theme.textColor};
   color: ${(props) => props.theme.textColor};
@@ -11,7 +11,7 @@ export const StyledLine = styled.hr<{ text: string }>`
   &::after {
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
-    content: '${(props) => props.text}';
+    content: '${(props) => props.$text}';
     padding: 0 4px;
     position: relative;
     top: -10px;

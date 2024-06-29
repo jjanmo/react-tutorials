@@ -45,14 +45,14 @@ export const Price = styled.div`
   align-items: center;
 `;
 
-export const Change = styled.div<{ bgColor: string }>`
+export const Change = styled.div<{ $bgColor: string }>`
   grid-column: 3;
 
   & > div {
     width: 80%;
     padding: 10px;
     margin: auto;
-    background-color: ${(props) => props.bgColor};
+    background-color: ${(props) => props.$bgColor};
     color: white;
     display: flex;
     justify-content: center;
