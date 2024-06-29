@@ -1,13 +1,8 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import ReactApexChart from 'react-apexcharts';
 import { ApexOptions } from 'apexcharts';
-import { useQuery } from 'react-query';
 import { useOutletContext, useParams } from 'react-router-dom';
-import {
-  getDurationDate,
-  roundNumber,
-  xaxisFormatter,
-} from '../../../utils/functions';
+import { getDurationDate, roundNumber, xaxisFormatter } from '../../../utils/functions';
 import { useRecoilValue } from 'recoil';
 import { isDarkAtom } from '../../../recoil/atom';
 import { Button, ButtonContainer } from './styles';

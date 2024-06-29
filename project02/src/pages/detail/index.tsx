@@ -1,24 +1,25 @@
 import React from 'react';
-import { useQuery } from 'react-query';
+
 import { Outlet, useParams } from 'react-router';
 import { fetchCoinById, fetchTickerById } from '../../apis/paprika';
 import Line from '../../components/line';
 import Nav from '../../components/nav';
 import { Coin } from '../../types/coin';
 import * as S from './styles';
+import { useQuery } from '@tanstack/react-query';
 
 const Detail = () => {
   const { id } = useParams();
 
-  const { isLoading: coinLoading, data: coin } = useQuery<Coin>(
-    ['coin-info', id],
-    () => fetchCoinById(id as string)
-  );
+  const { isLoading: coinLoading, data: coin } = useQuery<Coin>({
+    queryKey: ['coin-info', id],
+    queryFn: () => fetchCoinById(id as string),
+  });
 
-  const { isLoading: tickerLoading, data: ticker } = useQuery(
-    ['ticker-info', id],
-    () => fetchTickerById(id as string)
-  );
+  const { isLoading: tickerLoading, data: ticker } = useQuery({
+    queryKey: ['ticker-info', id],
+    queryFn: () => fetchTickerById(id as string),
+  });
 
   const isLoading = coinLoading || tickerLoading;
 

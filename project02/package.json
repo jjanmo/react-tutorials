@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@tanstack/react-query": "^5.49.0",
+    "@tanstack/react-query-devtools": "^5.49.0",
     "apexcharts": "^3.33.0",
     "axios": "^0.27.2",
     "dayjs": "^1.11.5",
