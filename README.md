@@ -66,4 +66,8 @@
 
 ## Project06 - React SimpleChatApp [done]
 
-> WebSocket을 이용한 간단한 채팅 앱
+> WebSocket을 이용한 간단한 채팅앱
+
+## Project07 - SimpleChatApp using TanStack Family
+
+> [TanStack](https://tanstack.com/) 에서 만들어진 라이브러리를 사용하여 채팅앱을 만들어보자.
