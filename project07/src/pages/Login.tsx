@@ -25,16 +25,10 @@ export default function Login() {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',
       }}
     >
-      <Box mb={10}>
-        <Typography
-          component="h1"
-          variant="h4"
-          fontWeight="600"
-          textAlign="center"
-        >
+      <Box mt={20} width={480}>
+        <Typography component="h1" variant="h4" textAlign="center">
           로그인
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
@@ -43,8 +37,9 @@ export default function Login() {
             required
             fullWidth
             id="email"
-            label="이메일 입력"
             name="email"
+            label="이메일"
+            placeholder="이메일을 입력해주세요"
             autoComplete="email"
             autoFocus
           />
@@ -53,16 +48,16 @@ export default function Login() {
             required
             fullWidth
             name="password"
-            label="비밀번호 입력"
             type="password"
+            label="비밀번호"
+            placeholder="비밀번호를 입력해주세요"
             id="password"
-            autoComplete="current-password"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            sx={{ my: 3, height: 40 }}
+            sx={{ my: 3, height: 40, fontSize: 16 }}
           >
             로그인
           </Button>
