@@ -37,7 +37,7 @@ export default function Signup() {
           alignItems: 'center',
         }}
       >
-        <LockKeyholeIcon size={64} />
+        <LockKeyholeIcon size={64} strokeWidth={1} />
         <Typography
           component="h1"
           variant="h4"

@@ -5,6 +5,7 @@ import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
+import { LockKeyholeIcon } from 'lucide-react'
 
 export default function Login() {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +28,24 @@ export default function Login() {
         alignItems: 'center',
       }}
     >
-      <Box mt={20} width={480}>
-        <Typography component="h1" variant="h4" textAlign="center">
+      <Box
+        sx={{
+          width: '480px',
+          mt: 12,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <LockKeyholeIcon size={64} strokeWidth={1} />
+        <Typography
+          component="h1"
+          variant="h4"
+          sx={{
+            mt: 2,
+            textAlign: 'center',
+          }}
+        >
           로그인
         </Typography>
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
