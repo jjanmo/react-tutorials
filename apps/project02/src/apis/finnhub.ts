@@ -1,4 +1,4 @@
-import { FINNHUB_API } from '../apis';
+import { FINNHUB_API } from '.';
 
 type ResolutionType = 1 | 5 | 15 | 30 | 60 | 'D' | 'W' | 'M';
 
@@ -16,6 +16,6 @@ export const fetchOHLCData = ({
   to: number;
   token?: string;
 }) =>
-  FINNHUB_API.get(
-    `/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}&token=${token}`
-  ).then((res) => res.data);
+  FINNHUB_API.get(`/stock/candle?symbol=${symbol}&resolution=${resolution}&from=${from}&to=${to}&token=${token}`).then(
+    (res) => res.data
+  );
