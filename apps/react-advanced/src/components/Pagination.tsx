@@ -1,25 +1,27 @@
-import { useState } from 'react';
+import { MouseEvent, useState } from 'react';
 import styles from '../styles/Pagination.module.css';
 
 interface Props {
-  pages?: number[];
+  totalItems: number;
+  itemsPerPage: number;
 }
 
-const Pagination = ({ pages = [1, 2, 3] }: Props) => {
+const Pagination = ({ totalItems, itemsPerPage }: Props) => {
+  const totalPages = Array.from({ length: Math.ceil(totalItems / itemsPerPage) }, (_, index) => index + 1);
   const [currentPage, setCurrentPage] = useState(1);
   const isFirstPage = currentPage === 1;
-  const isLastPage = currentPage === pages.length;
+  const isLastPage = currentPage === totalPages.length;
 
-  const handlePageClick = () => {
-    alert('Page clicked');
+  const handlePageClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const page = Number(e.currentTarget.textContent);
+    setCurrentPage(page);
   };
   const handlePrevClick = () => {
     if (currentPage === 1) return;
     setCurrentPage(currentPage - 1);
   };
-
   const handleNextClick = () => {
-    if (currentPage === pages.length) return;
+    if (currentPage === totalPages.length) return;
     setCurrentPage(currentPage + 1);
   };
 
@@ -28,7 +30,7 @@ const Pagination = ({ pages = [1, 2, 3] }: Props) => {
       <button className={styles['action-button']} onClick={handlePrevClick} disabled={isFirstPage}>
         Previous
       </button>
-      {pages.map((page, index) => (
+      {totalPages.map((page, index) => (
         <button
           className={currentPage === page ? styles['selected-page-button'] : styles['page-button']}
           key={index}
