@@ -32,8 +32,8 @@ const Pagination = ({ totalItems, itemsPerPage }: Props) => {
       </button>
       {totalPages.map((page, index) => (
         <button
-          className={currentPage === page ? styles['selected-page-button'] : styles['page-button']}
           key={index}
+          className={styles['page-button'] + (currentPage === page ? ` ${styles.selected}` : '')}
           onClick={handlePageClick}
         >
           {page}

@@ -24,8 +24,7 @@
 .page-button {
   composes: base-button;
 }
-.selected-page-button {
-  composes: base-button;
+.selected {
   font-weight: bold;
   background-color: #eee;
 }
