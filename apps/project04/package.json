@@ -40,7 +40,7 @@
     "@types/styled-components": "^5.1.25",
     "eslint-plugin-jest-dom": "^4.0.2",
     "eslint-plugin-testing-library": "^5.5.1",
-    "msw": "^0.47.4"
+    "msw": "^2.4.10"
   },
   "proxy": "http://localhost:5000"
 }
