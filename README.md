@@ -14,7 +14,7 @@
 
 ### 1. State Managements
 
-> 다양한 상태 관리 라이브러리들에 대해서 (feat.[마이크로 상태 관리](https://www.yes24.com/product/goods/124899726))
+> 다양한 상태 관리 라이브러리들에 대해서 (w.[마이크로 상태 관리](https://www.yes24.com/product/goods/124899726))
 
 ### [TBD] 2. Coin Charts
 
