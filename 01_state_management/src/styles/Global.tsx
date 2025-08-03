@@ -1,34 +1,22 @@
 import { Global, css } from '@emotion/react'
 
 const globalStyle = css`
-  /* 1. Use a more-intuitive box-sizing model */
   *,
   *::before,
   *::after {
     box-sizing: border-box;
   }
 
-  /* 2. Remove default margin padding */
   * {
     margin: 0;
     padding: 0;
   }
 
-  /* 3. Enable keyword animations */
-  @media (prefers-reduced-motion: no-preference) {
-    html {
-      interpolate-size: allow-keywords;
-    }
-  }
-
   body {
-    /* 4. Add accessible line-height */
     line-height: 1.5;
-    /* 5. Improve text rendering */
     -webkit-font-smoothing: antialiased;
   }
 
-  /* 6. Improve media defaults */
   img,
   picture,
   video,
@@ -38,7 +26,6 @@ const globalStyle = css`
     max-width: 100%;
   }
 
-  /* 7. Inherit fonts for form controls */
   input,
   button,
   textarea,
@@ -46,7 +33,6 @@ const globalStyle = css`
     font: inherit;
   }
 
-  /* 8. Avoid text overflows */
   p,
   h1,
   h2,
@@ -57,7 +43,6 @@ const globalStyle = css`
     overflow-wrap: break-word;
   }
 
-  /* 9. Improve line wrapping */
   p {
     text-wrap: pretty;
   }
@@ -70,9 +55,16 @@ const globalStyle = css`
     text-wrap: balance;
   }
 
-  /*
-  10. Create a root stacking context
-*/
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
   #root {
     isolation: isolate;
   }

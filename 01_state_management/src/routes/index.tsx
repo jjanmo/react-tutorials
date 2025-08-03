@@ -1,15 +1,14 @@
 import { createFileRoute } from '@tanstack/react-router'
-import GlobalStyle from '@/styles/Global'
+import StateManagementList from '@/components/StateManagementList'
 
 export const Route = createFileRoute('/')({
-  component: App,
+  component: Home,
 })
 
-function App() {
+function Home() {
   return (
     <>
-      <GlobalStyle />
-      <div>Hello world</div>
+      <StateManagementList />
     </>
   )
 }
