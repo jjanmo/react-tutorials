@@ -20,18 +20,11 @@
 
 > RHF와 Zod를 활용하는 방법에 대해서
 
-### [TBD] 2. Coin Charts
+### TBD List
 
-### [TBD] 3. Fire Chat
-
-> firebase를 활용한 채팅
-
-### [TBD] 4. React Testing Playground
-
-### [TBD] 5. 복잡하고 재미있는 UI 구현하기
-
-> 리얼 월드에서 나오는 예시들을 모킹해보기
-
-### [TBD] 6. 스케쥴 관리 대시보드
-
-> like 슬랙 채널 상단의 리스트
+- Coin Charts : 유명 차트라이브러리 사용법개념
+- Fire Chat : firebase를 활용한 채팅
+- React Testing Playground
+- 복잡하고 재미있는 UI 구현하기 : 리얼 월드에서 나오는 예시들을 모킹해보기
+- 스케쥴 관리 대시보드 : like 슬랙 채널 상단의 리스트
+- FSD tutorials
