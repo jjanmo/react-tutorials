@@ -9,7 +9,12 @@ interface Props {
 const SkillCheckboxes = ({ selectedSkills, onChange }: Props) => {
   return (
     <Stack direction="column">
-      <Typography component="label" htmlFor="skill-checkboxes" variant="body2" sx={{ display: 'inline-block' }}>
+      <Typography
+        component="label"
+        htmlFor="skill-checkboxes"
+        variant="body2"
+        sx={{ display: 'inline-block', mb: 0.5 }}
+      >
         스킬
       </Typography>
       <FormControl>
