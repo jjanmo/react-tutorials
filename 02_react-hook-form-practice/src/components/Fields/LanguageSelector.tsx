@@ -15,7 +15,7 @@ const LanguageSelector = ({ selectedLanguage, onChange }: Props) => {
       </Typography>
       <ToggleButtonGroup exclusive value={selectedLanguage} onChange={(_e, val) => val && onChange(val)} size="small">
         {LANGUAGES.map((language) => (
-          <ToggleButton key={language} value={language} sx={{ width: 110 }}>
+          <ToggleButton key={language} value={language} sx={{ width: 114 }}>
             {language}
           </ToggleButton>
         ))}

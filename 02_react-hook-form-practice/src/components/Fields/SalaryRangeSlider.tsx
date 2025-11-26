@@ -8,7 +8,7 @@ interface Props {
 const SalaryRangeSlider = ({ salaryRange, onChange }: Props) => {
   return (
     <Box>
-      <Typography component="label" variant="body2" sx={{ display: 'inline-block', mb: 1.5 }}>
+      <Typography component="label" variant="body2" sx={{ display: 'inline-block', mb: 1 }}>
         급여 범위
       </Typography>
       <Slider
