@@ -3,13 +3,15 @@ import { Typography, Stack } from '@mui/material';
 import 'dayjs/locale/ko';
 import dayjs from 'dayjs';
 import type { FormData, FormDataKey } from '@/types';
-import TextInput from './TextInput';
-import LanguageSelector from './LanguageSelector';
-import GenderRadioGroup from './GenderRadioGroup';
-import EmploymentDuration from './EmploymentDuration';
-import SalaryRangeSlider from './SalaryRangeSlider';
-import MainStrengthCheckBoxes from './MainStrengthCheckBoxes';
-import RegionSelector from './RegionSelector';
+import {
+  TextInput,
+  LanguageSelector,
+  GenderRadioGroup,
+  EmploymentDuration,
+  SalaryRangeSlider,
+  MainStrengthCheckBoxes,
+  RegionSelector,
+} from './Fields';
 
 const INITIAL_FORM_DATA: FormData = {
   name: '',
