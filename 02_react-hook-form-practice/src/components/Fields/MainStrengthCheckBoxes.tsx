@@ -13,10 +13,11 @@ const MainStrengthCheckBoxes = ({ selectedStrengths, onChange }: Props) => {
         주요 강점
       </Typography>
       <FormControl>
-        <FormGroup sx={{ mb: 2 }}>
+        <FormGroup sx={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap' }}>
           {MAIN_STRENGTHS.map((strength) => (
             <FormControlLabel
               key={strength}
+              sx={{ width: '50%', m: 0 }}
               control={
                 <Checkbox
                   checked={selectedStrengths.includes(strength)}
@@ -28,7 +29,7 @@ const MainStrengthCheckBoxes = ({ selectedStrengths, onChange }: Props) => {
                     )
                   }
                   size="small"
-                  sx={{ py: 0 }}
+                  sx={{ py: 0, pl: 0 }}
                 />
               }
               label={strength}

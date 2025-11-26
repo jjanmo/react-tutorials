@@ -20,4 +20,4 @@ export const REGIONS = [
 
 export const LANGUAGES = ['한국어', '영어', '일본어', '중국어', '기타'] as const;
 
-export const MAIN_STRENGTHS = ['커뮤니케이션', '협업', '창의성', '문제 해결력', '리더십'] as const;
+export const MAIN_STRENGTHS = ['커뮤니케이션', '협업', '창의성', '문제 해결력', '리더십', '적응력'] as const;
