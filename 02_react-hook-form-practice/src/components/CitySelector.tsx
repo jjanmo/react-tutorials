@@ -8,7 +8,7 @@ interface Props {
 
 const CitySelector = ({ selectedCity, onChange }: Props) => {
   return (
-    <FormControl fullWidth sx={{ mb: 2 }}>
+    <FormControl fullWidth>
       <Typography component="label" htmlFor="city-select" variant="body2" sx={{ display: 'inline-block', mb: 0.5 }}>
         도시
       </Typography>
