@@ -1,39 +1,25 @@
-import { useState } from 'react';
-import { Box, Chip, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-const CITIES = [
-  { value: 'New York', label: 'New York' },
-  { value: 'London', label: 'London' },
-  { value: 'Paris', label: 'Paris' },
-  { value: 'Tokyo', label: 'Tokyo' },
-  { value: 'Dubai', label: 'Dubai' },
-];
+const CITIES = ['Seoul', 'Tokyo', 'New York', 'Paris', 'Sydney'];
+interface Props {
+  selectedCity: string;
+  onChange: (value: string) => void;
+}
 
-const CitySelector = () => {
-  const [cities, setCities] = useState<string[]>([]);
-
+const CitySelector = ({ selectedCity, onChange }: Props) => {
   return (
-    <FormControl fullWidth margin="normal">
-      <InputLabel id="cities-label">Cities</InputLabel>
+    <FormControl fullWidth sx={{ mb: 2 }}>
+      <InputLabel id="city-select-label">City</InputLabel>
       <Select
-        fullWidth
-        labelId="cities-label"
-        label="Cities"
-        name="cities"
-        multiple
-        value={cities}
-        onChange={(event) => setCities(event.target.value as string[])}
-        renderValue={(selected: string[]) => (
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-            {selected.map((value: string) => (
-              <Chip key={value} label={value}></Chip>
-            ))}
-          </Box>
-        )}
+        labelId="city-select-label"
+        id="city-select"
+        value={selectedCity}
+        label="City"
+        onChange={(e) => onChange(e.target.value as string)}
       >
-        {CITIES.map((city) => (
-          <MenuItem key={city.value} value={city.value}>
-            {city.label}
+        {CITIES.map((c) => (
+          <MenuItem key={c} value={c}>
+            {c}
           </MenuItem>
         ))}
       </Select>
