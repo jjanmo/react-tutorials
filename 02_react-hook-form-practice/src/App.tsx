@@ -1,9 +1,9 @@
-import Form from '@/components/Form';
+import JobApplicationForm from '@/components/JobApplicationForm';
 
 function App() {
   return (
     <main>
-      <Form />
+      <JobApplicationForm />
     </main>
   );
 }

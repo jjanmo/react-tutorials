@@ -10,13 +10,18 @@ interface Props {
 const TextInput = ({ label, placeholder, value, onChange }: Props) => {
   return (
     <Box>
-      <Typography component="label" htmlFor="text-input" variant="body2" sx={{ display: 'inline-block', mb: 0.5 }}>
+      <Typography
+        component="label"
+        htmlFor={`text-input-${label}`}
+        variant="body2"
+        sx={{ display: 'inline-block', mb: 0.5 }}
+      >
         {label}
       </Typography>
       <TextField
         fullWidth
         size="small"
-        id="text-input"
+        id={`text-input-${label}`}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         variant="outlined"

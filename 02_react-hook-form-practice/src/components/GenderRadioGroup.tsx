@@ -8,7 +8,7 @@ interface Props {
 const GenderRadioGroup = ({ selectedGender, onChange }: Props) => {
   return (
     <Box>
-      <Typography component="label" htmlFor="gender-radio" variant="body2" sx={{ display: 'inline-block' }}>
+      <Typography component="label" variant="body2" sx={{ display: 'inline-block' }}>
         성별
       </Typography>
       <RadioGroup row value={selectedGender} onChange={(e) => onChange(e.target.value)}>
