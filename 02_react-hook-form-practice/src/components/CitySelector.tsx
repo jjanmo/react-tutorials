@@ -1,4 +1,4 @@
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { FormControl, MenuItem, Select, Typography } from '@mui/material';
 
 const CITIES = ['Seoul', 'Tokyo', 'New York', 'Paris', 'Sydney'];
 interface Props {
@@ -9,14 +9,20 @@ interface Props {
 const CitySelector = ({ selectedCity, onChange }: Props) => {
   return (
     <FormControl fullWidth sx={{ mb: 2 }}>
-      <InputLabel id="city-select-label">City</InputLabel>
+      <Typography component="label" htmlFor="city-select" variant="body2" sx={{ display: 'inline-block', mb: 0.5 }}>
+        도시
+      </Typography>
+
       <Select
-        labelId="city-select-label"
         id="city-select"
         value={selectedCity}
-        label="City"
         onChange={(e) => onChange(e.target.value as string)}
+        size="small"
+        displayEmpty
       >
+        <MenuItem value="" disabled>
+          <em>도시를 선택해주세요</em>
+        </MenuItem>
         {CITIES.map((c) => (
           <MenuItem key={c} value={c}>
             {c}

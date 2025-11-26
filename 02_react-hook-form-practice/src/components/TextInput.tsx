@@ -1,17 +1,28 @@
-import { FormControl, InputLabel, TextField } from '@mui/material';
+import { Box, TextField, Typography } from '@mui/material';
 
 interface Props {
   label: string;
+  placeholder?: string;
   value: string;
   onChange: (value: string) => void;
 }
 
-const TextInput = ({ label, value, onChange }: Props) => {
+const TextInput = ({ label, placeholder, value, onChange }: Props) => {
   return (
-    <FormControl fullWidth sx={{ mb: 2 }}>
-      <InputLabel id="name-input-label">{label}</InputLabel>
-      <TextField id="name-input" value={value} onChange={(e) => onChange(e.target.value)} sx={{ mb: 2 }} />
-    </FormControl>
+    <Box>
+      <Typography component="label" htmlFor="text-input" variant="body2" sx={{ display: 'inline-block', mb: 0.5 }}>
+        {label}
+      </Typography>
+      <TextField
+        fullWidth
+        size="small"
+        id="text-input"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        variant="outlined"
+        placeholder={placeholder}
+      />
+    </Box>
   );
 };
 
