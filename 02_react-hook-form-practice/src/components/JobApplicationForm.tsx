@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Typography, Stack } from '@mui/material';
+import { Typography, Stack, Button } from '@mui/material';
 import 'dayjs/locale/ko';
 import dayjs from 'dayjs';
 import type { FormData, FormDataKey } from '@/types';
@@ -35,8 +35,8 @@ export default function CandidateForm() {
     };
 
   return (
-    <Stack direction="row" maxWidth={600} mx="auto" gap={4} p={2}>
-      <Stack component="form" gap={2}>
+    <Stack direction="row" maxWidth={600} mx="auto" p={2}>
+      <Stack component="form" gap={2} width="100%">
         <Typography variant="h5">지원자 정보</Typography>
 
         <TextInput
@@ -68,6 +68,10 @@ export default function CandidateForm() {
         />
 
         <SalaryRangeSlider salaryRange={formData.salaryRange} onChange={handleChange('salaryRange')} />
+
+        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }}>
+          제출
+        </Button>
       </Stack>
     </Stack>
   );
