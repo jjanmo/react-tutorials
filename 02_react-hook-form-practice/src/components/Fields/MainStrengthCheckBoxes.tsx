@@ -1,4 +1,4 @@
-import { MAIN_STRENGTHS } from '@/constants';
+import { MAIN_STRENGTHS } from '@/constants/jobApplicationForm';
 import type { Strength } from '@/types';
 import { Checkbox, FormControl, FormControlLabel, FormGroup, Stack, Typography } from '@mui/material';
 

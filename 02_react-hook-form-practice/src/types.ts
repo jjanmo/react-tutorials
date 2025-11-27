@@ -1,5 +1,5 @@
 import type { Dayjs } from 'dayjs';
-import type { LANGUAGES, MAIN_STRENGTHS, REGIONS } from './constants';
+import type { LANGUAGES, MAIN_STRENGTHS, REGIONS } from './constants/jobApplicationForm';
 
 export type Language = (typeof LANGUAGES)[number];
 export type Strength = (typeof MAIN_STRENGTHS)[number];

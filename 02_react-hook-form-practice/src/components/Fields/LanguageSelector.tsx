@@ -1,4 +1,4 @@
-import { LANGUAGES } from '@/constants';
+import { LANGUAGES } from '@/constants/jobApplicationForm';
 import type { Language } from '@/types';
 import { Stack, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
 

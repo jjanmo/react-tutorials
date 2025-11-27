@@ -1,4 +1,4 @@
-import { REGIONS } from '@/constants';
+import { REGIONS } from '@/constants/jobApplicationForm';
 import type { Region } from '@/types';
 import { FormControl, MenuItem, Select, Typography } from '@mui/material';
 
