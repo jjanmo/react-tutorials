@@ -78,7 +78,7 @@ export default function CandidateForm() {
 
         <GenderRadioGroup control={control} />
 
-        <MainStrengthCheckBoxes selectedStrengths={formData.strengths} onChange={handleChange('strengths')} />
+        <MainStrengthCheckBoxes control={control} />
 
         <EmploymentDuration control={control} />
 
