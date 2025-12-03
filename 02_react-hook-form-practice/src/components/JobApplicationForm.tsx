@@ -34,8 +34,6 @@ export default function CandidateForm() {
   });
 
   const onSubmit = (data: FormData) => {
-    if (!isValid) return alert('유효하지 않은 값입니다. 다시 확인해주세요.');
-
     alert(`제출되었습니다. ${JSON.stringify(data)}`);
   };
 
@@ -81,7 +79,7 @@ export default function CandidateForm() {
 
         <SalaryRangeSlider control={control} />
 
-        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }}>
+        <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }} disabled={!isValid}>
           제출
         </Button>
       </Stack>
