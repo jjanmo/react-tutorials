@@ -4,6 +4,7 @@ import App from './App.tsx';
 import '@/styles/reset.css';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers';
+import 'dayjs/locale/ko';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
