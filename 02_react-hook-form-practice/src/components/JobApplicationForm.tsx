@@ -73,7 +73,7 @@ export default function CandidateForm() {
           }}
         />
 
-        <RegionSelector selectedRegion={formData.region} onChange={handleChange('region')} />
+        <RegionSelector control={control} />
 
         <LanguageSelector selectedLanguage={formData.language} onChange={handleChange('language')} />
 
