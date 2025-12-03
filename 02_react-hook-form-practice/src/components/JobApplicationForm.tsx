@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Typography, Stack, Button } from '@mui/material';
 import 'dayjs/locale/ko';
-import dayjs from 'dayjs';
 import type { FormData, FormDataKey } from '@/types';
 import {
   TextInput,
@@ -21,8 +20,8 @@ const INITIAL_FORM_DATA: FormData = {
   language: '한국어',
   gender: '',
   strengths: [],
-  startDate: dayjs(),
-  endDate: dayjs(),
+  startDate: new Date(),
+  endDate: new Date(),
   salaryRange: [2000, 5000],
 };
 
@@ -75,18 +74,13 @@ export default function CandidateForm() {
 
         <RegionSelector control={control} />
 
-        <LanguageSelector selectedLanguage={formData.language} onChange={handleChange('language')} />
+        <LanguageSelector control={control} />
 
-        <GenderRadioGroup selectedGender={formData.gender} onChange={handleChange('gender')} />
+        <GenderRadioGroup control={control} />
 
         <MainStrengthCheckBoxes selectedStrengths={formData.strengths} onChange={handleChange('strengths')} />
 
-        <EmploymentDuration
-          startDate={formData.startDate}
-          endDate={formData.endDate}
-          onStartDateChange={handleChange('startDate')}
-          onEndDateChange={handleChange('endDate')}
-        />
+        <EmploymentDuration control={control} />
 
         <SalaryRangeSlider salaryRange={formData.salaryRange} onChange={handleChange('salaryRange')} />
 

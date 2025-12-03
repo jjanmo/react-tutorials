@@ -1,4 +1,3 @@
-import type { Dayjs } from 'dayjs';
 import type { FieldPath, FieldValues, RegisterOptions } from 'react-hook-form';
 import type { LANGUAGES, MAIN_STRENGTHS, REGIONS } from './constants/jobApplicationForm';
 
@@ -22,8 +21,8 @@ export interface FormData {
   language: Language;
   gender: string;
   strengths: Strength[];
-  startDate: Dayjs;
-  endDate: Dayjs;
+  startDate: Date | null;
+  endDate: Date | null;
   salaryRange: [number, number];
 }
 
