@@ -1,7 +1,5 @@
-import { useState } from 'react';
 import { Typography, Stack, Button } from '@mui/material';
-import 'dayjs/locale/ko';
-import type { FormData, FormDataKey } from '@/types';
+import type { FormData } from '@/types';
 import {
   TextInput,
   LanguageSelector,
@@ -26,19 +24,18 @@ const INITIAL_FORM_DATA: FormData = {
 };
 
 export default function CandidateForm() {
-  const [formData, setFormData] = useState<FormData>(INITIAL_FORM_DATA);
-  const { handleSubmit, control } = useForm<FormData>({
+  const {
+    handleSubmit,
+    control,
+    formState: { isValid },
+  } = useForm<FormData>({
     mode: 'onChange',
     defaultValues: INITIAL_FORM_DATA,
   });
 
-  const handleChange =
-    <V,>(key: FormDataKey) =>
-    (value: V) => {
-      setFormData((prev: FormData) => ({ ...prev, [key]: value }));
-    };
-
   const onSubmit = (data: FormData) => {
+    if (!isValid) return alert('유효하지 않은 값입니다. 다시 확인해주세요.');
+
     alert(`제출되었습니다. ${JSON.stringify(data)}`);
   };
 
@@ -82,7 +79,7 @@ export default function CandidateForm() {
 
         <EmploymentDuration control={control} />
 
-        <SalaryRangeSlider salaryRange={formData.salaryRange} onChange={handleChange('salaryRange')} />
+        <SalaryRangeSlider control={control} />
 
         <Button variant="contained" color="primary" type="submit" fullWidth sx={{ mt: 2 }}>
           제출
