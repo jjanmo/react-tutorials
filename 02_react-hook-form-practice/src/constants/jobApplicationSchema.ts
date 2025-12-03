@@ -11,11 +11,11 @@ export const FormSchema = z.object({
   strengths: z.array(z.string()).min(1),
   startDate: z
     .string()
-    .refine((v) => dayjs(v).isValid(), 'Invalid date')
+    .refine((v) => dayjs(v).isValid(), '올바른 날짜 형식이 아닙니다')
     .transform((v) => dayjs(v)),
   endDate: z
     .string()
-    .refine((v) => dayjs(v).isValid(), 'Invalid date')
+    .refine((v) => dayjs(v).isValid(), '올바른 날짜 형식이 아닙니다')
     .transform((v) => dayjs(v)),
   salaryRange: z.array(z.number()).min(1),
 });
