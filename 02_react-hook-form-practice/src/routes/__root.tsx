@@ -1,11 +1,11 @@
 import { createRootRoute, Outlet } from '@tanstack/react-router';
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools';
+import styles from '@/styles/root.module.css';
 
 const RootLayout = () => {
   return (
     <>
-      <div>@Todo: Navigation 영역</div>
-      <main>
+      <main className={styles.main}>
         <Outlet />
       </main>
       <TanStackRouterDevtools />
