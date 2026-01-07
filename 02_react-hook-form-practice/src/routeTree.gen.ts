@@ -10,11 +10,17 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as FormsSignupRouteImport } from './routes/forms/signup'
 import { Route as FormsJobApplicationRouteImport } from './routes/forms/job-application'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormsSignupRoute = FormsSignupRouteImport.update({
+  id: '/forms/signup',
+  path: '/forms/signup',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FormsJobApplicationRoute = FormsJobApplicationRouteImport.update({
@@ -26,27 +32,31 @@ const FormsJobApplicationRoute = FormsJobApplicationRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/forms/job-application': typeof FormsJobApplicationRoute
+  '/forms/signup': typeof FormsSignupRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/forms/job-application': typeof FormsJobApplicationRoute
+  '/forms/signup': typeof FormsSignupRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/forms/job-application': typeof FormsJobApplicationRoute
+  '/forms/signup': typeof FormsSignupRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/forms/job-application'
+  fullPaths: '/' | '/forms/job-application' | '/forms/signup'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/forms/job-application'
-  id: '__root__' | '/' | '/forms/job-application'
+  to: '/' | '/forms/job-application' | '/forms/signup'
+  id: '__root__' | '/' | '/forms/job-application' | '/forms/signup'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FormsJobApplicationRoute: typeof FormsJobApplicationRoute
+  FormsSignupRoute: typeof FormsSignupRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -56,6 +66,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/forms/signup': {
+      id: '/forms/signup'
+      path: '/forms/signup'
+      fullPath: '/forms/signup'
+      preLoaderRoute: typeof FormsSignupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/forms/job-application': {
@@ -71,6 +88,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FormsJobApplicationRoute: FormsJobApplicationRoute,
+  FormsSignupRoute: FormsSignupRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
