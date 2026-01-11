@@ -16,14 +16,16 @@
 
 > 다양한 상태 관리 라이브러리들에 대해서 (w.[마이크로 상태 관리](https://www.yes24.com/product/goods/124899726))
 
-### 2. React Hook Form Practice [-ing]
+### 2. React Hook Form Practice with Zod [-ing]
 
 > 목표 : 다양한 폼을 RHF와 Zod를 활용하여 만들어보기
+
+> [React Hook Form + Zod 실습 과제 요구 조건](docs/rhf-zod-practice-requirements.md)
 
 <details>
   <summary>Content</summary>
 
-- [React Hook Form Tutorial (Zod + MUI)](https://www.youtube.com/watch?v=7anLE_RoDwU) 에서 나온 UI 참고
+- Job Application Form (cf. [React Hook Form Tutorial (Zod + MUI)](https://www.youtube.com/watch?v=7anLE_RoDwU) 에서 나온 UI 참고)
 
 </details>
 
