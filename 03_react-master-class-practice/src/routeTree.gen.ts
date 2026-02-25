@@ -10,43 +10,43 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as Practices36RouteImport } from './routes/practices/36'
+import { Route as Class336RouteImport } from './routes/class3/36'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const Practices36Route = Practices36RouteImport.update({
-  id: '/practices/36',
-  path: '/practices/36',
+const Class336Route = Class336RouteImport.update({
+  id: '/class3/36',
+  path: '/class3/36',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/practices/36': typeof Practices36Route
+  '/class3/36': typeof Class336Route
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/practices/36': typeof Practices36Route
+  '/class3/36': typeof Class336Route
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/practices/36': typeof Practices36Route
+  '/class3/36': typeof Class336Route
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/practices/36'
+  fullPaths: '/' | '/class3/36'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/practices/36'
-  id: '__root__' | '/' | '/practices/36'
+  to: '/' | '/class3/36'
+  id: '__root__' | '/' | '/class3/36'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  Practices36Route: typeof Practices36Route
+  Class336Route: typeof Class336Route
 }
 
 declare module '@tanstack/react-router' {
@@ -58,11 +58,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/practices/36': {
-      id: '/practices/36'
-      path: '/practices/36'
-      fullPath: '/practices/36'
-      preLoaderRoute: typeof Practices36RouteImport
+    '/class3/36': {
+      id: '/class3/36'
+      path: '/class3/36'
+      fullPath: '/class3/36'
+      preLoaderRoute: typeof Class336RouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -70,7 +70,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  Practices36Route: Practices36Route,
+  Class336Route: Class336Route,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
